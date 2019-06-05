@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TauhuOo18.10b.otf">
+            <string>TauhuOo18.10b-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CandidateWordCell" id="gTV-IL-0wX" customClass="CandidateWordCell" customModule="PhahTaigiKeyboard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMe-bZ-rEr">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcZ-XO-lLI">
+                                <rect key="frame" x="199" y="5" width="1" height="90"/>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="Wq9-jc-yXI"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6Z-vu-EbB">
+                                <rect key="frame" x="5" y="0.0" width="190" height="75.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="TauhuOo18.10b-Regular" family="Tauhu Oo 18.10b" pointSize="19"/>
+                                <color key="textColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxG-TF-IJh">
+                                <rect key="frame" x="5" y="75.5" width="190" height="19.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="TauhuOo18.10b-Regular" family="Tauhu Oo 18.10b" pointSize="13"/>
+                                <color key="textColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lcZ-XO-lLI" firstAttribute="top" secondItem="FMe-bZ-rEr" secondAttribute="top" constant="5" id="2Rp-KN-8F4"/>
+                            <constraint firstItem="i6Z-vu-EbB" firstAttribute="trailing" secondItem="FMe-bZ-rEr" secondAttribute="trailing" constant="-5" id="8ja-Uw-dyf"/>
+                            <constraint firstItem="wxG-TF-IJh" firstAttribute="top" secondItem="i6Z-vu-EbB" secondAttribute="bottom" id="De2-Zn-1zS"/>
+                            <constraint firstItem="wxG-TF-IJh" firstAttribute="leading" secondItem="FMe-bZ-rEr" secondAttribute="leading" constant="5" id="GYj-3c-fdh"/>
+                            <constraint firstAttribute="bottom" secondItem="wxG-TF-IJh" secondAttribute="bottom" constant="5" id="PdN-Ee-Bqn"/>
+                            <constraint firstItem="i6Z-vu-EbB" firstAttribute="top" secondItem="FMe-bZ-rEr" secondAttribute="top" id="cPl-AY-VVh"/>
+                            <constraint firstItem="wxG-TF-IJh" firstAttribute="trailing" secondItem="FMe-bZ-rEr" secondAttribute="trailing" constant="-5" id="hF0-ie-efK"/>
+                            <constraint firstItem="i6Z-vu-EbB" firstAttribute="leading" secondItem="FMe-bZ-rEr" secondAttribute="leading" constant="5" id="luc-z4-nj9"/>
+                            <constraint firstItem="lcZ-XO-lLI" firstAttribute="bottom" secondItem="FMe-bZ-rEr" secondAttribute="bottom" constant="-5" id="niM-Ky-1Ug"/>
+                            <constraint firstItem="lcZ-XO-lLI" firstAttribute="trailing" secondItem="FMe-bZ-rEr" secondAttribute="trailing" id="t48-cR-gbt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="FMe-bZ-rEr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1eq-AH-8mR"/>
+                <constraint firstAttribute="trailing" secondItem="FMe-bZ-rEr" secondAttribute="trailing" id="Uh7-gv-mvH"/>
+                <constraint firstAttribute="bottom" secondItem="FMe-bZ-rEr" secondAttribute="bottom" id="hZL-jQ-lx1"/>
+                <constraint firstItem="FMe-bZ-rEr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wKn-fI-y9o"/>
+            </constraints>
+            <connections>
+                <outlet property="bottomLabel" destination="wxG-TF-IJh" id="AEa-Bo-Hqq"/>
+                <outlet property="seperatorView" destination="lcZ-XO-lLI" id="Of2-AH-C7f"/>
+                <outlet property="topLabel" destination="i6Z-vu-EbB" id="e8w-Qt-b88"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

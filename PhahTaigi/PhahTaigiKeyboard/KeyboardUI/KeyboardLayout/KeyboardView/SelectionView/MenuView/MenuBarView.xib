@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuBarView" customModule="PhahTaigiKeyboard" customModuleProvider="target">
+            <connections>
+                <outlet property="settingButton" destination="5BQ-Sp-L9w" id="9AG-DU-PXi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Z3I-Sh-TJd" userLabel="TopView">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhahTaigi 台語輸入法" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOY-IC-2m0">
+                            <rect key="frame" x="0.0" y="9.5" width="400" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="0.3007277397260274" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="sOY-IC-2m0" firstAttribute="width" secondItem="Z3I-Sh-TJd" secondAttribute="width" id="13H-re-oDB"/>
+                        <constraint firstItem="sOY-IC-2m0" firstAttribute="centerX" secondItem="Z3I-Sh-TJd" secondAttribute="centerX" id="89X-aD-bV9"/>
+                        <constraint firstItem="sOY-IC-2m0" firstAttribute="centerY" secondItem="Z3I-Sh-TJd" secondAttribute="centerY" id="cC4-FK-ysx"/>
+                        <constraint firstAttribute="height" constant="40" id="veM-Lu-Tsw"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pyd-od-hIL" userLabel="BottomView">
+                    <rect key="frame" x="0.0" y="40" width="400" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="255" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BQ-Sp-L9w">
+                            <rect key="frame" x="299" y="0.0" width="96" height="55"/>
+                            <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="imageEdgeInsets" minX="5" minY="5" maxX="15" maxY="5"/>
+                            <state key="normal" image="Setting"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="5BQ-Sp-L9w" secondAttribute="bottom" constant="5" id="Spd-NS-4Pi"/>
+                        <constraint firstItem="5BQ-Sp-L9w" firstAttribute="top" secondItem="Pyd-od-hIL" secondAttribute="top" id="gKr-JE-eEy"/>
+                        <constraint firstAttribute="trailing" secondItem="5BQ-Sp-L9w" secondAttribute="trailing" constant="5" id="tzB-Ez-G9c"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Z3I-Sh-TJd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1yW-Bg-uqx"/>
+                <constraint firstItem="Z3I-Sh-TJd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="93w-ca-AtS"/>
+                <constraint firstItem="Pyd-od-hIL" firstAttribute="top" secondItem="Z3I-Sh-TJd" secondAttribute="bottom" id="Xe4-0i-DbH"/>
+                <constraint firstItem="Pyd-od-hIL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a08-n8-pij"/>
+                <constraint firstAttribute="trailing" secondItem="Z3I-Sh-TJd" secondAttribute="trailing" id="eKz-YL-5Yv"/>
+                <constraint firstAttribute="bottom" secondItem="Pyd-od-hIL" secondAttribute="bottom" id="mwq-u0-xJ6"/>
+                <constraint firstAttribute="trailing" secondItem="Pyd-od-hIL" secondAttribute="trailing" id="zul-uP-DeG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="40" y="46.776611694152926"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Setting" width="96" height="96"/>
+    </resources>
+</document>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PhahTaigi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="rootView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIK-Ab-nFu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="mlG-U5-d08" userLabel="contentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIconImage" translatesAutoresizingMaskIntoConstraints="NO" id="fhB-Bi-a8B">
+                                                <rect key="frame" x="62.5" y="30" width="250" height="250"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="fhB-Bi-a8B" secondAttribute="height" multiplier="1:1" id="HjE-CD-PSq"/>
+                                                    <constraint firstAttribute="height" constant="250" id="bOw-zV-G1H"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhahTaigi 台語輸入法" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qf-mh-D1B">
+                                                <rect key="frame" x="75" y="303" width="225" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="5qf-mh-D1B" secondAttribute="height" multiplier="75:7" id="kaD-Cr-avs"/>
+                                                    <constraint firstAttribute="height" constant="21" id="x41-iI-AZz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v0.9.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dz6-Lf-knP">
+                                                <rect key="frame" x="62.5" y="343" width="250" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dz6-Lf-knP" secondAttribute="height" multiplier="250:21" id="7eB-je-y6k"/>
+                                                    <constraint firstAttribute="height" constant="21" id="W8z-K6-D8T"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="〈按怎開始用〉" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfT-6Y-RKA">
+                                                <rect key="frame" x="62.5" y="417" width="250" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="Uqc-JA-9WI"/>
+                                                    <constraint firstAttribute="width" secondItem="PfT-6Y-RKA" secondAttribute="height" multiplier="125:12" id="hTa-3Y-Mrl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請去【設定】&gt;【一般】&gt;【鍵盤】&gt;【鍵盤】&gt;【新增鍵盤...】&gt; Tī『第三方鍵盤』hia，點【Tâi-gí - PhahTaigi】來增加輸入法。" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMu-1J-1LH">
+                                                <rect key="frame" x="37.5" y="451" width="300" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="6yh-IM-HPb"/>
+                                                    <constraint firstAttribute="width" secondItem="YMu-1J-1LH" secondAttribute="height" multiplier="3:1" id="Rl3-s9-hhx"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sòa--落-來，請繼續koh點【Tâi-gí - PhahTaigi】入--去，kā【允許全權取用】phah--khui，án-ne輸入法設定功能chiah thang用。" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSQ-sR-yUu">
+                                                <rect key="frame" x="37.5" y="561" width="300" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="Gar-X0-CNt"/>
+                                                    <constraint firstAttribute="width" secondItem="VSQ-sR-yUu" secondAttribute="height" multiplier="3:1" id="Vjf-Qm-bza"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chit-má你ē-sái開始phah字--a！請chhōe 1-ê所在開始phah字，點別ê輸入法ê 🌐 來切換輸入法。" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FU6-er-4u5">
+                                                <rect key="frame" x="37.5" y="671" width="300" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="DnB-Sj-oVZ"/>
+                                                    <constraint firstAttribute="width" secondItem="FU6-er-4u5" secondAttribute="height" multiplier="3:1" constant="60" id="c1t-2n-qjp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="FU6-er-4u5" firstAttribute="width" secondItem="FU6-er-4u5" secondAttribute="height" multiplier="3:1" constant="60" id="46j-jB-x1O"/>
+                                            <constraint firstItem="fhB-Bi-a8B" firstAttribute="centerX" secondItem="mlG-U5-d08" secondAttribute="centerX" id="4Fl-wD-RnA"/>
+                                            <constraint firstItem="PfT-6Y-RKA" firstAttribute="centerX" secondItem="mlG-U5-d08" secondAttribute="centerX" id="5xe-rM-MxU"/>
+                                            <constraint firstItem="FU6-er-4u5" firstAttribute="centerX" secondItem="mlG-U5-d08" secondAttribute="centerX" id="6Ji-sP-oyp"/>
+                                            <constraint firstItem="VSQ-sR-yUu" firstAttribute="top" secondItem="YMu-1J-1LH" secondAttribute="bottom" constant="10" id="KfG-PI-4A0"/>
+                                            <constraint firstItem="5qf-mh-D1B" firstAttribute="centerX" secondItem="mlG-U5-d08" secondAttribute="centerX" id="MDV-RK-I6B"/>
+                                            <constraint firstItem="FU6-er-4u5" firstAttribute="top" secondItem="VSQ-sR-yUu" secondAttribute="bottom" constant="10" id="ORF-ZX-dxz"/>
+                                            <constraint firstItem="dz6-Lf-knP" firstAttribute="top" secondItem="5qf-mh-D1B" secondAttribute="bottom" constant="19" id="P86-Jr-SRr"/>
+                                            <constraint firstItem="YMu-1J-1LH" firstAttribute="centerX" secondItem="mlG-U5-d08" secondAttribute="centerX" id="QNs-3b-cqt"/>
+                                            <constraint firstItem="VSQ-sR-yUu" firstAttribute="centerX" secondItem="mlG-U5-d08" secondAttribute="centerX" id="Qcf-Ie-v4L"/>
+                                            <constraint firstItem="YMu-1J-1LH" firstAttribute="top" secondItem="PfT-6Y-RKA" secondAttribute="bottom" constant="10" id="Qzs-to-Zuz"/>
+                                            <constraint firstItem="FU6-er-4u5" firstAttribute="width" secondItem="FU6-er-4u5" secondAttribute="height" multiplier="3:1" constant="60" id="REI-Ku-kpn"/>
+                                            <constraint firstAttribute="width" constant="375" id="Tl8-UH-UzW"/>
+                                            <constraint firstItem="5qf-mh-D1B" firstAttribute="top" secondItem="fhB-Bi-a8B" secondAttribute="bottom" constant="23" id="aqc-7E-aS5"/>
+                                            <constraint firstItem="fhB-Bi-a8B" firstAttribute="top" secondItem="mlG-U5-d08" secondAttribute="top" constant="30" id="lFU-N7-QMf"/>
+                                            <constraint firstItem="VSQ-sR-yUu" firstAttribute="width" secondItem="VSQ-sR-yUu" secondAttribute="height" multiplier="3:1" id="lL4-5d-j8c"/>
+                                            <constraint firstItem="dz6-Lf-knP" firstAttribute="centerX" secondItem="mlG-U5-d08" secondAttribute="centerX" id="tjp-ky-my4"/>
+                                            <constraint firstItem="PfT-6Y-RKA" firstAttribute="top" secondItem="dz6-Lf-knP" secondAttribute="bottom" constant="53" id="vMY-7P-489"/>
+                                            <constraint firstAttribute="height" constant="800" id="vkQ-HK-W9P"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mlG-U5-d08" firstAttribute="top" secondItem="VIK-Ab-nFu" secondAttribute="top" id="Fpt-G9-2ps"/>
+                                    <constraint firstAttribute="bottom" secondItem="mlG-U5-d08" secondAttribute="bottom" id="QZU-SD-bGs"/>
+                                    <constraint firstAttribute="height" constant="800" id="amM-Wd-JH1"/>
+                                    <constraint firstAttribute="width" constant="375" id="eBZ-bG-e3X"/>
+                                    <constraint firstItem="mlG-U5-d08" firstAttribute="leading" secondItem="VIK-Ab-nFu" secondAttribute="leading" id="oZg-f0-tin"/>
+                                    <constraint firstAttribute="trailing" secondItem="mlG-U5-d08" secondAttribute="trailing" id="z7e-40-Y19"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mlG-U5-d08" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="34Y-tL-WnK"/>
+                            <constraint firstItem="VIK-Ab-nFu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CNL-Dg-Fsa"/>
+                            <constraint firstItem="VIK-Ab-nFu" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mdx-xZ-bKY"/>
+                            <constraint firstItem="VIK-Ab-nFu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wWq-oO-sld"/>
+                            <constraint firstItem="VIK-Ab-nFu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yxI-PK-cRM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="dz6-Lf-knP" id="xjd-XG-8kf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AppIconImage" width="1024" height="1024"/>
+    </resources>
+</document>

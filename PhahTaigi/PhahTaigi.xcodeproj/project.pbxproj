@@ -1,0 +1,1036 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8712C1BF221920310052B6AA /* KeyboardTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1BE221920310052B6AA /* KeyboardTemplate.swift */; };
+		8712C1C2221921880052B6AA /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1C1221921880052B6AA /* Key.swift */; };
+		8712C1C4221921980052B6AA /* KeyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1C3221921980052B6AA /* KeyType.swift */; };
+		8712C1C8221941380052B6AA /* TypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1C7221941380052B6AA /* TypingView.swift */; };
+		8712C1CA221942150052B6AA /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1C9221942150052B6AA /* SelectionView.swift */; };
+		8712C1CC2219439D0052B6AA /* TypingViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1CB2219439D0052B6AA /* TypingViewLayout.swift */; };
+		8712C1CE221943E10052B6AA /* SelectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1CD221943E10052B6AA /* SelectionViewLayout.swift */; };
+		8712C1D12219497B0052B6AA /* KeyboardTemplateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1D02219497B0052B6AA /* KeyboardTemplateModel.swift */; };
+		8712C1D422194C930052B6AA /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1D322194C930052B6AA /* PageView.swift */; };
+		8712C1D722194FB90052B6AA /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1D622194FB90052B6AA /* RowView.swift */; };
+		8712C1D9221954340052B6AA /* KeyConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1D8221954340052B6AA /* KeyConstant.swift */; };
+		8712C1DD2219906D0052B6AA /* KeyboardViewConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1DC2219906D0052B6AA /* KeyboardViewConstant.swift */; };
+		8712C1E12219C8170052B6AA /* InputDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1E02219C8170052B6AA /* InputDisplayView.swift */; };
+		8712C1E32219C83F0052B6AA /* CandidateWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1E22219C83F0052B6AA /* CandidateWordView.swift */; };
+		8712C1E7221BFBC50052B6AA /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1E6221BFBC50052B6AA /* KeyView.swift */; };
+		8712C1E9221C0AC50052B6AA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8712C1E8221C0AC50052B6AA /* Media.xcassets */; };
+		8712C1EB221C60970052B6AA /* ShiftStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1EA221C60970052B6AA /* ShiftStatus.swift */; };
+		8712C1ED221C7AD40052B6AA /* HanloStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1EC221C7AD40052B6AA /* HanloStatus.swift */; };
+		8712C1F3221D27B10052B6AA /* KeyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1F2221D27B10052B6AA /* KeyPopupView.swift */; };
+		8712C1F5221D320F0052B6AA /* KeyPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1F4221D320F0052B6AA /* KeyPopupController.swift */; };
+		8712C1FD221DA1CC0052B6AA /* PageIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712C1FC221DA1CC0052B6AA /* PageIndex.swift */; };
+		872FF29C221DD18500DB9AFA /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872FF29B221DD18500DB9AFA /* CustomInputView.swift */; };
+		872FF2A0221EAE1D00DB9AFA /* String+isNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872FF29F221EAE1D00DB9AFA /* String+isNumber.swift */; };
+		872FF2AC221F1C6700DB9AFA /* CandidateWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872FF2AA221F1C6700DB9AFA /* CandidateWordCell.swift */; };
+		872FF2AD221F1C6700DB9AFA /* CandidateWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872FF2AB221F1C6700DB9AFA /* CandidateWordCell.xib */; };
+		87435DAC2229032E00A936A2 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAB2229032E00A936A2 /* SettingViewCell.swift */; };
+		87435DAE222932D500A936A2 /* BanloInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAD222932D500A936A2 /* BanloInputConverter.swift */; };
+		87435DB02229794600A936A2 /* String+indexOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAF2229794600A936A2 /* String+indexOf.swift */; };
+		87435DBC22299D9000A936A2 /* DatabaseConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DBB22299D9000A936A2 /* DatabaseConstant.swift */; };
+		87435DBF22299E3000A936A2 /* ImeDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DBE22299E3000A936A2 /* ImeDict.swift */; };
+		87435DC12229A1C600A936A2 /* CurrentSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DC02229A1C600A936A2 /* CurrentSetting.swift */; };
+		87435DC92229B05700A936A2 /* RealmDatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DC82229B05700A936A2 /* RealmDatabaseLoader.swift */; };
+		87435DCC2229B28C00A936A2 /* String+containsNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DCB2229B28C00A936A2 /* String+containsNumber.swift */; };
+		87435DD2222A748900A936A2 /* ime_dict_8.realm in Resources */ = {isa = PBXBuildFile; fileRef = 87435DD1222A748900A936A2 /* ime_dict_8.realm */; };
+		87435DD8222ACA2500A936A2 /* TauhuOo18.10b.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87435DD6222ACA2500A936A2 /* TauhuOo18.10b.otf */; };
+		87435DDE222C037C00A936A2 /* CurrentKeyboardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DDC222C037C00A936A2 /* CurrentKeyboardStatus.swift */; };
+		87435DE3222D4B5300A936A2 /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DE1222D4B5300A936A2 /* Debounce.swift */; };
+		8798FE1E22252EF3005A41BE /* HanloWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE1D22252EF3005A41BE /* HanloWordModel.swift */; };
+		8798FE21222533A9005A41BE /* TaigiInputProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE20222533A9005A41BE /* TaigiInputProcessor.swift */; };
+		8798FE27222536A8005A41BE /* Poj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE26222536A8005A41BE /* Poj.swift */; };
+		8798FE2922253D32005A41BE /* Banlo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2822253D32005A41BE /* Banlo.swift */; };
+		8798FE2B22254381005A41BE /* PojInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2A22254381005A41BE /* PojInputConverter.swift */; };
+		8798FE2D2225494A005A41BE /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2C2225494A005A41BE /* String+matches.swift */; };
+		8798FE2F2226778F005A41BE /* ConverterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2E2226778F005A41BE /* ConverterUtils.swift */; };
+		8798FE3122268DB8005A41BE /* String+lastIndexForRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE3022268DB8005A41BE /* String+lastIndexForRegex.swift */; };
+		8798FE3322269CCC005A41BE /* String+lastCharString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE3222269CCC005A41BE /* String+lastCharString.swift */; };
+		8798FE3522269D46005A41BE /* String+subString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE3422269D46005A41BE /* String+subString.swift */; };
+		8798FE3722269E23005A41BE /* StringProtocol+index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE3622269E23005A41BE /* StringProtocol+index.swift */; };
+		8798FE3A2226A144005A41BE /* String+contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE392226A144005A41BE /* String+contains.swift */; };
+		8798FE3D2226E564005A41BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380C221E612580052C72B /* ViewController.swift */; };
+		8798FE562227112B005A41BE /* MenuBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8798FE542227112B005A41BE /* MenuBarView.xib */; };
+		8798FE572227112B005A41BE /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE552227112B005A41BE /* MenuBarView.swift */; };
+		8798FE59222724F5005A41BE /* UIView+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE58222724F5005A41BE /* UIView+fromNib.swift */; };
+		8798FE5D22273C62005A41BE /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE5B22273C61005A41BE /* SettingView.swift */; };
+		8798FE5E22273C62005A41BE /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8798FE5C22273C62005A41BE /* SettingView.xib */; };
+		8799B4F7222DC37600A1468C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8799B4F6222DC37600A1468C /* GoogleService-Info.plist */; };
+		8799B4F8222DC37600A1468C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8799B4F6222DC37600A1468C /* GoogleService-Info.plist */; };
+		8799B501222E287500A1468C /* Pods_PhahTaigi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90099537738F41E86B7A23CE /* Pods_PhahTaigi.framework */; };
+		8799B502222E33AF00A1468C /* String+contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE392226A144005A41BE /* String+contains.swift */; };
+		8799B503222E33AF00A1468C /* String+containsNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DCB2229B28C00A936A2 /* String+containsNumber.swift */; };
+		8799B504222E33AF00A1468C /* String+indexOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAF2229794600A936A2 /* String+indexOf.swift */; };
+		8799B505222E33AF00A1468C /* String+isNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872FF29F221EAE1D00DB9AFA /* String+isNumber.swift */; };
+		8799B506222E33AF00A1468C /* String+lastCharString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE3222269CCC005A41BE /* String+lastCharString.swift */; };
+		8799B507222E33AF00A1468C /* String+lastIndexForRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE3022268DB8005A41BE /* String+lastIndexForRegex.swift */; };
+		8799B508222E33AF00A1468C /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2C2225494A005A41BE /* String+matches.swift */; };
+		8799B509222E33AF00A1468C /* String+subString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE3422269D46005A41BE /* String+subString.swift */; };
+		8799B50A222E33AF00A1468C /* StringProtocol+index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE3622269E23005A41BE /* StringProtocol+index.swift */; };
+		8799B50B222E33AF00A1468C /* UILabel+setSizeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380EA21E615B10052C72B /* UILabel+setSizeFont.swift */; };
+		8799B50C222E33AF00A1468C /* UIView+addConstraintsWithFormatString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380F621E635A80052C72B /* UIView+addConstraintsWithFormatString.swift */; };
+		8799B50D222E33AF00A1468C /* UIView+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE58222724F5005A41BE /* UIView+fromNib.swift */; };
+		8799B50E222E33BB00A1468C /* Banlo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2822253D32005A41BE /* Banlo.swift */; };
+		8799B50F222E33BB00A1468C /* BanloInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAD222932D500A936A2 /* BanloInputConverter.swift */; };
+		8799B510222E33BB00A1468C /* ConverterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2E2226778F005A41BE /* ConverterUtils.swift */; };
+		8799B511222E33BB00A1468C /* Poj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE26222536A8005A41BE /* Poj.swift */; };
+		8799B512222E33BB00A1468C /* PojInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2A22254381005A41BE /* PojInputConverter.swift */; };
+		87F380C121E612580052C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380C021E612580052C72B /* AppDelegate.swift */; };
+		87F380C321E612580052C72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380C221E612580052C72B /* ViewController.swift */; };
+		87F380C621E612580052C72B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F380C421E612580052C72B /* Main.storyboard */; };
+		87F380C821E6125C0052C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F380C721E6125C0052C72B /* Assets.xcassets */; };
+		87F380CB21E6125C0052C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F380C921E6125C0052C72B /* LaunchScreen.storyboard */; };
+		87F380D921E613590052C72B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380D821E613590052C72B /* KeyboardViewController.swift */; };
+		87F380DD21E6135A0052C72B /* PhahTaigiKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 87F380D621E613590052C72B /* PhahTaigiKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		87F380EB21E615B10052C72B /* UILabel+setSizeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380EA21E615B10052C72B /* UILabel+setSizeFont.swift */; };
+		87F380F321E62BA30052C72B /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380F221E62BA30052C72B /* KeyboardButton.swift */; };
+		87F380F721E635A80052C72B /* UIView+addConstraintsWithFormatString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380F621E635A80052C72B /* UIView+addConstraintsWithFormatString.swift */; };
+		87F3810521E7209B0052C72B /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3810421E7209B0052C72B /* KeyboardView.swift */; };
+		87F3810721E7915A0052C72B /* KeyboardViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3810621E7915A0052C72B /* KeyboardViewLayout.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		87F380DB21E6135A0052C72B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87F380B521E612580052C72B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87F380D521E613590052C72B;
+			remoteInfo = PhahTaigiKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		87F380E121E6135A0052C72B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				87F380DD21E6135A0052C72B /* PhahTaigiKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		76697C249B52715F24834B0D /* Pods-PhahTaigi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhahTaigi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhahTaigi/Pods-PhahTaigi.debug.xcconfig"; sourceTree = "<group>"; };
+		8712C1BE221920310052B6AA /* KeyboardTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTemplate.swift; sourceTree = "<group>"; };
+		8712C1C1221921880052B6AA /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		8712C1C3221921980052B6AA /* KeyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyType.swift; sourceTree = "<group>"; };
+		8712C1C7221941380052B6AA /* TypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingView.swift; sourceTree = "<group>"; };
+		8712C1C9221942150052B6AA /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		8712C1CB2219439D0052B6AA /* TypingViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingViewLayout.swift; sourceTree = "<group>"; };
+		8712C1CD221943E10052B6AA /* SelectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewLayout.swift; sourceTree = "<group>"; };
+		8712C1D02219497B0052B6AA /* KeyboardTemplateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTemplateModel.swift; sourceTree = "<group>"; };
+		8712C1D322194C930052B6AA /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		8712C1D622194FB90052B6AA /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		8712C1D8221954340052B6AA /* KeyConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstant.swift; sourceTree = "<group>"; };
+		8712C1DC2219906D0052B6AA /* KeyboardViewConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewConstant.swift; sourceTree = "<group>"; };
+		8712C1E02219C8170052B6AA /* InputDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDisplayView.swift; sourceTree = "<group>"; };
+		8712C1E22219C83F0052B6AA /* CandidateWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWordView.swift; sourceTree = "<group>"; };
+		8712C1E6221BFBC50052B6AA /* KeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyView.swift; sourceTree = "<group>"; };
+		8712C1E8221C0AC50052B6AA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		8712C1EA221C60970052B6AA /* ShiftStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftStatus.swift; sourceTree = "<group>"; };
+		8712C1EC221C7AD40052B6AA /* HanloStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanloStatus.swift; sourceTree = "<group>"; };
+		8712C1F2221D27B10052B6AA /* KeyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPopupView.swift; sourceTree = "<group>"; };
+		8712C1F4221D320F0052B6AA /* KeyPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPopupController.swift; sourceTree = "<group>"; };
+		8712C1FC221DA1CC0052B6AA /* PageIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndex.swift; sourceTree = "<group>"; };
+		872FF29B221DD18500DB9AFA /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
+		872FF29F221EAE1D00DB9AFA /* String+isNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isNumber.swift"; sourceTree = "<group>"; };
+		872FF2AA221F1C6700DB9AFA /* CandidateWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWordCell.swift; sourceTree = "<group>"; };
+		872FF2AB221F1C6700DB9AFA /* CandidateWordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CandidateWordCell.xib; sourceTree = "<group>"; };
+		87435DAB2229032E00A936A2 /* SettingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
+		87435DAD222932D500A936A2 /* BanloInputConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanloInputConverter.swift; sourceTree = "<group>"; };
+		87435DAF2229794600A936A2 /* String+indexOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+indexOf.swift"; sourceTree = "<group>"; };
+		87435DBB22299D9000A936A2 /* DatabaseConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConstant.swift; sourceTree = "<group>"; };
+		87435DBE22299E3000A936A2 /* ImeDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImeDict.swift; sourceTree = "<group>"; };
+		87435DC02229A1C600A936A2 /* CurrentSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSetting.swift; sourceTree = "<group>"; };
+		87435DC82229B05700A936A2 /* RealmDatabaseLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseLoader.swift; sourceTree = "<group>"; };
+		87435DCB2229B28C00A936A2 /* String+containsNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+containsNumber.swift"; sourceTree = "<group>"; };
+		87435DD1222A748900A936A2 /* ime_dict_8.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ime_dict_8.realm; sourceTree = "<group>"; };
+		87435DD6222ACA2500A936A2 /* TauhuOo18.10b.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TauhuOo18.10b.otf; sourceTree = "<group>"; };
+		87435DDC222C037C00A936A2 /* CurrentKeyboardStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentKeyboardStatus.swift; sourceTree = "<group>"; };
+		87435DE1222D4B5300A936A2 /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
+		8798FE1D22252EF3005A41BE /* HanloWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanloWordModel.swift; sourceTree = "<group>"; };
+		8798FE20222533A9005A41BE /* TaigiInputProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaigiInputProcessor.swift; sourceTree = "<group>"; };
+		8798FE26222536A8005A41BE /* Poj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poj.swift; sourceTree = "<group>"; };
+		8798FE2822253D32005A41BE /* Banlo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banlo.swift; sourceTree = "<group>"; };
+		8798FE2A22254381005A41BE /* PojInputConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PojInputConverter.swift; sourceTree = "<group>"; };
+		8798FE2C2225494A005A41BE /* String+matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+matches.swift"; sourceTree = "<group>"; };
+		8798FE2E2226778F005A41BE /* ConverterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterUtils.swift; sourceTree = "<group>"; };
+		8798FE3022268DB8005A41BE /* String+lastIndexForRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+lastIndexForRegex.swift"; sourceTree = "<group>"; };
+		8798FE3222269CCC005A41BE /* String+lastCharString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+lastCharString.swift"; sourceTree = "<group>"; };
+		8798FE3422269D46005A41BE /* String+subString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subString.swift"; sourceTree = "<group>"; };
+		8798FE3622269E23005A41BE /* StringProtocol+index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+index.swift"; sourceTree = "<group>"; };
+		8798FE392226A144005A41BE /* String+contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+contains.swift"; sourceTree = "<group>"; };
+		8798FE542227112B005A41BE /* MenuBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuBarView.xib; sourceTree = "<group>"; };
+		8798FE552227112B005A41BE /* MenuBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		8798FE58222724F5005A41BE /* UIView+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+fromNib.swift"; sourceTree = "<group>"; };
+		8798FE5B22273C61005A41BE /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = "PhahTaigiKeyboard/KeyboardUI/KeyboardLayout/KeyboardView/New Group/SettingView.swift"; sourceTree = SOURCE_ROOT; };
+		8798FE5C22273C62005A41BE /* SettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
+		8799B4F6222DC37600A1468C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8799B4F9222DCA8900A1468C /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8799B4FB222DCA8E00A1468C /* Pods_PhahTaigi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PhahTaigi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87F380BD21E612580052C72B /* PhahTaigi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhahTaigi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87F380C021E612580052C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		87F380C221E612580052C72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		87F380C521E612580052C72B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		87F380C721E6125C0052C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		87F380CA21E6125C0052C72B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		87F380CC21E6125C0052C72B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87F380D621E613590052C72B /* PhahTaigiKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PhahTaigiKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		87F380D821E613590052C72B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		87F380DA21E6135A0052C72B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87F380EA21E615B10052C72B /* UILabel+setSizeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+setSizeFont.swift"; sourceTree = "<group>"; };
+		87F380F221E62BA30052C72B /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
+		87F380F621E635A80052C72B /* UIView+addConstraintsWithFormatString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addConstraintsWithFormatString.swift"; sourceTree = "<group>"; };
+		87F3810421E7209B0052C72B /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		87F3810621E7915A0052C72B /* KeyboardViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewLayout.swift; sourceTree = "<group>"; };
+		90099537738F41E86B7A23CE /* Pods_PhahTaigi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhahTaigi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE64F8085B17967A8B4901B2 /* Pods-PhahTaigi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhahTaigi.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhahTaigi/Pods-PhahTaigi.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		87F380BA21E612580052C72B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87F380D321E613590052C72B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8799B501222E287500A1468C /* Pods_PhahTaigi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8712C1BC22190F7F0052B6AA /* KeyboardUI */ = {
+			isa = PBXGroup;
+			children = (
+				8798FE1F2225333F005A41BE /* Input */,
+				87F380EE21E622270052C72B /* KeyboardLayout */,
+				87F380F821E637EB0052C72B /* KeyLayout */,
+			);
+			path = KeyboardUI;
+			sourceTree = "<group>";
+		};
+		8712C1C0221920400052B6AA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				87F380D821E613590052C72B /* KeyboardViewController.swift */,
+				8712C1F4221D320F0052B6AA /* KeyPopupController.swift */,
+				872FF29B221DD18500DB9AFA /* CustomInputView.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8712C1CF221944260052B6AA /* KeyboardView */ = {
+			isa = PBXGroup;
+			children = (
+				87F3810421E7209B0052C72B /* KeyboardView.swift */,
+				8712C1DC2219906D0052B6AA /* KeyboardViewConstant.swift */,
+				8712C1DF2219C73A0052B6AA /* SelectionView */,
+				8798FE5A22273BF8005A41BE /* Setting */,
+				8712C1DE2219C72A0052B6AA /* TypingView */,
+			);
+			path = KeyboardView;
+			sourceTree = "<group>";
+		};
+		8712C1D22219497F0052B6AA /* KeyboardTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				8712C1BE221920310052B6AA /* KeyboardTemplate.swift */,
+				8712C1D02219497B0052B6AA /* KeyboardTemplateModel.swift */,
+				8712C1FC221DA1CC0052B6AA /* PageIndex.swift */,
+			);
+			path = KeyboardTemplate;
+			sourceTree = "<group>";
+		};
+		8712C1DE2219C72A0052B6AA /* TypingView */ = {
+			isa = PBXGroup;
+			children = (
+				8712C1D322194C930052B6AA /* PageView.swift */,
+				8712C1D622194FB90052B6AA /* RowView.swift */,
+				8712C1C7221941380052B6AA /* TypingView.swift */,
+			);
+			path = TypingView;
+			sourceTree = "<group>";
+		};
+		8712C1DF2219C73A0052B6AA /* SelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				872FF2A7221F1B2C00DB9AFA /* CandidateWordCell */,
+				8712C1E22219C83F0052B6AA /* CandidateWordView.swift */,
+				8712C1E02219C8170052B6AA /* InputDisplayView.swift */,
+				8798FE53222710F4005A41BE /* MenuView */,
+				8712C1C9221942150052B6AA /* SelectionView.swift */,
+			);
+			path = SelectionView;
+			sourceTree = "<group>";
+		};
+		872FF2A7221F1B2C00DB9AFA /* CandidateWordCell */ = {
+			isa = PBXGroup;
+			children = (
+				872FF2AA221F1C6700DB9AFA /* CandidateWordCell.swift */,
+				872FF2AB221F1C6700DB9AFA /* CandidateWordCell.xib */,
+				8798FE1D22252EF3005A41BE /* HanloWordModel.swift */,
+			);
+			path = CandidateWordCell;
+			sourceTree = "<group>";
+		};
+		87435DBD22299E1F00A936A2 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				87435DBE22299E3000A936A2 /* ImeDict.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		87435DE0222D4B4000A936A2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				87435DE1222D4B5300A936A2 /* Debounce.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8798FE1F2225333F005A41BE /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				8798FE2522253696005A41BE /* Converter */,
+				8798FE20222533A9005A41BE /* TaigiInputProcessor.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		8798FE22222534D0005A41BE /* DictDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				87435DBB22299D9000A936A2 /* DatabaseConstant.swift */,
+				87435DBD22299E1F00A936A2 /* DataModel */,
+				87435DD1222A748900A936A2 /* ime_dict_8.realm */,
+				87435DC82229B05700A936A2 /* RealmDatabaseLoader.swift */,
+			);
+			path = DictDatabase;
+			sourceTree = "<group>";
+		};
+		8798FE2522253696005A41BE /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				8798FE2822253D32005A41BE /* Banlo.swift */,
+				87435DAD222932D500A936A2 /* BanloInputConverter.swift */,
+				8798FE2E2226778F005A41BE /* ConverterUtils.swift */,
+				8798FE26222536A8005A41BE /* Poj.swift */,
+				8798FE2A22254381005A41BE /* PojInputConverter.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		8798FE53222710F4005A41BE /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				8798FE552227112B005A41BE /* MenuBarView.swift */,
+				8798FE542227112B005A41BE /* MenuBarView.xib */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+		8798FE5A22273BF8005A41BE /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				87435DC02229A1C600A936A2 /* CurrentSetting.swift */,
+				8798FE5B22273C61005A41BE /* SettingView.swift */,
+				8798FE5C22273C62005A41BE /* SettingView.xib */,
+				87435DAB2229032E00A936A2 /* SettingViewCell.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		87F380B421E612580052C72B = {
+			isa = PBXGroup;
+			children = (
+				87F380BF21E612580052C72B /* PhahTaigi */,
+				87F380D721E613590052C72B /* PhahTaigiKeyboard */,
+				87F380BE21E612580052C72B /* Products */,
+				A7B4A0605B82AE1A509F1BE7 /* Pods */,
+				B1655994BD3FF098F2013C2F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		87F380BE21E612580052C72B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87F380BD21E612580052C72B /* PhahTaigi.app */,
+				87F380D621E613590052C72B /* PhahTaigiKeyboard.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87F380BF21E612580052C72B /* PhahTaigi */ = {
+			isa = PBXGroup;
+			children = (
+				87F380C021E612580052C72B /* AppDelegate.swift */,
+				87F380C721E6125C0052C72B /* Assets.xcassets */,
+				8799B4F6222DC37600A1468C /* GoogleService-Info.plist */,
+				87F380CC21E6125C0052C72B /* Info.plist */,
+				87F380C921E6125C0052C72B /* LaunchScreen.storyboard */,
+				87F380C421E612580052C72B /* Main.storyboard */,
+				87F380C221E612580052C72B /* ViewController.swift */,
+			);
+			path = PhahTaigi;
+			sourceTree = "<group>";
+		};
+		87F380D721E613590052C72B /* PhahTaigiKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				87435DE0222D4B4000A936A2 /* Utils */,
+				87435DD6222ACA2500A936A2 /* TauhuOo18.10b.otf */,
+				8798FE22222534D0005A41BE /* DictDatabase */,
+				87F380E921E615870052C72B /* Extension */,
+				87F380DA21E6135A0052C72B /* Info.plist */,
+				8712C1BC22190F7F0052B6AA /* KeyboardUI */,
+				8712C1E8221C0AC50052B6AA /* Media.xcassets */,
+				8712C1C0221920400052B6AA /* ViewController */,
+			);
+			path = PhahTaigiKeyboard;
+			sourceTree = "<group>";
+		};
+		87F380E921E615870052C72B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8798FE392226A144005A41BE /* String+contains.swift */,
+				87435DCB2229B28C00A936A2 /* String+containsNumber.swift */,
+				87435DAF2229794600A936A2 /* String+indexOf.swift */,
+				872FF29F221EAE1D00DB9AFA /* String+isNumber.swift */,
+				8798FE3222269CCC005A41BE /* String+lastCharString.swift */,
+				8798FE3022268DB8005A41BE /* String+lastIndexForRegex.swift */,
+				8798FE2C2225494A005A41BE /* String+matches.swift */,
+				8798FE3422269D46005A41BE /* String+subString.swift */,
+				8798FE3622269E23005A41BE /* StringProtocol+index.swift */,
+				87F380EA21E615B10052C72B /* UILabel+setSizeFont.swift */,
+				87F380F621E635A80052C72B /* UIView+addConstraintsWithFormatString.swift */,
+				8798FE58222724F5005A41BE /* UIView+fromNib.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		87F380EE21E622270052C72B /* KeyboardLayout */ = {
+			isa = PBXGroup;
+			children = (
+				8712C1D22219497F0052B6AA /* KeyboardTemplate */,
+				87F3810621E7915A0052C72B /* KeyboardViewLayout.swift */,
+				8712C1CD221943E10052B6AA /* SelectionViewLayout.swift */,
+				8712C1CB2219439D0052B6AA /* TypingViewLayout.swift */,
+				8712C1CF221944260052B6AA /* KeyboardView */,
+			);
+			path = KeyboardLayout;
+			sourceTree = "<group>";
+		};
+		87F380F821E637EB0052C72B /* KeyLayout */ = {
+			isa = PBXGroup;
+			children = (
+				87435DDC222C037C00A936A2 /* CurrentKeyboardStatus.swift */,
+				8712C1EC221C7AD40052B6AA /* HanloStatus.swift */,
+				8712C1C1221921880052B6AA /* Key.swift */,
+				87F380F221E62BA30052C72B /* KeyboardButton.swift */,
+				8712C1D8221954340052B6AA /* KeyConstant.swift */,
+				8712C1F2221D27B10052B6AA /* KeyPopupView.swift */,
+				8712C1C3221921980052B6AA /* KeyType.swift */,
+				8712C1E6221BFBC50052B6AA /* KeyView.swift */,
+				8712C1EA221C60970052B6AA /* ShiftStatus.swift */,
+			);
+			path = KeyLayout;
+			sourceTree = "<group>";
+		};
+		A7B4A0605B82AE1A509F1BE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76697C249B52715F24834B0D /* Pods-PhahTaigi.debug.xcconfig */,
+				DE64F8085B17967A8B4901B2 /* Pods-PhahTaigi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B1655994BD3FF098F2013C2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8799B4FB222DCA8E00A1468C /* Pods_PhahTaigi.framework */,
+				8799B4F9222DCA8900A1468C /* Realm.framework */,
+				90099537738F41E86B7A23CE /* Pods_PhahTaigi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		87F380BC21E612580052C72B /* PhahTaigi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87F380CF21E6125C0052C72B /* Build configuration list for PBXNativeTarget "PhahTaigi" */;
+			buildPhases = (
+				B6830790463DB119A635C213 /* [CP] Check Pods Manifest.lock */,
+				87F380B921E612580052C72B /* Sources */,
+				87F380BA21E612580052C72B /* Frameworks */,
+				87F380BB21E612580052C72B /* Resources */,
+				87F380E121E6135A0052C72B /* Embed App Extensions */,
+				44005636FEADFE8804189527 /* [CP] Embed Pods Frameworks */,
+				8799B4FD222DCD4600A1468C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				87F380DC21E6135A0052C72B /* PBXTargetDependency */,
+			);
+			name = PhahTaigi;
+			productName = PhahTaigi;
+			productReference = 87F380BD21E612580052C72B /* PhahTaigi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		87F380D521E613590052C72B /* PhahTaigiKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87F380DE21E6135A0052C72B /* Build configuration list for PBXNativeTarget "PhahTaigiKeyboard" */;
+			buildPhases = (
+				87F380D221E613590052C72B /* Sources */,
+				87F380D321E613590052C72B /* Frameworks */,
+				87F380D421E613590052C72B /* Resources */,
+				8799B4FE222DCD7700A1468C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhahTaigiKeyboard;
+			productName = PhahTaigiKeyboard;
+			productReference = 87F380D621E613590052C72B /* PhahTaigiKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		87F380B521E612580052C72B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = TaccoTap;
+				TargetAttributes = {
+					87F380BC21E612580052C72B = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+					};
+					87F380D521E613590052C72B = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = 87F380B821E612580052C72B /* Build configuration list for PBXProject "PhahTaigi" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 87F380B421E612580052C72B;
+			productRefGroup = 87F380BE21E612580052C72B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				87F380BC21E612580052C72B /* PhahTaigi */,
+				87F380D521E613590052C72B /* PhahTaigiKeyboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		87F380BB21E612580052C72B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87F380CB21E6125C0052C72B /* LaunchScreen.storyboard in Resources */,
+				87F380C821E6125C0052C72B /* Assets.xcassets in Resources */,
+				8799B4F7222DC37600A1468C /* GoogleService-Info.plist in Resources */,
+				87F380C621E612580052C72B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87F380D421E613590052C72B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87435DD2222A748900A936A2 /* ime_dict_8.realm in Resources */,
+				8712C1E9221C0AC50052B6AA /* Media.xcassets in Resources */,
+				8798FE562227112B005A41BE /* MenuBarView.xib in Resources */,
+				8798FE5E22273C62005A41BE /* SettingView.xib in Resources */,
+				872FF2AD221F1C6700DB9AFA /* CandidateWordCell.xib in Resources */,
+				8799B4F8222DC37600A1468C /* GoogleService-Info.plist in Resources */,
+				87435DD8222ACA2500A936A2 /* TauhuOo18.10b.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44005636FEADFE8804189527 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PhahTaigi/Pods-PhahTaigi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Haptica/Haptica.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haptica.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhahTaigi/Pods-PhahTaigi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8799B4FD222DCD4600A1468C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		8799B4FE222DCD7700A1468C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		B6830790463DB119A635C213 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhahTaigi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		87F380B921E612580052C72B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8799B503222E33AF00A1468C /* String+containsNumber.swift in Sources */,
+				8799B507222E33AF00A1468C /* String+lastIndexForRegex.swift in Sources */,
+				8799B509222E33AF00A1468C /* String+subString.swift in Sources */,
+				8799B511222E33BB00A1468C /* Poj.swift in Sources */,
+				8799B50E222E33BB00A1468C /* Banlo.swift in Sources */,
+				8799B50C222E33AF00A1468C /* UIView+addConstraintsWithFormatString.swift in Sources */,
+				8799B512222E33BB00A1468C /* PojInputConverter.swift in Sources */,
+				8799B50A222E33AF00A1468C /* StringProtocol+index.swift in Sources */,
+				8799B508222E33AF00A1468C /* String+matches.swift in Sources */,
+				8799B504222E33AF00A1468C /* String+indexOf.swift in Sources */,
+				8799B50F222E33BB00A1468C /* BanloInputConverter.swift in Sources */,
+				8799B502222E33AF00A1468C /* String+contains.swift in Sources */,
+				8799B506222E33AF00A1468C /* String+lastCharString.swift in Sources */,
+				8799B505222E33AF00A1468C /* String+isNumber.swift in Sources */,
+				8799B50D222E33AF00A1468C /* UIView+fromNib.swift in Sources */,
+				87F380C321E612580052C72B /* ViewController.swift in Sources */,
+				8799B510222E33BB00A1468C /* ConverterUtils.swift in Sources */,
+				87F380C121E612580052C72B /* AppDelegate.swift in Sources */,
+				8799B50B222E33AF00A1468C /* UILabel+setSizeFont.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87F380D221E613590052C72B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8712C1F3221D27B10052B6AA /* KeyPopupView.swift in Sources */,
+				8712C1EB221C60970052B6AA /* ShiftStatus.swift in Sources */,
+				8712C1ED221C7AD40052B6AA /* HanloStatus.swift in Sources */,
+				87F380F321E62BA30052C72B /* KeyboardButton.swift in Sources */,
+				8712C1C2221921880052B6AA /* Key.swift in Sources */,
+				8798FE5D22273C62005A41BE /* SettingView.swift in Sources */,
+				872FF29C221DD18500DB9AFA /* CustomInputView.swift in Sources */,
+				8798FE3722269E23005A41BE /* StringProtocol+index.swift in Sources */,
+				8798FE2922253D32005A41BE /* Banlo.swift in Sources */,
+				8798FE2D2225494A005A41BE /* String+matches.swift in Sources */,
+				8798FE2F2226778F005A41BE /* ConverterUtils.swift in Sources */,
+				8798FE3322269CCC005A41BE /* String+lastCharString.swift in Sources */,
+				8712C1C8221941380052B6AA /* TypingView.swift in Sources */,
+				8712C1E7221BFBC50052B6AA /* KeyView.swift in Sources */,
+				87435DB02229794600A936A2 /* String+indexOf.swift in Sources */,
+				87435DAC2229032E00A936A2 /* SettingViewCell.swift in Sources */,
+				87435DC92229B05700A936A2 /* RealmDatabaseLoader.swift in Sources */,
+				872FF2AC221F1C6700DB9AFA /* CandidateWordCell.swift in Sources */,
+				8712C1E12219C8170052B6AA /* InputDisplayView.swift in Sources */,
+				8798FE2B22254381005A41BE /* PojInputConverter.swift in Sources */,
+				8712C1D12219497B0052B6AA /* KeyboardTemplateModel.swift in Sources */,
+				8712C1F5221D320F0052B6AA /* KeyPopupController.swift in Sources */,
+				8798FE3D2226E564005A41BE /* ViewController.swift in Sources */,
+				8798FE3A2226A144005A41BE /* String+contains.swift in Sources */,
+				87435DE3222D4B5300A936A2 /* Debounce.swift in Sources */,
+				8712C1C4221921980052B6AA /* KeyType.swift in Sources */,
+				8798FE27222536A8005A41BE /* Poj.swift in Sources */,
+				87435DBC22299D9000A936A2 /* DatabaseConstant.swift in Sources */,
+				8712C1E32219C83F0052B6AA /* CandidateWordView.swift in Sources */,
+				87435DBF22299E3000A936A2 /* ImeDict.swift in Sources */,
+				87435DCC2229B28C00A936A2 /* String+containsNumber.swift in Sources */,
+				87435DAE222932D500A936A2 /* BanloInputConverter.swift in Sources */,
+				87435DDE222C037C00A936A2 /* CurrentKeyboardStatus.swift in Sources */,
+				8712C1CA221942150052B6AA /* SelectionView.swift in Sources */,
+				87435DC12229A1C600A936A2 /* CurrentSetting.swift in Sources */,
+				8712C1D9221954340052B6AA /* KeyConstant.swift in Sources */,
+				87F3810521E7209B0052C72B /* KeyboardView.swift in Sources */,
+				8798FE21222533A9005A41BE /* TaigiInputProcessor.swift in Sources */,
+				8712C1BF221920310052B6AA /* KeyboardTemplate.swift in Sources */,
+				8798FE59222724F5005A41BE /* UIView+fromNib.swift in Sources */,
+				87F380F721E635A80052C72B /* UIView+addConstraintsWithFormatString.swift in Sources */,
+				8712C1CE221943E10052B6AA /* SelectionViewLayout.swift in Sources */,
+				8798FE3122268DB8005A41BE /* String+lastIndexForRegex.swift in Sources */,
+				87F3810721E7915A0052C72B /* KeyboardViewLayout.swift in Sources */,
+				8712C1D722194FB90052B6AA /* RowView.swift in Sources */,
+				8798FE1E22252EF3005A41BE /* HanloWordModel.swift in Sources */,
+				87F380D921E613590052C72B /* KeyboardViewController.swift in Sources */,
+				87F380EB21E615B10052C72B /* UILabel+setSizeFont.swift in Sources */,
+				8798FE3522269D46005A41BE /* String+subString.swift in Sources */,
+				8712C1FD221DA1CC0052B6AA /* PageIndex.swift in Sources */,
+				8798FE572227112B005A41BE /* MenuBarView.swift in Sources */,
+				8712C1D422194C930052B6AA /* PageView.swift in Sources */,
+				8712C1CC2219439D0052B6AA /* TypingViewLayout.swift in Sources */,
+				8712C1DD2219906D0052B6AA /* KeyboardViewConstant.swift in Sources */,
+				872FF2A0221EAE1D00DB9AFA /* String+isNumber.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		87F380DC21E6135A0052C72B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 87F380D521E613590052C72B /* PhahTaigiKeyboard */;
+			targetProxy = 87F380DB21E6135A0052C72B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		87F380C421E612580052C72B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87F380C521E612580052C72B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		87F380C921E6125C0052C72B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87F380CA21E6125C0052C72B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		87F380CD21E6125C0052C72B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76697C249B52715F24834B0D /* Pods-PhahTaigi.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		87F380CE21E6125C0052C72B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE64F8085B17967A8B4901B2 /* Pods-PhahTaigi.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		87F380D021E6125C0052C72B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6TMY38EGFK;
+				INFOPLIST_FILE = PhahTaigi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		87F380D121E6125C0052C72B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6TMY38EGFK;
+				INFOPLIST_FILE = PhahTaigi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		87F380DF21E6135A0052C72B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6TMY38EGFK;
+				INFOPLIST_FILE = PhahTaigiKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi.PhahTaigiKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		87F380E021E6135A0052C72B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6TMY38EGFK;
+				INFOPLIST_FILE = PhahTaigiKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi.PhahTaigiKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		87F380B821E612580052C72B /* Build configuration list for PBXProject "PhahTaigi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87F380CD21E6125C0052C72B /* Debug */,
+				87F380CE21E6125C0052C72B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87F380CF21E6125C0052C72B /* Build configuration list for PBXNativeTarget "PhahTaigi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87F380D021E6125C0052C72B /* Debug */,
+				87F380D121E6125C0052C72B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87F380DE21E6135A0052C72B /* Build configuration list for PBXNativeTarget "PhahTaigiKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87F380DF21E6135A0052C72B /* Debug */,
+				87F380E021E6135A0052C72B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 87F380B521E612580052C72B /* Project object */;
+}

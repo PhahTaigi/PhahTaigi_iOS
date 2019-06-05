@@ -1,0 +1,13 @@
+# Podfile
+platform :ios, '9.0'
+use_frameworks!
+
+target 'PhahTaigi' do
+    pod 'RealmSwift'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'Haptica'
+    pod 'Firebase/Core'
+    pod 'Fabric'
+    pod 'Crashlytics'
+end
