@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -54,6 +54,7 @@
                             <constraint firstItem="wxG-TF-IJh" firstAttribute="top" secondItem="i6Z-vu-EbB" secondAttribute="bottom" id="De2-Zn-1zS"/>
                             <constraint firstItem="wxG-TF-IJh" firstAttribute="leading" secondItem="FMe-bZ-rEr" secondAttribute="leading" constant="5" id="GYj-3c-fdh"/>
                             <constraint firstAttribute="bottom" secondItem="wxG-TF-IJh" secondAttribute="bottom" constant="5" id="PdN-Ee-Bqn"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33" id="b55-6F-kLW"/>
                             <constraint firstItem="i6Z-vu-EbB" firstAttribute="top" secondItem="FMe-bZ-rEr" secondAttribute="top" id="cPl-AY-VVh"/>
                             <constraint firstItem="wxG-TF-IJh" firstAttribute="trailing" secondItem="FMe-bZ-rEr" secondAttribute="trailing" constant="-5" id="hF0-ie-efK"/>
                             <constraint firstItem="i6Z-vu-EbB" firstAttribute="leading" secondItem="FMe-bZ-rEr" secondAttribute="leading" constant="5" id="luc-z4-nj9"/>

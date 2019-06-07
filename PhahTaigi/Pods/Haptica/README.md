@@ -28,7 +28,7 @@ $ pod try Haptica
 
 - iOS 9.0+
 - Xcode 8.0+
-- Swift 4 (Haptica 2.x), Swift 3 (Haptica 1.x)
+- Swift 5 (Haptica 3.x), Swift 4 (Haptica 2.x), Swift 3 (Haptica 1.x)
 
 ### Haptic Feedback Requirements:
 - A device with a supported Taptic Engine (iPhone 7 and iPhone 7 Plus).
@@ -63,13 +63,13 @@ Play a custom vibration pattern:
 Haptic.play("..oO-Oo..", delay: 0.1)
 ```
 
-* **Pattern Symbols**
-* `O` - heavy impact
-* `o` - medium impact
-* `.` - light impact
-* `-` - wait 0.1 second
+Use pattern symbols to represent custom vibrations.
+- `O` - heavy impact
+- `o` - medium impact
+- `.` - light impact
+- `-` - wait 0.1 second
 
-or play a symphony of notes:
+Or play a symphony of notes:
 
 ```swift
 Haptic.play([.haptic(.impact(.light)), .haptic(.impact(.heavy)), .wait(0.1), .haptic(.impact(.heavy)), .haptic(.impact(.light))])

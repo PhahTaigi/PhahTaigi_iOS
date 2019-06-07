@@ -138,6 +138,8 @@ class KeyboardViewController: UIInputViewController {
             self.keyboardView = KeyboardViewLayout.build()
             self.view.addSubview(self.keyboardView!)
             
+            self.automaticallyAdjustsScrollViewInsets = false
+            
             self.taigiInputProcessor = TaigiInputProcessor(keyboardView: self.keyboardView!)
             
             addKeyListener()

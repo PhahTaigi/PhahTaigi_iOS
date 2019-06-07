@@ -181,7 +181,7 @@ private func arrayType<T>(_ type: T.Type) -> RLMArray<AnyObject> {
     case is String.Type: return RLMArray(objectType: .string, optional: true)
     case is Data.Type:   return RLMArray(objectType: .data, optional: true)
     case is Date.Type:   return RLMArray(objectType: .date, optional: true)
-    default: fatalError("Unsupported type for List: \(T.self)?")
+    default: fatalError("Unsupported type for List: \(type)?")
     }
 }
 
@@ -517,13 +517,13 @@ public extension RealmCollection where Element: MinMaxType {
     /**
      Returns the minimum (lowest) value of the collection, or `nil` if the collection is empty.
      */
-    public func min() -> Element? {
+    func min() -> Element? {
         return min(ofProperty: "self")
     }
     /**
      Returns the maximum (highest) value of the collection, or `nil` if the collection is empty.
      */
-    public func max() -> Element? {
+    func max() -> Element? {
         return max(ofProperty: "self")
     }
 }
@@ -532,13 +532,13 @@ public extension RealmCollection where Element: OptionalProtocol, Element.Wrappe
     /**
      Returns the minimum (lowest) value of the collection, or `nil` if the collection is empty.
      */
-    public func min() -> Element.Wrapped? {
+    func min() -> Element.Wrapped? {
         return min(ofProperty: "self")
     }
     /**
      Returns the maximum (highest) value of the collection, or `nil` if the collection is empty.
      */
-    public func max() -> Element.Wrapped? {
+    func max() -> Element.Wrapped? {
         return max(ofProperty: "self")
     }
 }
@@ -547,13 +547,13 @@ public extension RealmCollection where Element: AddableType {
     /**
      Returns the sum of the values in the collection, or `nil` if the collection is empty.
      */
-    public func sum() -> Element {
+    func sum() -> Element {
         return sum(ofProperty: "self")
     }
     /**
      Returns the average of all of the values in the collection.
      */
-    public func average() -> Double? {
+    func average() -> Double? {
         return average(ofProperty: "self")
     }
 }
@@ -562,13 +562,13 @@ public extension RealmCollection where Element: OptionalProtocol, Element.Wrappe
     /**
      Returns the sum of the values in the collection, or `nil` if the collection is empty.
      */
-    public func sum() -> Element.Wrapped {
+    func sum() -> Element.Wrapped {
         return sum(ofProperty: "self")
     }
     /**
      Returns the average of all of the values in the collection.
      */
-    public func average() -> Double? {
+    func average() -> Double? {
         return average(ofProperty: "self")
     }
 }
@@ -582,7 +582,7 @@ public extension RealmCollection where Element: Comparable {
 
      - parameter ascending: The direction to sort in.
      */
-    public func sorted(ascending: Bool = true) -> Results<Element> {
+    func sorted(ascending: Bool = true) -> Results<Element> {
         return sorted(byKeyPath: "self", ascending: ascending)
     }
 }
@@ -596,7 +596,7 @@ public extension RealmCollection where Element: OptionalProtocol, Element.Wrappe
 
      - parameter ascending: The direction to sort in.
      */
-    public func sorted(ascending: Bool = true) -> Results<Element> {
+    func sorted(ascending: Bool = true) -> Results<Element> {
         return sorted(byKeyPath: "self", ascending: ascending)
     }
 }
