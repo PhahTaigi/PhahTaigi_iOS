@@ -99,7 +99,7 @@ struct Instruction {
     Instruction(T instr);
 
     static const size_t max_instruction_size = 64;
-    std::aligned_storage_t<max_instruction_size, 16> m_storage;
+    std::aligned_storage_t<max_instruction_size> m_storage;
     Type type;
 
     template <class F>
@@ -176,11 +176,14 @@ struct Instruction::Payload {
     explicit Payload(int64_t value)   noexcept: type(type_Int) { data.integer = value; }
     explicit Payload(float value)     noexcept: type(type_Float) { data.fnum = value; }
     explicit Payload(double value)    noexcept: type(type_Double) { data.dnum = value; }
-    explicit Payload(Timestamp value) noexcept: type(type_Timestamp) { data.timestamp = value; }
     explicit Payload(Link value)      noexcept: type(type_Link) { data.link = value; }
     explicit Payload(StringBufferRange value) noexcept: type(type_String) { data.str = value; }
     explicit Payload(realm::util::None, bool implicit_null = false) noexcept {
         type = (implicit_null ? -2 : -1);
+    }
+    explicit Payload(Timestamp value) noexcept: type(value.is_null() ? -1 : type_Timestamp)
+    {
+        data.timestamp = value;
     }
 
     Payload(const Payload&) noexcept = default;
@@ -346,26 +349,11 @@ struct InstructionHandler {
 
 /// Implementation:
 
-#if !defined(__GNUC__) || defined(__clang__) || __GNUC__ > 4 // GCC 4.x does not support std::is_trivially_copyable
-#define REALM_CHECK_TRIVIALLY_COPYABLE(X) static_assert(std::is_trivially_copyable<Instruction::X>::value, #X" Instructions must be trivially copyable.");
-    REALM_FOR_EACH_INSTRUCTION_TYPE(REALM_CHECK_TRIVIALLY_COPYABLE)
-#undef REALM_CHECK_TRIVIALLY_COPYABLE
-#endif // __GNUC__
-
-#ifdef _WIN32 // FIXME: Fails in VS. 
-#define REALM_CHECK_INSTRUCTION_SIZE(X)
-#else
-#define REALM_CHECK_INSTRUCTION_SIZE(X) static_assert(sizeof(Instruction::X) <= Instruction::max_instruction_size, #X" Instruction too big.");
-    REALM_FOR_EACH_INSTRUCTION_TYPE(REALM_CHECK_INSTRUCTION_SIZE)
-#undef REALM_CHECK_INSTRUCTION_SIZE
-#endif
-
 #define REALM_DEFINE_INSTRUCTION_GET_TYPE(X) \
     template <> struct Instruction::GetType<Instruction::Type::X> { using Type = Instruction::X; }; \
     template <> struct Instruction::GetInstructionType<Instruction::X> { static const Instruction::Type value = Instruction::Type::X; };
     REALM_FOR_EACH_INSTRUCTION_TYPE(REALM_DEFINE_INSTRUCTION_GET_TYPE)
 #undef REALM_DEFINE_INSTRUCTION_GET_TYPE
-
 
 template <class T>
 Instruction::Instruction(T instr): type(GetInstructionType<T>::value)
@@ -400,6 +388,16 @@ inline bool Instruction::operator==(const Instruction& other) const noexcept
 
     // This relies on all instruction types being PODs to work.
     return std::memcmp(&m_storage, &other.m_storage, valid_size) == 0;
+}
+
+inline bool Instruction::Payload::is_null() const
+{
+    return type < 0;
+}
+
+inline bool Instruction::Payload::is_implicit_null() const
+{
+    return type == -2;
 }
 
 template <class F>

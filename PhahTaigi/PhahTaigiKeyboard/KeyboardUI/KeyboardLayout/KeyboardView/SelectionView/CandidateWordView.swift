@@ -47,6 +47,7 @@ class CandidateWordView: UICollectionView {
         self.setContentOffset(offset, animated: false)
         
         self.reloadData()
+        self.collectionViewLayout.invalidateLayout()
     }
     
     func getDefaultCandidate() -> String? {
@@ -62,10 +63,12 @@ class CandidateWordView: UICollectionView {
         self.hanloCandidates.removeAll()
         
         self.reloadData()
+        self.collectionViewLayout.invalidateLayout()
     }
     
     func reloadByHanloStatus() {
         self.reloadData()
+        self.collectionViewLayout.invalidateLayout()
     }
 }
 
