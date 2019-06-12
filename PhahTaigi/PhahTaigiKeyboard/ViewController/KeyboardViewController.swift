@@ -41,7 +41,7 @@ class KeyboardViewController: UIInputViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        print("initNib")
+//        print("initNib")
         
         // init
         SettingView.registerDefaultSettings()

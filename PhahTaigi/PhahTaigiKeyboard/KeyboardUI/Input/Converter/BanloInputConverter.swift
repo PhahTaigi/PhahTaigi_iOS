@@ -6,6 +6,8 @@ class BanloInputConverter {
     fileprivate static let banloWordExtractPattern = "(?:(ph|p|m|b|th|tsh|ts|t|n|l|kh|k|ng|g|h|s|j)?([aiueo+]+(?:nn)?|ng|m)(?:(ng|m|n|re|r)|(p|t|h|k))?([1-9])?|(ph|p|m|b|th|tsh|ts|t|n|l|kh|k|ng|g|h|s|j)-?-?)"
     
     static func convertBanloNumberRawInputToBanloWords(input: String?) -> String {
+//        print("-------------------------------------")
+        
         if input == nil {
             return ""
         }
@@ -17,9 +19,9 @@ class BanloInputConverter {
         var banloWords = ""
         
         let results = trimInput.matches(regex: self.banloWordExtractPattern)
-//        for result in results {
+        for result in results {
 //            print("convertBanloNumberRawInputToBanloWords: result=\(result)")
-//        }
+        }
         
         if results.count == 0 {
             return ""
@@ -52,7 +54,7 @@ class BanloInputConverter {
         var number = ""
         
         let lastCharString = fixedBanloNumber.lastCharString()
-//        print("lastCharString: \(lastCharString)")
+//        print("convertBanloNumberToBanlo(), lastCharString: \(lastCharString)")
         
         if !lastCharString.isNumber {
             return fixedBanloNumber
@@ -65,7 +67,7 @@ class BanloInputConverter {
             
             let banlo = generateBanloInput(banloWithoutNumber: banloWithoutNumber, number: number, tonePosition: tonePosition);
             
-            print("banloWithoutNumber=\(banloWithoutNumber), number=\(number), tonePosition=\(tonePosition), banlo=\(banlo)")
+//            print("banloWithoutNumber=\(banloWithoutNumber), number=\(number), tonePosition=\(tonePosition), banlo=\(banlo)")
             
             return banlo
         }
@@ -79,14 +81,14 @@ class BanloInputConverter {
         
         let indexOfVowel = banloWithoutNumber.lastIndexForRegex(regex: "i|u|oo|o|e")
         if indexOfVowel >= 0 {
-//            let currentCharString = banloWithoutNumber.subString(startIndex: indexOfVowel, endIndex: indexOfVowel + 1)
+            let currentCharString = banloWithoutNumber.subString(startIndex: indexOfVowel, endIndex: indexOfVowel + 1)
 //            print("found tonenumber char: \(currentCharString)")
             return indexOfVowel
         }
         
         let indexOfSemiVowel = banloWithoutNumber.lastIndexForRegex(regex: "ng|n|m")
         if indexOfSemiVowel >= 0 {
-//            let currentCharString = banloWithoutNumber.subString(startIndex: indexOfSemiVowel, endIndex: indexOfSemiVowel + 1)
+            let currentCharString = banloWithoutNumber.subString(startIndex: indexOfSemiVowel, endIndex: indexOfSemiVowel + 1)
 //            print("found tonenumber char: \(currentCharString)")
             
             return indexOfSemiVowel

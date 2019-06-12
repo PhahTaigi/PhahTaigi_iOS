@@ -32,8 +32,8 @@ extension String {
             let range = Range(match.range, in: self)
             let lowerBound = range?.lowerBound.encodedOffset ?? -1
             let upperBound = range?.upperBound.encodedOffset ?? -1
-            print("lowerBound: \(String(describing: range?.lowerBound.encodedOffset))")
-            print("upperBound: \(String(describing: range?.upperBound.encodedOffset))")
+//            print("lowerBound: \(String(describing: range?.lowerBound.encodedOffset))")
+//            print("upperBound: \(String(describing: range?.upperBound.encodedOffset))")
             if lowerBound > lastLowerBound {
                 lastLowerBound = lowerBound
                 lastUpperBound = upperBound

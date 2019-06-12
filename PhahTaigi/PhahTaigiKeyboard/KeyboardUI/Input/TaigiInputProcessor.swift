@@ -19,7 +19,7 @@ class TaigiInputProcessor {
     }
     
     func findCandidateWordsAsync(input: String) {
-        print("findCandidateWords: input=\(input)")
+//        print("findCandidateWords: input=\(input)")
         
         self.currentInputString = input
         
@@ -39,6 +39,10 @@ class TaigiInputProcessor {
                 
                 // find dict candidate
                 let realmDictCandidates = self.queryFromDictDatabase(input: input)
+                
+                for candidate in realmDictCandidates {
+                    print("candidate.tailo = \(candidate.tailo)")
+                }
                 
                 DispatchQueue.main.async {
                     self.setCandidates(input: input, lomajiCandidates: [unicodeWordCandidate], hanloCandidates: realmDictCandidates)
@@ -123,7 +127,7 @@ class TaigiInputProcessor {
                 if CurrentSetting.isPoj() {
                     result.poj = result.poj.prefix(1).uppercased() + result.poj.suffix(result.poj.count - 1)
                 } else {
-                    result.tailo = result.tailo.prefix(1).uppercased() + result.tailo.suffix(result.poj.count - 1)
+                    result.tailo = result.tailo.prefix(1).uppercased() + result.tailo.suffix(result.tailo.count - 1)
                 }
             }
         }

@@ -15,7 +15,7 @@ class ConverterUtils {
             return lomajiNumber
         }
         
-        print("foundNumberIndex: \(foundNumberIndex)")
+//        print("foundNumberIndex: \(foundNumberIndex)")
         
         let startIndex = lomajiNumber.index(lomajiNumber.startIndex, offsetBy: 0)
         let endIndex = lomajiNumber.index(lomajiNumber.startIndex, offsetBy: foundNumberIndex)
@@ -29,11 +29,11 @@ class ConverterUtils {
         let count = lomajiNumber.count
         let range = (0...count-1).reversed()
         for i in range {
-            let possibleSianntiauText = lomajiNumber.subString(startIndex: i, endIndex: i+1)
-            print("possibleSianntiauText: \(possibleSianntiauText)")
-            if possibleSianntiauText.isNumber {
+            let possibleSianntiauString = lomajiNumber.subString(startIndex: i, endIndex: i+1)
+//            print("possibleSianntiauString: \(possibleSianntiauString)")
+            if possibleSianntiauString.isNumber {
                 foundNumberIndex = i
-                print("get foundNumberIndex: \(foundNumberIndex)")
+//                print("get foundNumberIndex: \(foundNumberIndex)")
             } else {
                 break
             }

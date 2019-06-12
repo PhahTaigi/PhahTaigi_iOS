@@ -95,6 +95,8 @@ extension CandidateWordView: UICollectionViewDataSource {
             let index = indexPath.row - self.lomajiCandidates.count
             let currentImeDict: ImeDict = self.hanloCandidates[index]
             
+//            print("currentImeDict.tailo: \(currentImeDict.tailo)")
+            
             if CurrentKeyboardStatus.hanloStatus == .lomaji {
                 if CurrentSetting.isPoj() {
                     cell.topLabel.text = currentImeDict.poj.trimmingCharacters(in: .whitespaces)

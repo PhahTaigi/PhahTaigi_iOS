@@ -57,7 +57,7 @@ class PojInputConverter {
     
     fileprivate static func convertPojNumberToPoj(pojNumber: String) -> String {
         let fixedPojNumber = ConverterUtils.fixLomajiNumberFormat(lomajiNumber: pojNumber);
-        print("fixedPojNumber: \(fixedPojNumber)")
+//        print("fixedPojNumber: \(fixedPojNumber)")
         
         if fixedPojNumber.count <= 1 {
             return fixedPojNumber
@@ -66,7 +66,7 @@ class PojInputConverter {
         var number = ""
         
         let lastCharString = fixedPojNumber.lastCharString()
-        print("lastCharString: \(lastCharString)")
+//        print("convertPojNumberToPoj(), lastCharString: \(lastCharString)")
         
         if !lastCharString.isNumber {
             return ConverterUtils.fixBosianntiauOo(noNumberLomaji: fixedPojNumber)
@@ -79,7 +79,7 @@ class PojInputConverter {
             
             let poj = generatePojInput(pojWithoutNumber: pojWithoutNumber, number: number, toneVowelRange: toneVowelRange);
             
-            print("pojWithoutNumber=\(pojWithoutNumber), number=\(number), toneVowelRange=\(String(describing: toneVowelRange?.startIndex))..<\(String(describing: toneVowelRange?.endIndex)), poj=\(poj)")
+//            print("pojWithoutNumber=\(pojWithoutNumber), number=\(number), toneVowelRange=\(String(describing: toneVowelRange?.startIndex))..<\(String(describing: toneVowelRange?.endIndex)), poj=\(poj)")
             
             return poj
         }
@@ -89,10 +89,10 @@ class PojInputConverter {
         let pojWithoutNumberLowercased = pojWithoutNumber.lowercased()
         let count = pojWithoutNumberLowercased.count
     
-        print("calculateTonePosition: pojWithoutNumberLowercased = \(pojWithoutNumberLowercased), count = \(count)")
+//        print("calculateTonePosition: pojWithoutNumberLowercased = \(pojWithoutNumberLowercased), count = \(count)")
     
         let lastRangeOfVowel: EasyRange? = pojWithoutNumberLowercased.lastRangeForRegex(regex: "a|i|u|e|oo|o")
-        print("lastRangeOfVowel: \(String(describing: lastRangeOfVowel))")
+//        print("lastRangeOfVowel: \(String(describing: lastRangeOfVowel))")
         if lastRangeOfVowel == nil {
 //            let testWithoutNN = pojWithoutNumberLowercased.replacingOccurrences(of: "nn", with: "__")
             let lastRangeOfHalfVowel = pojWithoutNumberLowercased.lastRangeForRegex(regex: "m|ng|n")
