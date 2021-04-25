@@ -30,17 +30,17 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhahTaigi 台語輸入法" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qf-mh-D1B">
-                                                <rect key="frame" x="75" y="303" width="225" height="21"/>
+                                                <rect key="frame" x="37.5" y="303" width="300" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5qf-mh-D1B" secondAttribute="height" multiplier="75:7" id="kaD-Cr-avs"/>
-                                                    <constraint firstAttribute="height" constant="21" id="x41-iI-AZz"/>
+                                                    <constraint firstAttribute="height" constant="28" id="x41-iI-AZz"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v0.9.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dz6-Lf-knP">
-                                                <rect key="frame" x="62.5" y="343" width="250" height="21"/>
+                                                <rect key="frame" x="62.5" y="350" width="250" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="dz6-Lf-knP" secondAttribute="height" multiplier="250:21" id="7eB-je-y6k"/>
                                                     <constraint firstAttribute="height" constant="21" id="W8z-K6-D8T"/>
@@ -50,7 +50,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="〈按怎開始用〉" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfT-6Y-RKA">
-                                                <rect key="frame" x="62.5" y="417" width="250" height="24"/>
+                                                <rect key="frame" x="62.5" y="424" width="250" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="Uqc-JA-9WI"/>
                                                     <constraint firstAttribute="width" secondItem="PfT-6Y-RKA" secondAttribute="height" multiplier="125:12" id="hTa-3Y-Mrl"/>
@@ -60,7 +60,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請去【設定】&gt;【一般】&gt;【鍵盤】&gt;【鍵盤】&gt;【新增鍵盤...】&gt; Tī『第三方鍵盤』hia，點【Tâi-gí - PhahTaigi】來增加輸入法。" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMu-1J-1LH">
-                                                <rect key="frame" x="37.5" y="451" width="300" height="100"/>
+                                                <rect key="frame" x="37.5" y="458" width="300" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="6yh-IM-HPb"/>
                                                     <constraint firstAttribute="width" secondItem="YMu-1J-1LH" secondAttribute="height" multiplier="3:1" id="Rl3-s9-hhx"/>
@@ -70,7 +70,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sòa--落-來，請繼續koh點【Tâi-gí - PhahTaigi】入--去，kā【允許全權取用】phah--khui，án-ne輸入法設定功能chiah thang用。" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSQ-sR-yUu">
-                                                <rect key="frame" x="37.5" y="561" width="300" height="100"/>
+                                                <rect key="frame" x="37.5" y="568" width="300" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="Gar-X0-CNt"/>
                                                     <constraint firstAttribute="width" secondItem="VSQ-sR-yUu" secondAttribute="height" multiplier="3:1" id="Vjf-Qm-bza"/>
@@ -80,7 +80,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chit-má你ē-sái開始phah字--a！請chhōe 1-ê所在開始phah字，點別ê輸入法ê 🌐 來切換輸入法。" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FU6-er-4u5">
-                                                <rect key="frame" x="37.5" y="671" width="300" height="80"/>
+                                                <rect key="frame" x="37.5" y="678" width="300" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="DnB-Sj-oVZ"/>
                                                     <constraint firstAttribute="width" secondItem="FU6-er-4u5" secondAttribute="height" multiplier="3:1" constant="60" id="c1t-2n-qjp"/>
@@ -104,7 +104,6 @@
                                             <constraint firstItem="VSQ-sR-yUu" firstAttribute="centerX" secondItem="mlG-U5-d08" secondAttribute="centerX" id="Qcf-Ie-v4L"/>
                                             <constraint firstItem="YMu-1J-1LH" firstAttribute="top" secondItem="PfT-6Y-RKA" secondAttribute="bottom" constant="10" id="Qzs-to-Zuz"/>
                                             <constraint firstItem="FU6-er-4u5" firstAttribute="width" secondItem="FU6-er-4u5" secondAttribute="height" multiplier="3:1" constant="60" id="REI-Ku-kpn"/>
-                                            <constraint firstAttribute="width" constant="375" id="Tl8-UH-UzW"/>
                                             <constraint firstItem="5qf-mh-D1B" firstAttribute="top" secondItem="fhB-Bi-a8B" secondAttribute="bottom" constant="23" id="aqc-7E-aS5"/>
                                             <constraint firstItem="fhB-Bi-a8B" firstAttribute="top" secondItem="mlG-U5-d08" secondAttribute="top" constant="30" id="lFU-N7-QMf"/>
                                             <constraint firstItem="VSQ-sR-yUu" firstAttribute="width" secondItem="VSQ-sR-yUu" secondAttribute="height" multiplier="3:1" id="lL4-5d-j8c"/>
@@ -117,8 +116,6 @@
                                 <constraints>
                                     <constraint firstItem="mlG-U5-d08" firstAttribute="top" secondItem="VIK-Ab-nFu" secondAttribute="top" id="Fpt-G9-2ps"/>
                                     <constraint firstAttribute="bottom" secondItem="mlG-U5-d08" secondAttribute="bottom" id="QZU-SD-bGs"/>
-                                    <constraint firstAttribute="height" constant="800" id="amM-Wd-JH1"/>
-                                    <constraint firstAttribute="width" constant="375" id="eBZ-bG-e3X"/>
                                     <constraint firstItem="mlG-U5-d08" firstAttribute="leading" secondItem="VIK-Ab-nFu" secondAttribute="leading" id="oZg-f0-tin"/>
                                     <constraint firstAttribute="trailing" secondItem="mlG-U5-d08" secondAttribute="trailing" id="z7e-40-Y19"/>
                                 </constraints>
@@ -130,7 +127,7 @@
                             <constraint firstItem="mlG-U5-d08" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="34Y-tL-WnK"/>
                             <constraint firstItem="VIK-Ab-nFu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CNL-Dg-Fsa"/>
                             <constraint firstItem="VIK-Ab-nFu" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mdx-xZ-bKY"/>
-                            <constraint firstItem="VIK-Ab-nFu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wWq-oO-sld"/>
+                            <constraint firstItem="VIK-Ab-nFu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wWq-oO-sld"/>
                             <constraint firstItem="VIK-Ab-nFu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yxI-PK-cRM"/>
                         </constraints>
                     </view>
