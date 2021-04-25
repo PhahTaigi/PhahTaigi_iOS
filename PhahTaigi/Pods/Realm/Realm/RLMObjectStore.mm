@@ -32,18 +32,14 @@
 #import "RLMSwiftSupport.h"
 #import "RLMUtil.hpp"
 
-#import "object_store.hpp"
-#import "results.hpp"
-#import "shared_realm.hpp"
+#import <realm/object-store/object_store.hpp>
+#import <realm/object-store/results.hpp>
+#import <realm/object-store/shared_realm.hpp>
+#import <realm/group.hpp>
 
 #import <objc/message.h>
 
 using namespace realm;
-
-@interface LinkingObjectsBase : NSObject
-@property (nonatomic, nullable) RLMWeakObjectHandle *object;
-@property (nonatomic, nullable) RLMProperty *property;
-@end
 
 void RLMRealmCreateAccessors(RLMSchema *schema) {
     const size_t bufferSize = sizeof("RLM:Managed  ") // includes null terminator
@@ -69,6 +65,11 @@ static inline void RLMVerifyRealmRead(__unsafe_unretained RLMRealm *const realm)
         @throw RLMException(@"Realm must not be nil");
     }
     [realm verifyThread];
+    if (realm->_realm->is_closed()) {
+        // This message may seem overly specific, but frozen Realms are currently
+        // the only ones which we outright close.
+        @throw RLMException(@"Cannot read from a frozen Realm which has been invalidated.");
+    }
 }
 
 static inline void RLMVerifyInWriteTransaction(__unsafe_unretained RLMRealm *const realm) {
@@ -90,23 +91,17 @@ void RLMInitializeSwiftAccessorGenerics(__unsafe_unretained RLMObjectBase *const
     }
 
     for (RLMProperty *prop in object->_objectSchema.swiftGenericProperties) {
-        if (prop.swiftIvar == RLMDummySwiftIvar) {
-            // FIXME: this should actually be an error as it's the result of an
-            // invalid object definition, but that's a breaking change so
-            // instead preserve the old behavior until the next major version bump
-            // https://github.com/realm/realm-cocoa/issues/5784
-            continue;
-        }
-        id ivar = object_getIvar(object, prop.swiftIvar);
         if (prop.type == RLMPropertyTypeLinkingObjects) {
-            [ivar setObject:(id)[[RLMWeakObjectHandle alloc] initWithObject:object]];
-            [ivar setProperty:prop];
+            [prop.swiftAccessor initializeObject:(char *)(__bridge void *)object + ivar_getOffset(prop.swiftIvar)
+                                          parent:object property:prop];
         }
         else if (prop.array) {
+            id ivar = object_getIvar(object, prop.swiftIvar);
             RLMArray *array = [[RLMManagedArray alloc] initWithParent:object property:prop];
             [ivar set_rlmArray:array];
         }
         else {
+            id ivar = object_getIvar(object, prop.swiftIvar);
             RLMInitializeManagedOptional(ivar, object, prop);
         }
     }
@@ -116,8 +111,23 @@ void RLMVerifyHasPrimaryKey(Class cls) {
     RLMObjectSchema *schema = [cls sharedSchema];
     if (!schema.primaryKeyProperty) {
         NSString *reason = [NSString stringWithFormat:@"'%@' does not have a primary key and can not be updated", schema.className];
-        @throw [NSException exceptionWithName:@"RLMExecption" reason:reason userInfo:nil];
+        @throw [NSException exceptionWithName:@"RLMException" reason:reason userInfo:nil];
     }
+}
+
+static CreatePolicy updatePolicyToCreatePolicy(RLMUpdatePolicy policy) {
+    CreatePolicy createPolicy = {.create = true, .copy = false, .diff = false, .update = false};
+    switch (policy) {
+        case RLMUpdatePolicyError:
+            break;
+        case RLMUpdatePolicyUpdateChanged:
+            createPolicy.diff = true;
+            [[clang::fallthrough]];
+        case RLMUpdatePolicyUpdateAll:
+            createPolicy.update = true;
+            break;
+    }
+    return createPolicy;
 }
 
 void RLMAddObjectToRealm(__unsafe_unretained RLMObjectBase *const object,
@@ -125,73 +135,28 @@ void RLMAddObjectToRealm(__unsafe_unretained RLMObjectBase *const object,
                          RLMUpdatePolicy updatePolicy) {
     RLMVerifyInWriteTransaction(realm);
 
-    // verify that object is unmanaged
-    if (object.invalidated) {
-        @throw RLMException(@"Adding a deleted or invalidated object to a Realm is not permitted");
-    }
-    if (object->_realm) {
-        if (object->_realm == realm) {
-            // Adding an object to the Realm it's already manged by is a no-op
-            return;
-        }
-        // for differing realms users must explicitly create the object in the second realm
-        @throw RLMException(@"Object is already managed by another Realm. Use create instead to copy it into this Realm.");
-    }
-    if (object->_observationInfo && object->_observationInfo->hasObservers()) {
-        @throw RLMException(@"Cannot add an object with observers to a Realm");
-    }
-
+    CreatePolicy createPolicy = updatePolicyToCreatePolicy(updatePolicy);
+    createPolicy.copy = false;
     auto& info = realm->_info[object->_objectSchema.className];
-    RLMAccessorContext c{realm, info, true};
-    object->_info = &info;
-    object->_realm = realm;
-    object->_objectSchema = info.rlmObjectSchema;
-    try {
-        realm::Object::create(c, realm->_realm, *info.objectSchema, (id)object,
-                              updatePolicy != RLMUpdatePolicyError,
-                              updatePolicy == RLMUpdatePolicyUpdateChanged,
-                              -1, &object->_row);
-    }
-    catch (std::exception const& e) {
-        @throw RLMException(e);
-    }
-    object_setClass(object, info.rlmObjectSchema.accessorClass);
-    RLMInitializeSwiftAccessorGenerics(object);
+    RLMAccessorContext c{info};
+    c.createObject(object, createPolicy);
 }
 
 RLMObjectBase *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *className,
                                                id value, RLMUpdatePolicy updatePolicy) {
     RLMVerifyInWriteTransaction(realm);
 
-    if (updatePolicy != RLMUpdatePolicyError && RLMIsObjectSubclass([value class])) {
-        RLMObjectBase *obj = value;
-        if (obj->_realm == realm && [obj->_objectSchema.className isEqualToString:className]) {
-            // This is a no-op if value is an RLMObject of the same type already backed by the target realm.
-            return value;
-        }
-    }
-
-    if (!value || value == NSNull.null) {
-        @throw RLMException(@"Must provide a non-nil value.");
-    }
+    CreatePolicy createPolicy = updatePolicyToCreatePolicy(updatePolicy);
+    createPolicy.copy = true;
 
     auto& info = realm->_info[className];
-    if ([value isKindOfClass:[NSArray class]] && [value count] > info.objectSchema->persisted_properties.size()) {
-        @throw RLMException(@"Invalid array input: more values (%llu) than properties (%llu).",
-                            (unsigned long long)[value count],
-                            (unsigned long long)info.objectSchema->persisted_properties.size());
+    RLMAccessorContext c{info};
+    RLMObjectBase *object = RLMCreateManagedAccessor(info.rlmObjectSchema.accessorClass, &info);
+    auto [obj, reuseExisting] = c.createObject(value, createPolicy, true);
+    if (reuseExisting) {
+        return value;
     }
-
-    RLMAccessorContext c{realm, info, false};
-    RLMObjectBase *object = RLMCreateManagedAccessor(info.rlmObjectSchema.accessorClass, realm, &info);
-    try {
-        object->_row = realm::Object::create(c, realm->_realm, *info.objectSchema,
-                                             (id)value, updatePolicy != RLMUpdatePolicyError,
-                                             updatePolicy == RLMUpdatePolicyUpdateChanged).row();
-    }
-    catch (std::exception const& e) {
-        @throw RLMException(e);
-    }
+    object->_row = std::move(obj);
     RLMInitializeSwiftAccessorGenerics(object);
     return object;
 }
@@ -204,14 +169,10 @@ void RLMDeleteObjectFromRealm(__unsafe_unretained RLMObjectBase *const object,
 
     RLMVerifyInWriteTransaction(object->_realm);
 
-    // move last row to row we are deleting
-    if (object->_row.is_attached()) {
-        RLMTrackDeletions(realm, ^{
-            object->_row.move_last_over();
-        });
+    if (object->_row.is_valid()) {
+        RLMObservationTracker tracker(realm, true);
+        object->_row.remove();
     }
-
-    // set realm to nil
     object->_realm = nil;
 }
 
@@ -244,7 +205,7 @@ RLMResults *RLMGetObjects(__unsafe_unretained RLMRealm *const realm,
     }
 
     return [RLMResults resultsWithObjectInfo:info
-                                     results:realm::Results(realm->_realm, *info.table())];
+                                     results:realm::Results(realm->_realm, info.table())];
 }
 
 id RLMGetObject(RLMRealm *realm, NSString *objectClassName, id key) {
@@ -255,30 +216,26 @@ id RLMGetObject(RLMRealm *realm, NSString *objectClassName, id key) {
         RLMValidateValueForProperty(key, info.rlmObjectSchema, prop);
     }
     try {
-        RLMAccessorContext c{realm, info};
+        RLMAccessorContext c{info};
         auto obj = realm::Object::get_for_primary_key(c, realm->_realm, *info.objectSchema,
                                                       key ?: NSNull.null);
         if (!obj.is_valid())
             return nil;
-        return RLMCreateObjectAccessor(realm, info, obj.row());
+        return RLMCreateObjectAccessor(info, obj.obj());
     }
     catch (std::exception const& e) {
         @throw RLMException(e);
     }
 }
 
-RLMObjectBase *RLMCreateObjectAccessor(__unsafe_unretained RLMRealm *const realm,
-                                       RLMClassInfo& info,
-                                       NSUInteger index) {
-    return RLMCreateObjectAccessor(realm, info, (*info.table())[index]);
+RLMObjectBase *RLMCreateObjectAccessor(RLMClassInfo& info, int64_t key) {
+    return RLMCreateObjectAccessor(info, info.table()->get_object(realm::ObjKey(key)));
 }
 
 // Create accessor and register with realm
-RLMObjectBase *RLMCreateObjectAccessor(__unsafe_unretained RLMRealm *const realm,
-                                       RLMClassInfo& info,
-                                       realm::RowExpr row) {
-    RLMObjectBase *accessor = RLMCreateManagedAccessor(info.rlmObjectSchema.accessorClass, realm, &info);
-    accessor->_row = row;
+RLMObjectBase *RLMCreateObjectAccessor(RLMClassInfo& info, realm::Obj&& obj) {
+    RLMObjectBase *accessor = RLMCreateManagedAccessor(info.rlmObjectSchema.accessorClass, &info);
+    accessor->_row = std::move(obj);
     RLMInitializeSwiftAccessorGenerics(accessor);
     return accessor;
 }

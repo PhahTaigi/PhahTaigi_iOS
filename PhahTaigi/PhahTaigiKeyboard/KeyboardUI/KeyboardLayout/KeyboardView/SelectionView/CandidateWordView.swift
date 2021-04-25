@@ -6,10 +6,10 @@ class CandidateWordView: UICollectionView {
     fileprivate var flowLayout: UICollectionViewFlowLayout
     
     fileprivate var lomajiCandidates = [String]()
-    fileprivate var hanloCandidates = [ImeDict]()
+    fileprivate var hanloCandidates = [ImeDictModel]()
     
     // callback function
-    var onSelectedCandidate: ((_ selectedOutput: String, _ selectedHanloCandidate: ImeDict?)->())?
+    var onSelectedCandidate: ((_ selectedOutput: String, _ selectedHanloCandidate: ImeDictModel?)->())?
     
     init(frame: CGRect) {
         self.flowLayout = UICollectionViewFlowLayout()
@@ -36,7 +36,7 @@ class CandidateWordView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setCandidates(lomajiCandidates: [String], hanloCandidates: [ImeDict]) {
+    func setCandidates(lomajiCandidates: [String], hanloCandidates: [ImeDictModel]) {
         self.lomajiCandidates.removeAll()
         self.lomajiCandidates.append(contentsOf: lomajiCandidates)
         self.hanloCandidates.removeAll()
@@ -90,28 +90,45 @@ extension CandidateWordView: UICollectionViewDataSource {
         if indexPath.row < lomajiCandidates.count {
             let index = indexPath.row
             cell.topLabel.text = self.lomajiCandidates[index]
-            cell.bottomLabel.text = ""
+            cell.bottomLabel.text = " "
         } else {
             let index = indexPath.row - self.lomajiCandidates.count
-            let currentImeDict: ImeDict = self.hanloCandidates[index]
+            let currentImeDict: ImeDictModel = self.hanloCandidates[index]
             
-//            print("currentImeDict.tailo: \(currentImeDict.tailo)")
+//            print("currentImeDict.kip: \(currentImeDict.kip)")
+            
+            let poj = currentImeDict.poj.trimmingCharacters(in: .whitespaces)
+            let kip = currentImeDict.kip.trimmingCharacters(in: .whitespaces)
+            var hanji = currentImeDict.hanji.trimmingCharacters(in: .whitespaces)
+            if (hanji.isEmpty) {
+                hanji = " "
+            }
             
             if CurrentKeyboardStatus.hanloStatus == .lomaji {
                 if CurrentSetting.isPoj() {
-                    cell.topLabel.text = currentImeDict.poj.trimmingCharacters(in: .whitespaces)
+                    cell.topLabel.text = poj
                 } else {
-                    cell.topLabel.text = currentImeDict.tailo.trimmingCharacters(in: .whitespaces)
+                    cell.topLabel.text = kip
                 }
                 
-                cell.bottomLabel.text = currentImeDict.hanji.trimmingCharacters(in: .whitespaces)
+                cell.bottomLabel.text = hanji
             } else {
-                cell.topLabel.text = currentImeDict.hanji.trimmingCharacters(in: .whitespaces)
-                
-                if CurrentSetting.isPoj() {
-                    cell.bottomLabel.text = currentImeDict.poj.trimmingCharacters(in: .whitespaces)
+                if (hanji == " ") {
+                    if CurrentSetting.isPoj() {
+                        cell.topLabel.text = poj
+                    } else {
+                        cell.topLabel.text = kip
+                    }
+                    
+                    cell.bottomLabel.text = " "
                 } else {
-                    cell.bottomLabel.text = currentImeDict.tailo.trimmingCharacters(in: .whitespaces)
+                    cell.topLabel.text = hanji
+                    
+                    if CurrentSetting.isPoj() {
+                        cell.bottomLabel.text = poj
+                    } else {
+                        cell.bottomLabel.text = kip
+                    }
                 }
             }
         }
@@ -142,15 +159,23 @@ extension CandidateWordView: UICollectionViewDelegate {
             let imeDictIndex = indexPath.row - self.lomajiCandidates.count
             
             var selectedOutput: String
-            let selectedImeDictModel: ImeDict = self.hanloCandidates[imeDictIndex]
+            let selectedImeDictModel: ImeDictModel = self.hanloCandidates[imeDictIndex]
             if CurrentKeyboardStatus.hanloStatus == .lomaji {
                 if CurrentSetting.isPoj() {
                     selectedOutput = selectedImeDictModel.poj
                 } else {
-                    selectedOutput = selectedImeDictModel.tailo
+                    selectedOutput = selectedImeDictModel.kip
                 }
             } else {
-                selectedOutput = selectedImeDictModel.hanji
+                if (selectedImeDictModel.hanji.isEmpty || selectedImeDictModel.hanji == " ") {
+                    if CurrentSetting.isPoj() {
+                        selectedOutput = selectedImeDictModel.poj
+                    } else {
+                        selectedOutput = selectedImeDictModel.kip
+                    }
+                } else {
+                    selectedOutput = selectedImeDictModel.hanji
+                }
             }
             
             self.onSelectedCandidate?(selectedOutput, selectedImeDictModel)

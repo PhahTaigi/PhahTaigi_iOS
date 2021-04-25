@@ -32,6 +32,12 @@ class Key {
             
         case KeyType.space.rawValue:
             self.keyType = .space
+
+        case KeyType.taibunSpace.rawValue:
+            self.keyType = .taibunSpace
+            
+        case KeyType.engbunSpace.rawValue:
+            self.keyType = .engbunSpace
             
         case KeyType.hanloSwitch.rawValue:
             self.keyType = .hanloSwitch

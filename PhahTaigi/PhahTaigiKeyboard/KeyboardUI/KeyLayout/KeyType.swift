@@ -13,4 +13,7 @@ enum KeyType: String {
     case hanloSwitch = "hanloSwitch"
     case enter = "enter"
     case lomajiPage = "lomajiPage"
+    
+    case taibunSpace = "taibunSpace"
+    case engbunSpace = "engbunSpace"
 }

@@ -1,22 +1,11 @@
 ![Haptica](https://raw.githubusercontent.com/efremidze/Haptica/master/Images/logo.png)
 
-<p align="center">
-    <a href="https://travis-ci.org/efremidze/Haptica" target="_blank">
-        <img alt="Build Status" src="https://travis-ci.org/efremidze/Haptica.svg?style=flat">
-    </a>
-    <a href="http://cocoapods.org/pods/Haptica" target="_blank">
-        <img alt="Version" src="https://img.shields.io/cocoapods/v/Haptica.svg?style=flat">
-    </a>
-    <a href="http://cocoapods.org/pods/Haptica" target="_blank">
-        <img alt="License" src="https://img.shields.io/cocoapods/l/Haptica.svg?style=flat">
-    </a>
-    <a href="http://cocoapods.org/pods/Haptica" target="_blank">
-        <img alt="Platform" src="https://img.shields.io/cocoapods/p/Haptica.svg?style=flat">
-    </a>
-    <a href="https://github.com/Carthage/Carthage" target="_blank">
-        <img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat">
-    </a>
-</p>
+[![Build Status](https://travis-ci.org/efremidze/Haptica.svg?branch=master)](https://travis-ci.org/efremidze/Haptica)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Language](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://swift.org)
+[![Version](https://img.shields.io/cocoapods/v/Haptica.svg?style=flat)](http://cocoapods.org/pods/Haptica)
+[![License](https://img.shields.io/cocoapods/l/Haptica.svg?style=flat)](http://cocoapods.org/pods/Haptica)
+[![Platform](https://img.shields.io/cocoapods/p/Haptica.svg?style=flat)](http://cocoapods.org/pods/Haptica)
 
 **Haptica** is an easy haptic feedback generator.
 
@@ -31,7 +20,7 @@ $ pod try Haptica
 - Swift 5 (Haptica 3.x), Swift 4 (Haptica 2.x), Swift 3 (Haptica 1.x)
 
 ### Haptic Feedback Requirements:
-- A device with a supported Taptic Engine (iPhone 7 and iPhone 7 Plus).
+- A device with a supported Taptic Engine.
 - App is running in the foreground.
 - System Haptics setting is enabled.
 

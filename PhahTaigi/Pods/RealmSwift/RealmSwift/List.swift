@@ -43,8 +43,8 @@ public class ListBase: RLMListBase {
  `List` is the container type in Realm used to define to-many relationships.
 
  Like Swift's `Array`, `List` is a generic type that is parameterized on the type it stores. This can be either an `Object`
- subclass or one of the following types: `Bool`, `Int`, `Int8`, `Int16`, `Int32`, `Int64`, `Float`, `Double`, `String`, `Data`,
- and `Date` (and their optional versions)
+ subclass or one of the following types: `Bool`, `Int`, `Int8`, `Int16`, `Int32`, `Int64`, `Float`, `Double`,
+ `String`, `Data`, `Date`, `Decimal128`, and `ObjectId` (and their optional versions)
 
  Unlike Swift's native collections, `List`s are reference types, and are only immutable if the Realm that manages them
  is opened as read-only.
@@ -69,10 +69,10 @@ public final class List<Element: RealmCollectionValue>: ListBase {
 
     /// Creates a `List` that holds Realm model objects of type `Element`.
     public override init() {
-        super.init(array: Element._rlmArray())
+        super.init()
     }
 
-    internal init(rlmArray: RLMArray<AnyObject>) {
+    internal init(objc rlmArray: RLMArray<AnyObject>) {
         super.init(array: rlmArray)
     }
 
@@ -94,15 +94,6 @@ public final class List<Element: RealmCollectionValue>: ListBase {
     */
     public func index(matching predicate: NSPredicate) -> Int? {
         return notFoundToNil(index: _rlmArray.indexOfObject(with: predicate))
-    }
-
-    /**
-     Returns the index of the first object in the list matching the predicate, or `nil` if no objects match.
-
-     - parameter predicateFormat: A predicate format string, optionally followed by a variable number of arguments.
-    */
-    public func index(matching predicateFormat: String, _ args: Any...) -> Int? {
-        return index(matching: NSPredicate(format: predicateFormat, argumentArray: unwrapOptionals(in: args)))
     }
 
     // MARK: Object Retrieval
@@ -164,16 +155,6 @@ public final class List<Element: RealmCollectionValue>: ListBase {
     }
 
     // MARK: Filtering
-
-    /**
-     Returns a `Results` containing all objects matching the given predicate in the list.
-
-     - parameter predicateFormat: A predicate format string, optionally followed by a variable number of arguments.
-    */
-    public func filter(_ predicateFormat: String, _ args: Any...) -> Results<Element> {
-        return Results<Element>(_rlmArray.objects(with: NSPredicate(format: predicateFormat,
-                                                              argumentArray: unwrapOptionals(in: args))))
-    }
 
     /**
      Returns a `Results` containing all objects matching the given predicate in the list.
@@ -260,7 +241,7 @@ public final class List<Element: RealmCollectionValue>: ListBase {
 
      - parameter property: The name of a property whose average value should be calculated.
      */
-    public func average(ofProperty property: String) -> Double? {
+    public func average<T: AddableType>(ofProperty property: String) -> T? {
         return _rlmArray.average(ofProperty: property).map(dynamicBridgeCast)
     }
 
@@ -393,9 +374,10 @@ public final class List<Element: RealmCollectionValue>: ListBase {
      not perform a write transaction on the same thread or explicitly call `realm.refresh()`, accessing it will never
      perform blocking work.
 
-     Notifications are delivered via the standard run loop, and so can't be delivered while the run loop is blocked by
-     other activity. When notifications can't be delivered instantly, multiple notifications may be coalesced into a
-     single notification. This can include the notification with the initial collection.
+     If no queue is given, notifications are delivered via the standard run loop, and so can't be delivered while the
+     run loop is blocked by other activity. If a queue is given, notifications are delivered to that queue instead. When
+     notifications can't be delivered instantly, multiple notifications may be coalesced into a single notification.
+     This can include the notification with the initial collection.
 
      For example, the following code performs a write transaction immediately after adding the notification block, so
      there is no opportunity for the initial notification to be delivered first. As a result, the initial notification
@@ -430,13 +412,33 @@ public final class List<Element: RealmCollectionValue>: ListBase {
 
      - warning: This method cannot be called during a write transaction, or when the containing Realm is read-only.
 
+     - parameter queue: The serial dispatch queue to receive notification on. If
+                        `nil`, notifications are delivered to the current thread.
      - parameter block: The block to be called whenever a change occurs.
      - returns: A token which must be held for as long as you want updates to be delivered.
      */
-    public func observe(_ block: @escaping (RealmCollectionChange<List>) -> Void) -> NotificationToken {
-        return _rlmArray.addNotificationBlock { _, change, error in
-            block(RealmCollectionChange.fromObjc(value: self, change: change, error: error))
-        }
+    public func observe(on queue: DispatchQueue? = nil,
+                        _ block: @escaping (RealmCollectionChange<List>) -> Void) -> NotificationToken {
+        return _rlmArray.addNotificationBlock(wrapObserveBlock(block), queue: queue)
+    }
+
+    // MARK: Frozen Objects
+
+    public var isFrozen: Bool {
+        return _rlmArray.isFrozen
+    }
+
+    public func freeze() -> List {
+        return List(objc: _rlmArray.freeze())
+    }
+
+    public func thaw() -> List? {
+        return List(objc: _rlmArray.thaw())
+    }
+
+    // swiftlint:disable:next identifier_name
+    @objc class func _unmanagedArray() -> RLMArray<AnyObject> {
+        return Element._rlmArray()
     }
 }
 
@@ -467,7 +469,7 @@ extension List where Element: AddableType {
     /**
      Returns the average of the values in the list, or `nil` if the list is empty.
      */
-    public func average() -> Double? {
+    public func average<T: AddableType>() -> T? {
         return average(ofProperty: "self")
     }
 }
@@ -483,7 +485,12 @@ extension List: RealmCollection {
         return RLMIterator(collection: _rlmArray)
     }
 
-#if swift(>=4)
+    /// :nodoc:
+    // swiftlint:disable:next identifier_name
+    public func _asNSFastEnumerator() -> Any {
+        return _rlmArray
+    }
+
     /**
      Replace the given `subRange` of elements with `newElements`.
 
@@ -500,23 +507,6 @@ extension List: RealmCollection {
                 insert(x, at: subrange.lowerBound)
             }
     }
-#else
-    /**
-     Replace the given `subRange` of elements with `newElements`.
-
-     - parameter subrange:    The range of elements to be replaced.
-     - parameter newElements: The new elements to be inserted into the List.
-     */
-    public func replaceSubrange<C: Collection>(_ subrange: Range<Int>, with newElements: C)
-        where C.Iterator.Element == Element {
-            for _ in subrange.lowerBound..<subrange.upperBound {
-                remove(at: subrange.lowerBound)
-            }
-            for x in newElements.reversed() {
-                insert(x, at: subrange.lowerBound)
-            }
-    }
-#endif
 
     /// The position of the first element in a non-empty collection.
     /// Identical to endIndex in an empty collection.
@@ -531,22 +521,17 @@ extension List: RealmCollection {
     public func index(before i: Int) -> Int { return i - 1 }
 
     /// :nodoc:
-    public func _observe(_ block: @escaping (RealmCollectionChange<AnyRealmCollection<Element>>) -> Void) -> NotificationToken {
-        let anyCollection = AnyRealmCollection(self)
-        return _rlmArray.addNotificationBlock { _, change, error in
-            block(RealmCollectionChange.fromObjc(value: anyCollection, change: change, error: error))
-        }
+    // swiftlint:disable:next identifier_name
+    public func _observe(_ queue: DispatchQueue?,
+                         _ block: @escaping (RealmCollectionChange<AnyRealmCollection<Element>>) -> Void)
+        -> NotificationToken {
+            return _rlmArray.addNotificationBlock(wrapObserveBlock(block), queue: queue)
     }
 }
 
-#if swift(>=4.0)
 // MARK: - MutableCollection conformance, range replaceable collection emulation
 extension List: MutableCollection {
-#if swift(>=4.1)
     public typealias SubSequence = Slice<List>
-#else
-    public typealias SubSequence = RandomAccessSlice<List>
-#endif
 
     /**
      Returns the objects at the given range (get), or replaces the objects at the
@@ -572,11 +557,11 @@ extension List: MutableCollection {
      - warning: This method may only be called during a write transaction.
      */
     public func removeFirst(_ number: Int = 1) {
+        throwForNegativeIndex(number)
         let count = Int(_rlmArray.count)
         guard number <= count else {
             throwRealmException("It is not possible to remove more objects (\(number)) from a list"
                 + " than it already contains (\(count)).")
-            return
         }
         for _ in 0..<number {
             _rlmArray.removeObject(at: 0)
@@ -590,11 +575,11 @@ extension List: MutableCollection {
      - warning: This method may only be called during a write transaction.
      */
     public func removeLast(_ number: Int = 1) {
+        throwForNegativeIndex(number)
         let count = Int(_rlmArray.count)
         guard number <= count else {
             throwRealmException("It is not possible to remove more objects (\(number)) from a list"
                 + " than it already contains (\(count)).")
-            return
         }
         for _ in 0..<number {
             _rlmArray.removeLastObject()
@@ -613,7 +598,6 @@ extension List: MutableCollection {
             currentIndex += 1
         }
     }
-    #if swift(>=4.1.50)
     /**
      Removes objects from the list at the given range.
 
@@ -625,117 +609,54 @@ extension List: MutableCollection {
             remove(at: bounds.lowerBound)
         }
     }
-    #else
-    /**
-     Removes objects from the list at the given range.
-
-     - warning: This method may only be called during a write transaction.
-     */
-    public func removeSubrange(_ bounds: Range<Int>) {
-        removeSubrange(bounds.lowerBound..<bounds.upperBound)
-    }
-
     /// :nodoc:
-    public func removeSubrange(_ bounds: ClosedRange<Int>) {
-        removeSubrange(bounds.lowerBound...bounds.upperBound)
-    }
-
-    /// :nodoc:
-    public func removeSubrange(_ bounds: CountableRange<Int>) {
-        for _ in bounds {
-            remove(at: bounds.lowerBound)
+    public func remove(atOffsets offsets: IndexSet) {
+        for offset in offsets.reversed() {
+            remove(at: offset)
         }
     }
-
     /// :nodoc:
-    public func removeSubrange(_ bounds: CountableClosedRange<Int>) {
-        for _ in bounds {
-            remove(at: bounds.lowerBound)
+    public func move(fromOffsets offsets: IndexSet, toOffset destination: Int) {
+        for offset in offsets {
+            var d = destination
+            if destination >= count {
+                d = destination - 1
+            }
+            move(from: offset, to: d)
         }
     }
-
-    /// :nodoc:
-    public func removeSubrange(_ bounds: DefaultRandomAccessIndices<List>) {
-        removeSubrange(bounds.startIndex..<bounds.endIndex)
-    }
-
-    /// :nodoc:
-    public func replaceSubrange<C: Collection>(_ subrange: ClosedRange<Int>, with newElements: C)
-        where C.Iterator.Element == Element {
-            removeSubrange(subrange)
-            insert(contentsOf: newElements, at: subrange.lowerBound)
-    }
-
-    /// :nodoc:
-    public func replaceSubrange<C: Collection>(_ subrange: CountableRange<Int>, with newElements: C)
-        where C.Iterator.Element == Element {
-            removeSubrange(subrange)
-            insert(contentsOf: newElements, at: subrange.lowerBound)
-    }
-
-    /// :nodoc:
-    public func replaceSubrange<C: Collection>(_ subrange: CountableClosedRange<Int>, with newElements: C)
-        where C.Iterator.Element == Element {
-            removeSubrange(subrange)
-            insert(contentsOf: newElements, at: subrange.lowerBound)
-    }
-
-
-    /// :nodoc:
-    public func replaceSubrange<C: Collection>(_ subrange: DefaultRandomAccessIndices<List>, with newElements: C)
-        where C.Iterator.Element == Element {
-            removeSubrange(subrange)
-            insert(contentsOf: newElements, at: subrange.startIndex)
-    }
-#endif
 }
-#else
-// MARK: - RangeReplaceableCollection support
-extension List: RangeReplaceableCollection {
-    /**
-     Removes the last object in the list. The object is not removed from the Realm that manages it.
 
-     - warning: This method may only be called during a write transaction.
-     */
-    public func removeLast() {
-        guard _rlmArray.count > 0 else {
-            throwRealmException("It is not possible to remove an object from an empty list.")
-            return
+// MARK: - Codable
+
+extension List: Decodable where Element: Decodable {
+    public convenience init(from decoder: Decoder) throws {
+        self.init()
+        var container = try decoder.unkeyedContainer()
+        while !container.isAtEnd {
+            append(try container.decode(Element.self))
         }
-        _rlmArray.removeLastObject()
     }
-
-#if swift(>=3.2)
-    // The issue described below is fixed in Swift 3.2 and above.
-#else
-    // These should not be necessary, but Swift 3.1's compiler fails to infer the `SubSequence`,
-    // and the standard library neglects to provide the default implementation of `subscript`
-    /// :nodoc:
-    public typealias SubSequence = RangeReplaceableRandomAccessSlice<List>
-
-    /// :nodoc:
-    public subscript(slice: Range<Int>) -> SubSequence {
-        return SubSequence(base: self, bounds: slice)
-    }
-#endif
 }
-#endif
+
+extension List: Encodable where Element: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        for value in self {
+            try container.encode(value)
+        }
+    }
+}
 
 // MARK: - AssistedObjectiveCBridgeable
 
 extension List: AssistedObjectiveCBridgeable {
     internal static func bridging(from objectiveCValue: Any, with metadata: Any?) -> List {
         guard let objectiveCValue = objectiveCValue as? RLMArray<AnyObject> else { preconditionFailure() }
-        return List(rlmArray: objectiveCValue)
+        return List(objc: objectiveCValue)
     }
 
     internal var bridged: (objectiveCValue: Any, metadata: Any?) {
         return (objectiveCValue: _rlmArray, metadata: nil)
     }
-}
-// MARK: - Unavailable
-
-extension List {
-    @available(*, unavailable, renamed: "remove(at:)")
-    public func remove(objectAtIndex: Int) { fatalError() }
 }

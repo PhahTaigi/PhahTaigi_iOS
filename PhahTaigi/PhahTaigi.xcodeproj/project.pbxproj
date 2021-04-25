@@ -33,22 +33,21 @@
 		872FF2A0221EAE1D00DB9AFA /* String+isNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872FF29F221EAE1D00DB9AFA /* String+isNumber.swift */; };
 		872FF2AC221F1C6700DB9AFA /* CandidateWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872FF2AA221F1C6700DB9AFA /* CandidateWordCell.swift */; };
 		872FF2AD221F1C6700DB9AFA /* CandidateWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872FF2AB221F1C6700DB9AFA /* CandidateWordCell.xib */; };
+		8735D3842630977000694CCE /* PhahTaigiImeDict_2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 8735D3832630977000694CCE /* PhahTaigiImeDict_2.realm */; };
 		87435DAC2229032E00A936A2 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAB2229032E00A936A2 /* SettingViewCell.swift */; };
-		87435DAE222932D500A936A2 /* BanloInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAD222932D500A936A2 /* BanloInputConverter.swift */; };
+		87435DAE222932D500A936A2 /* KipInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAD222932D500A936A2 /* KipInputConverter.swift */; };
 		87435DB02229794600A936A2 /* String+indexOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAF2229794600A936A2 /* String+indexOf.swift */; };
-		87435DBC22299D9000A936A2 /* DatabaseConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DBB22299D9000A936A2 /* DatabaseConstant.swift */; };
-		87435DBF22299E3000A936A2 /* ImeDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DBE22299E3000A936A2 /* ImeDict.swift */; };
+		87435DBF22299E3000A936A2 /* ImeDictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DBE22299E3000A936A2 /* ImeDictModel.swift */; };
 		87435DC12229A1C600A936A2 /* CurrentSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DC02229A1C600A936A2 /* CurrentSetting.swift */; };
 		87435DC92229B05700A936A2 /* RealmDatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DC82229B05700A936A2 /* RealmDatabaseLoader.swift */; };
 		87435DCC2229B28C00A936A2 /* String+containsNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DCB2229B28C00A936A2 /* String+containsNumber.swift */; };
-		87435DD2222A748900A936A2 /* ime_dict_8.realm in Resources */ = {isa = PBXBuildFile; fileRef = 87435DD1222A748900A936A2 /* ime_dict_8.realm */; };
 		87435DD8222ACA2500A936A2 /* TauhuOo18.10b.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87435DD6222ACA2500A936A2 /* TauhuOo18.10b.otf */; };
 		87435DDE222C037C00A936A2 /* CurrentKeyboardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DDC222C037C00A936A2 /* CurrentKeyboardStatus.swift */; };
 		87435DE3222D4B5300A936A2 /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DE1222D4B5300A936A2 /* Debounce.swift */; };
 		8798FE1E22252EF3005A41BE /* HanloWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE1D22252EF3005A41BE /* HanloWordModel.swift */; };
 		8798FE21222533A9005A41BE /* TaigiInputProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE20222533A9005A41BE /* TaigiInputProcessor.swift */; };
 		8798FE27222536A8005A41BE /* Poj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE26222536A8005A41BE /* Poj.swift */; };
-		8798FE2922253D32005A41BE /* Banlo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2822253D32005A41BE /* Banlo.swift */; };
+		8798FE2922253D32005A41BE /* Kip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2822253D32005A41BE /* Kip.swift */; };
 		8798FE2B22254381005A41BE /* PojInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2A22254381005A41BE /* PojInputConverter.swift */; };
 		8798FE2D2225494A005A41BE /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2C2225494A005A41BE /* String+matches.swift */; };
 		8798FE2F2226778F005A41BE /* ConverterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2E2226778F005A41BE /* ConverterUtils.swift */; };
@@ -75,11 +74,12 @@
 		8799B50B222E33AF00A1468C /* UILabel+setSizeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380EA21E615B10052C72B /* UILabel+setSizeFont.swift */; };
 		8799B50C222E33AF00A1468C /* UIView+addConstraintsWithFormatString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380F621E635A80052C72B /* UIView+addConstraintsWithFormatString.swift */; };
 		8799B50D222E33AF00A1468C /* UIView+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE58222724F5005A41BE /* UIView+fromNib.swift */; };
-		8799B50E222E33BB00A1468C /* Banlo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2822253D32005A41BE /* Banlo.swift */; };
-		8799B50F222E33BB00A1468C /* BanloInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAD222932D500A936A2 /* BanloInputConverter.swift */; };
+		8799B50E222E33BB00A1468C /* Kip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2822253D32005A41BE /* Kip.swift */; };
+		8799B50F222E33BB00A1468C /* KipInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAD222932D500A936A2 /* KipInputConverter.swift */; };
 		8799B510222E33BB00A1468C /* ConverterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2E2226778F005A41BE /* ConverterUtils.swift */; };
 		8799B511222E33BB00A1468C /* Poj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE26222536A8005A41BE /* Poj.swift */; };
 		8799B512222E33BB00A1468C /* PojInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2A22254381005A41BE /* PojInputConverter.swift */; };
+		87A2A3B3263195C700C6C572 /* PhahTaigiImeDict_2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 8735D3832630977000694CCE /* PhahTaigiImeDict_2.realm */; };
 		87F380C121E612580052C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380C021E612580052C72B /* AppDelegate.swift */; };
 		87F380C321E612580052C72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380C221E612580052C72B /* ViewController.swift */; };
 		87F380C621E612580052C72B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F380C421E612580052C72B /* Main.storyboard */; };
@@ -147,22 +147,21 @@
 		872FF29F221EAE1D00DB9AFA /* String+isNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isNumber.swift"; sourceTree = "<group>"; };
 		872FF2AA221F1C6700DB9AFA /* CandidateWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWordCell.swift; sourceTree = "<group>"; };
 		872FF2AB221F1C6700DB9AFA /* CandidateWordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CandidateWordCell.xib; sourceTree = "<group>"; };
+		8735D3832630977000694CCE /* PhahTaigiImeDict_2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = PhahTaigiImeDict_2.realm; sourceTree = "<group>"; };
 		87435DAB2229032E00A936A2 /* SettingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
-		87435DAD222932D500A936A2 /* BanloInputConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanloInputConverter.swift; sourceTree = "<group>"; };
+		87435DAD222932D500A936A2 /* KipInputConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KipInputConverter.swift; sourceTree = "<group>"; };
 		87435DAF2229794600A936A2 /* String+indexOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+indexOf.swift"; sourceTree = "<group>"; };
-		87435DBB22299D9000A936A2 /* DatabaseConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConstant.swift; sourceTree = "<group>"; };
-		87435DBE22299E3000A936A2 /* ImeDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImeDict.swift; sourceTree = "<group>"; };
+		87435DBE22299E3000A936A2 /* ImeDictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImeDictModel.swift; sourceTree = "<group>"; };
 		87435DC02229A1C600A936A2 /* CurrentSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSetting.swift; sourceTree = "<group>"; };
 		87435DC82229B05700A936A2 /* RealmDatabaseLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseLoader.swift; sourceTree = "<group>"; };
 		87435DCB2229B28C00A936A2 /* String+containsNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+containsNumber.swift"; sourceTree = "<group>"; };
-		87435DD1222A748900A936A2 /* ime_dict_8.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ime_dict_8.realm; sourceTree = "<group>"; };
 		87435DD6222ACA2500A936A2 /* TauhuOo18.10b.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TauhuOo18.10b.otf; sourceTree = "<group>"; };
 		87435DDC222C037C00A936A2 /* CurrentKeyboardStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentKeyboardStatus.swift; sourceTree = "<group>"; };
 		87435DE1222D4B5300A936A2 /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
 		8798FE1D22252EF3005A41BE /* HanloWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanloWordModel.swift; sourceTree = "<group>"; };
 		8798FE20222533A9005A41BE /* TaigiInputProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaigiInputProcessor.swift; sourceTree = "<group>"; };
 		8798FE26222536A8005A41BE /* Poj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poj.swift; sourceTree = "<group>"; };
-		8798FE2822253D32005A41BE /* Banlo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banlo.swift; sourceTree = "<group>"; };
+		8798FE2822253D32005A41BE /* Kip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kip.swift; sourceTree = "<group>"; };
 		8798FE2A22254381005A41BE /* PojInputConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PojInputConverter.swift; sourceTree = "<group>"; };
 		8798FE2C2225494A005A41BE /* String+matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+matches.swift"; sourceTree = "<group>"; };
 		8798FE2E2226778F005A41BE /* ConverterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterUtils.swift; sourceTree = "<group>"; };
@@ -292,7 +291,7 @@
 		87435DBD22299E1F00A936A2 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				87435DBE22299E3000A936A2 /* ImeDict.swift */,
+				87435DBE22299E3000A936A2 /* ImeDictModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -317,9 +316,8 @@
 		8798FE22222534D0005A41BE /* DictDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				87435DBB22299D9000A936A2 /* DatabaseConstant.swift */,
+				8735D3832630977000694CCE /* PhahTaigiImeDict_2.realm */,
 				87435DBD22299E1F00A936A2 /* DataModel */,
-				87435DD1222A748900A936A2 /* ime_dict_8.realm */,
 				87435DC82229B05700A936A2 /* RealmDatabaseLoader.swift */,
 			);
 			path = DictDatabase;
@@ -328,8 +326,8 @@
 		8798FE2522253696005A41BE /* Converter */ = {
 			isa = PBXGroup;
 			children = (
-				8798FE2822253D32005A41BE /* Banlo.swift */,
-				87435DAD222932D500A936A2 /* BanloInputConverter.swift */,
+				8798FE2822253D32005A41BE /* Kip.swift */,
+				87435DAD222932D500A936A2 /* KipInputConverter.swift */,
 				8798FE2E2226778F005A41BE /* ConverterUtils.swift */,
 				8798FE26222536A8005A41BE /* Poj.swift */,
 				8798FE2A22254381005A41BE /* PojInputConverter.swift */,
@@ -484,7 +482,6 @@
 				87F380BB21E612580052C72B /* Resources */,
 				87F380E121E6135A0052C72B /* Embed App Extensions */,
 				44005636FEADFE8804189527 /* [CP] Embed Pods Frameworks */,
-				8799B4FD222DCD4600A1468C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -503,7 +500,6 @@
 				87F380D221E613590052C72B /* Sources */,
 				87F380D321E613590052C72B /* Frameworks */,
 				87F380D421E613590052C72B /* Resources */,
-				8799B4FE222DCD7700A1468C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -558,6 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A2A3B3263195C700C6C572 /* PhahTaigiImeDict_2.realm in Resources */,
 				87F380CB21E6125C0052C72B /* LaunchScreen.storyboard in Resources */,
 				871DFB4422AA8BA6005AC905 /* GoogleService-Info.plist in Resources */,
 				87F380C821E6125C0052C72B /* Assets.xcassets in Resources */,
@@ -569,7 +566,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87435DD2222A748900A936A2 /* ime_dict_8.realm in Resources */,
+				8735D3842630977000694CCE /* PhahTaigiImeDict_2.realm in Resources */,
 				8712C1E9221C0AC50052B6AA /* Media.xcassets in Resources */,
 				8798FE562227112B005A41BE /* MenuBarView.xib in Resources */,
 				8798FE5E22273C62005A41BE /* SettingView.xib in Resources */,
@@ -597,42 +594,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhahTaigi/Pods-PhahTaigi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		8799B4FD222DCD4600A1468C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
-		};
-		8799B4FE222DCD7700A1468C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		B6830790463DB119A635C213 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -667,13 +628,13 @@
 				8799B507222E33AF00A1468C /* String+lastIndexForRegex.swift in Sources */,
 				8799B509222E33AF00A1468C /* String+subString.swift in Sources */,
 				8799B511222E33BB00A1468C /* Poj.swift in Sources */,
-				8799B50E222E33BB00A1468C /* Banlo.swift in Sources */,
+				8799B50E222E33BB00A1468C /* Kip.swift in Sources */,
 				8799B50C222E33AF00A1468C /* UIView+addConstraintsWithFormatString.swift in Sources */,
 				8799B512222E33BB00A1468C /* PojInputConverter.swift in Sources */,
 				8799B50A222E33AF00A1468C /* StringProtocol+index.swift in Sources */,
 				8799B508222E33AF00A1468C /* String+matches.swift in Sources */,
 				8799B504222E33AF00A1468C /* String+indexOf.swift in Sources */,
-				8799B50F222E33BB00A1468C /* BanloInputConverter.swift in Sources */,
+				8799B50F222E33BB00A1468C /* KipInputConverter.swift in Sources */,
 				8799B502222E33AF00A1468C /* String+contains.swift in Sources */,
 				8799B506222E33AF00A1468C /* String+lastCharString.swift in Sources */,
 				8799B505222E33AF00A1468C /* String+isNumber.swift in Sources */,
@@ -697,7 +658,7 @@
 				8798FE5D22273C62005A41BE /* SettingView.swift in Sources */,
 				872FF29C221DD18500DB9AFA /* CustomInputView.swift in Sources */,
 				8798FE3722269E23005A41BE /* StringProtocol+index.swift in Sources */,
-				8798FE2922253D32005A41BE /* Banlo.swift in Sources */,
+				8798FE2922253D32005A41BE /* Kip.swift in Sources */,
 				8798FE2D2225494A005A41BE /* String+matches.swift in Sources */,
 				8798FE2F2226778F005A41BE /* ConverterUtils.swift in Sources */,
 				8798FE3322269CCC005A41BE /* String+lastCharString.swift in Sources */,
@@ -716,11 +677,10 @@
 				87435DE3222D4B5300A936A2 /* Debounce.swift in Sources */,
 				8712C1C4221921980052B6AA /* KeyType.swift in Sources */,
 				8798FE27222536A8005A41BE /* Poj.swift in Sources */,
-				87435DBC22299D9000A936A2 /* DatabaseConstant.swift in Sources */,
 				8712C1E32219C83F0052B6AA /* CandidateWordView.swift in Sources */,
-				87435DBF22299E3000A936A2 /* ImeDict.swift in Sources */,
+				87435DBF22299E3000A936A2 /* ImeDictModel.swift in Sources */,
 				87435DCC2229B28C00A936A2 /* String+containsNumber.swift in Sources */,
-				87435DAE222932D500A936A2 /* BanloInputConverter.swift in Sources */,
+				87435DAE222932D500A936A2 /* KipInputConverter.swift in Sources */,
 				87435DDE222C037C00A936A2 /* CurrentKeyboardStatus.swift in Sources */,
 				8712C1CA221942150052B6AA /* SelectionView.swift in Sources */,
 				87435DC12229A1C600A936A2 /* CurrentSetting.swift in Sources */,

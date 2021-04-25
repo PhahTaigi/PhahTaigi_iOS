@@ -18,32 +18,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RLMRealm.h"
+#import <Realm/RLMRealm.h>
 
 @class RLMResults, RLMSyncSession;
-
-/**
- A callback used to vend the results of a partial sync fetch.
- */
-typedef void(^RLMPartialSyncFetchCallback)(RLMResults * _Nullable results, NSError * _Nullable error);
 
 NS_ASSUME_NONNULL_BEGIN
 
 ///
 @interface RLMRealm (Sync)
-
-/**
- If the Realm is a partially synchronized Realm, fetch and synchronize the objects
- of a given object type that match the given query (in string format).
-
- The results will be returned asynchronously in the callback.
- Use `-[RLMResults addNotificationBlock:]` to be notified to changes to the set of
- synchronized objects.
-
- @warning Partial synchronization is a tech preview. Its APIs are subject to change.
-*/
-- (void)subscribeToObjects:(Class)type where:(NSString *)query callback:(RLMPartialSyncFetchCallback)callback
-__deprecated_msg("Use -[RLMResults subscribe]");
 
 /**
  Get the RLMSyncSession used by this Realm. Will be nil if this is not a

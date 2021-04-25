@@ -12,10 +12,15 @@ class KeyboardViewController: UIInputViewController {
     
     // keyboard status
     var currentPageIndex: PageIndex = PageIndex.taigi {
+        willSet {
+            self.previousPageIndex = self.currentPageIndex
+        }
+        
         didSet {
             self.keyboardView!.typingView!.selectPage(selectedPageIndex: self.currentPageIndex)
         }
     }
+    var previousPageIndex: PageIndex = PageIndex.taigi
     
     // typing text
     var typingText: String = "" {
@@ -162,6 +167,9 @@ class KeyboardViewController: UIInputViewController {
 
                 case .symbol:
                     self.sendTypingTextAndKey(keyText: charText)
+                    
+                case .enggi:
+                    self.sendTypingTextAndKey(keyText: charText)
                 }
                 
                 self.vibrate()
@@ -207,16 +215,29 @@ class KeyboardViewController: UIInputViewController {
                                       action: #selector(self.keyUpSymbolPage(sender:)),
                                       for: [.touchUpInside, .touchUpOutside])
                     case .keyboardChange:
+                        keyView.addTarget(self,
+                                      action: #selector(self.keyUpKeyboardChange(sender:)),
+                                      for: [.touchUpInside, .touchUpOutside])
+                        
+                        // long press
                         if #available(iOSApplicationExtension 10.0, *) {
-                            keyView.addTarget(self,
-                                          action: #selector(handleInputModeList(from:with:)),
-                                          for: .allTouchEvents)
+                            let keyboardChangeButtonLongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleInputModeList(from:with:)))
+                            keyboardChangeButtonLongPressGestureRecognizer.minimumPressDuration = 0.5
+                            keyView.addGestureRecognizer(keyboardChangeButtonLongPressGestureRecognizer)
                         } else {
-                            keyView.addTarget(self,
-                                          action: #selector(advanceToNextInputMode),
-                                          for: .allTouchEvents)
+                            let keyboardChangeButtonLongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(advanceToNextInputMode))
+                            keyboardChangeButtonLongPressGestureRecognizer.minimumPressDuration = 0.5
+                            keyView.addGestureRecognizer(keyboardChangeButtonLongPressGestureRecognizer)
                         }
                     case .space:
+                        keyView.addTarget(self,
+                                      action: #selector(self.keyUpSpace(sender:)),
+                                      for: [.touchUpInside, .touchUpOutside])
+                    case .taibunSpace:
+                        keyView.addTarget(self,
+                                      action: #selector(self.keyUpSpace(sender:)),
+                                      for: [.touchUpInside, .touchUpOutside])
+                    case .engbunSpace:
                         keyView.addTarget(self,
                                       action: #selector(self.keyUpSpace(sender:)),
                                       for: [.touchUpInside, .touchUpOutside])
@@ -240,9 +261,7 @@ class KeyboardViewController: UIInputViewController {
         }
         
         // menu buttons
-        self.keyboardView!.selectionView!.menuBarView!.settingButton.addTarget(self,
-                                                                                               action: #selector(self.didTapSettingButton(sender:)),
-                                                                                               for: [.touchUpInside])
+        self.keyboardView!.selectionView!.menuBarView!.settingButton.addTarget(self, action: #selector(self.didTapSettingButton(sender:)), for: [.touchUpInside])
     }
     
     @objc func didTapSettingButton(sender: UIButton) {
@@ -284,6 +303,14 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
+//    @objc func keyLongPressKeyboardChange(gestureRecognizer: UILongPressGestureRecognizer) {
+//        if #available(iOSApplicationExtension 10.0, *) {
+//            handleInputModeList(from:, with:)
+//        } else {
+//            advanceToNextInputMode()
+//        }
+//    }
+    
     @objc func keyUpSymbolPage(sender: KeyView) {
         CurrentKeyboardStatus.shiftStatus = .normal
         self.currentPageIndex = .symbol
@@ -311,7 +338,22 @@ class KeyboardViewController: UIInputViewController {
     
     @objc func keyUpLomajiPage(sender: KeyView) {
         CurrentKeyboardStatus.shiftStatus = .normal
-        self.currentPageIndex = .taigi
+        
+        if (self.previousPageIndex == .enggi) {
+            self.currentPageIndex = .enggi
+        } else {
+            self.currentPageIndex = .taigi
+        }
+        
+        self.vibrate()
+    }
+    
+    @objc func keyUpKeyboardChange(sender: KeyView) {
+        if (self.currentPageIndex == .taigi) {
+            self.currentPageIndex = .enggi
+        } else {
+            self.currentPageIndex = .taigi
+        }
         
         self.vibrate()
     }
@@ -395,7 +437,8 @@ class KeyboardViewController: UIInputViewController {
     
     func checkAutoCapitalize() {
 //        print("checkAutoCapitalize: \(String(describing: textDocumentProxy.documentContextBeforeInput))")
-        if (self.keyboardView!.typingView!.currentPageIndex != .taigi) {
+        if (self.keyboardView!.typingView!.currentPageIndex != .taigi &&
+            self.keyboardView!.typingView!.currentPageIndex != .enggi) {
             return
         }
         

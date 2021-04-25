@@ -72,6 +72,22 @@ class KeyView: KeyboardButton {
             resetCurrentColor(kbTitleColor: KeyConstant.keySpaceTitleColor,
                               kbBackgroundColor: KeyConstant.keySpecialBackgroundColor,
                               kbBackgroundHighlightedColor: KeyConstant.keySpecialHighlightedBackgroundColor)
+
+        case .taibunSpace:
+            setTitleFontSize(size: KeyConstant.keySpaceTitleFontSize)
+            self.setTitle(KeyConstant.taibunSpaceKeyTitle, for: .normal)
+            
+            resetCurrentColor(kbTitleColor: KeyConstant.keySpaceTitleColor,
+                              kbBackgroundColor: KeyConstant.keySpecialBackgroundColor,
+                              kbBackgroundHighlightedColor: KeyConstant.keySpecialHighlightedBackgroundColor)
+            
+        case .engbunSpace:
+            setTitleFontSize(size: KeyConstant.keySpaceTitleFontSize)
+            self.setTitle(KeyConstant.engbunSpaceKeyTitle, for: .normal)
+            
+            resetCurrentColor(kbTitleColor: KeyConstant.keySpaceTitleColor,
+                              kbBackgroundColor: KeyConstant.keySpecialBackgroundColor,
+                              kbBackgroundHighlightedColor: KeyConstant.keySpecialHighlightedBackgroundColor)
             
         case .hanloSwitch:
             setTitleFontSize(size: KeyConstant.keyIconHanloSwitchTitleFontSize)

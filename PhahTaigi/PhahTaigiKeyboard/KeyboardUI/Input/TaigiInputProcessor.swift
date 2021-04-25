@@ -19,7 +19,7 @@ class TaigiInputProcessor {
     }
     
     func findCandidateWordsAsync(input: String) {
-//        print("findCandidateWords: input=\(input)")
+//        NSLog("findCandidateWords: input=\(input)")
         
         self.currentInputString = input
         
@@ -34,15 +34,15 @@ class TaigiInputProcessor {
                 if CurrentSetting.isPoj() {
                     unicodeWordCandidate = PojInputConverter.convertPojNumberRawInputToPojWords(input: input)
                 } else {
-                    unicodeWordCandidate = BanloInputConverter.convertBanloNumberRawInputToBanloWords(input: input)
+                    unicodeWordCandidate = KipInputConverter.convertBanloNumberRawInputToBanloWords(input: input)
                 }
                 
                 // find dict candidate
                 let realmDictCandidates = self.queryFromDictDatabase(input: input)
                 
-                for candidate in realmDictCandidates {
-                    print("candidate.tailo = \(candidate.tailo)")
-                }
+//                for candidate in realmDictCandidates {
+//                    print("candidate.kip = \(candidate.kip)")
+//                }
                 
                 DispatchQueue.main.async {
                     self.setCandidates(input: input, lomajiCandidates: [unicodeWordCandidate], hanloCandidates: realmDictCandidates)
@@ -77,49 +77,64 @@ class TaigiInputProcessor {
 //        self.setCandidates(lomajiCandidates: [unicodeWordCandidate], hanloCandidates: realmDictCandidates)
 //    }
     
-    fileprivate func queryFromDictDatabase(input: String) -> [ImeDict] {
+    fileprivate func queryFromDictDatabase(input: String) -> [ImeDictModel] {
+        print("queryFromDictDatabase: \(input)")
         let inputFix = input.replacingOccurrences(of: "1", with: "").replacingOccurrences(of: "4", with: "")
         
         let predicate: NSPredicate?
         if inputFix.containsNumbers() {
             if CurrentSetting.isPoj() {
-                predicate = NSPredicate(format: "pojInputWithNumberTone BEGINSWITH[c] %@", inputFix)
+                predicate = NSPredicate(format: "pojSujip BEGINSWITH[c] %@", inputFix)
             } else {
-                predicate = NSPredicate(format: "tailoInputWithNumberTone BEGINSWITH[c] %@", inputFix)
+                predicate = NSPredicate(format: "kipSujip BEGINSWITH[c] %@", inputFix)
             }
         } else {
             if CurrentSetting.isPoj() {
-                predicate = NSPredicate(format: "pojInputWithoutTone BEGINSWITH[c] %@ OR pojShortInput BEGINSWITH[c] %@", inputFix, inputFix)
+                predicate = NSPredicate(format: "pojSujipBoSooji BEGINSWITH[c] %@ OR pojSujipThauJibo BEGINSWITH[c] %@", inputFix, inputFix)
             } else {
-                predicate = NSPredicate(format: "tailoInputWithoutTone BEGINSWITH[c] %@ OR tailoShortInput BEGINSWITH[c] %@", inputFix, inputFix)
+                predicate = NSPredicate(format: "kipSujipBoSooji BEGINSWITH[c] %@ OR kipSujipThauJibo BEGINSWITH[c] %@", inputFix, inputFix)
             }
         }
         
-        let realmResults = RealmDatabaseLoader.getBundledRealm().objects(ImeDict.self).filter(predicate!).sorted(byKeyPath: "lomajiCharLength", ascending: true)
+        var sortKeyPath: String?
+        if CurrentSetting.isPoj() {
+            sortKeyPath = "pojPriority"
+        } else {
+            sortKeyPath = "kipPriority"
+        }
+        let realmResults = RealmDatabaseLoader.getBundledRealm().objects(ImeDictModel.self).filter(predicate!).sorted(byKeyPath: sortKeyPath!, ascending: true)
         
-        var unmanagedResults = [ImeDict]()
-        for result in realmResults {
-            unmanagedResults.append(result.detached())
+//        print("realmResults amount: \(realmResults.count)")
+        
+        var unmanagedResults = [ImeDictModel]()
+        
+        var maxCount: Int
+        if (realmResults.count < realmDatabaseResultLimit) {
+            maxCount = realmResults.count
+        } else {
+            maxCount = realmDatabaseResultLimit
         }
         
-        let limitedSizeResults = Array(unmanagedResults.prefix(realmDatabaseResultLimit))
+        for index in 0..<maxCount {
+            unmanagedResults.append(realmResults[index] .detached())
+        }
         
-        return checkShiftedInput(inputFix, limitedSizeResults)
+        return checkShiftedInput(inputFix, unmanagedResults)
     }
     
-    fileprivate func checkShiftedInput(_ input: String, _ results: [ImeDict]) -> [ImeDict] {
+    fileprivate func checkShiftedInput(_ input: String, _ results: [ImeDictModel]) -> [ImeDictModel] {
         // handle caps with shiftStatus
         let firstCharString = input.prefix(1)
         if firstCharString.uppercased() != firstCharString {
             return results
         }
         
-        for result: ImeDict in results {
+        for result: ImeDictModel in results {
             if input.uppercased() == input {
                 if CurrentSetting.isPoj() {
                     result.poj = result.poj.uppercased()
                 } else {
-                    result.tailo = result.tailo.uppercased()
+                    result.kip = result.kip.uppercased()
                 }
                 continue
             }
@@ -127,7 +142,7 @@ class TaigiInputProcessor {
                 if CurrentSetting.isPoj() {
                     result.poj = result.poj.prefix(1).uppercased() + result.poj.suffix(result.poj.count - 1)
                 } else {
-                    result.tailo = result.tailo.prefix(1).uppercased() + result.tailo.suffix(result.tailo.count - 1)
+                    result.kip = result.kip.prefix(1).uppercased() + result.kip.suffix(result.kip.count - 1)
                 }
             }
         }
@@ -143,7 +158,7 @@ class TaigiInputProcessor {
         return self.keyboardView.selectionView!.candidateWordView!.getDefaultCandidate()
     }
     
-    fileprivate func setCandidates(input: String, lomajiCandidates: [String], hanloCandidates: [ImeDict]) {
+    fileprivate func setCandidates(input: String, lomajiCandidates: [String], hanloCandidates: [ImeDictModel]) {
         // check async callback
         if input != self.currentInputString {
             return
