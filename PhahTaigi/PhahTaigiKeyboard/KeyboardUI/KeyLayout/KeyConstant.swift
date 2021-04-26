@@ -40,6 +40,7 @@ class KeyConstant {
     static let keySpaceTitleFontSize: CGFloat = 18
     
     // shape
-    static let keyLayerCornerRadius: CGFloat = 6.0
-    static let keyFakeGapWidth: CGFloat = 2.0
+    static let keyLayerCornerRadius: CGFloat = 10.0
+    static let keyFakeGapWidthForIphone: CGFloat = 2.5
+    static let keyFakeGapWidthForIpad: CGFloat = 5
 }

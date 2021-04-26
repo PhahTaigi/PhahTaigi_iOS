@@ -2,7 +2,7 @@
 import UIKit
 
 class CustomInputView: UIInputView {
-    var intrinsicHeight: CGFloat = KeyboardViewConstant.keyboardHeight {
+    var intrinsicHeight: CGFloat = CGFloat(KeyboardViewController.keyboardHeight) {
         didSet {
             self.invalidateIntrinsicContentSize()
         }

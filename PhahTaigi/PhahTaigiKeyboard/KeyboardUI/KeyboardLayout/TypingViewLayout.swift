@@ -31,11 +31,39 @@ class TypingViewLayout {
         }
     }
     
+    static func resetViewLayoutForSizeChange(typingView: TypingView) {
+        for pageView: PageView in typingView.pages {
+            pageView.frame = typingView.bounds
+            pageView.setNeedsDisplay()
+            
+            let count = pageView.rowViews.count
+            let rowHeight: CGFloat = pageView.frame.height / CGFloat(count)
+            for i in 0..<count {
+                let y: CGFloat = rowHeight * CGFloat(i)
+                let rowView = pageView.rowViews[i]
+                rowView.frame = CGRect(x: 0, y: y, width: pageView.frame.width, height: rowHeight)
+                rowView.setNeedsDisplay()
+                
+                let keyCountInRow = rowView.keyViews.count
+                var keyX: CGFloat = 0
+                for j in 0..<keyCountInRow {
+                    let keyView: KeyView = rowView.keyViews[j]
+                    let keyWidth = rowView.frame.width / CGFloat(100) * keyView.key!.keyWidthPercentage
+                    keyView.frame = CGRect(x: keyX, y: 0, width: keyWidth, height: rowView.frame.height)
+                    
+                    keyX += keyWidth
+                    
+                    keyView.setNeedsDisplay()
+                }
+            }
+        }
+    }
+    
     private static func buildPageView(pageView: PageView, keyboardTemplateModel: KeyboardTemplateModel) {
         let count = keyboardTemplateModel.halfwidthKeyCodes!.count
         let rowHeight: CGFloat = pageView.frame.height / CGFloat(count)
         
-        for i in 0...count-1 {
+        for i in 0..<count {
             let y: CGFloat = rowHeight * CGFloat(i)
             let rowView = RowView(frame: CGRect(x: 0, y: y, width: pageView.frame.width, height: rowHeight))
             
@@ -70,8 +98,9 @@ class TypingViewLayout {
             let key = Key(halfwidthKeyCode: halfwidthKeyCode,
                           halfwidthKeyCodeShifted: halfwidthKeyCodeShifted,
                           fullwidthKeyCode: fullwidthKeyCode,
-                          fullwidthKeyCodeShifted: fullwidthKeyCodeShifted)
-            let keyView = KeyView.create(frame: frame, key: key)
+                          fullwidthKeyCodeShifted: fullwidthKeyCodeShifted,
+                          keyWidthPercentage: keyWidthPercentage)
+            let keyView: KeyView = KeyView.create(frame: frame, key: key)
 
             keyX += keyWidth
 

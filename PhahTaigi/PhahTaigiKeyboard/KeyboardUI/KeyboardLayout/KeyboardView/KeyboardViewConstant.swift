@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 
 class KeyboardViewConstant {
-    static let keyboardHeight: CGFloat = 360
+//    static let keyboardHeight: CGFloat = 360
     
     static let selectionViewHeightPercentage: CGFloat = 23
     static let typingViewHeightPercentage: CGFloat = 77
