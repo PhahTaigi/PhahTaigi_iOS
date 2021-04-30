@@ -3,9 +3,14 @@ import UIKit
 import Haptica
 
 class KeyboardViewController: UIInputViewController {
-    static var keyboardHeightPortraitPercentage = 0.28
-    static var keyboardHeightLandscapePercentage = 0.5
-    static var keyboardHeight = 360
+    static let keyboardHeightIphonePortraitPercentage = 0.45
+    static let keyboardHeightIphoneLandscapePercentage = 0.7
+    static let keyboardHeightIpadPortraitPercentage = 0.28
+    static let keyboardHeightIpadLandscapePercentage = 0.5
+    
+    static var keyboardWidth: CGFloat = 360
+    static var keyboardHeight: CGFloat = 360
+    static var isRunningIphoneOnlyAppOnIpad = false
     
     // custom height for keyboard
     var keyboardHeightConstraint:NSLayoutConstraint? = nil
@@ -63,6 +68,12 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidLoad()
         print("viewDidLoad")
         
+        print("device isIphone=\(UIDevice.current.userInterfaceIdiom == .phone)")
+        print("device isIpad=\(UIDevice.current.userInterfaceIdiom == .pad)")
+        print("device bounds w=\(UIScreen.main.bounds.size.width), h=\(UIScreen.main.bounds.size.height)")
+        print("device nativeBounds w=\(UIScreen.main.nativeBounds.size.width), h=\(UIScreen.main.nativeBounds.size.height)")
+        print("device scale=\(UIScreen.main.scale)")
+        
         updateKeyboardHeight()
         
         //        print("screen w=\(UIScreen.main.bounds.width), h=\(UIScreen.main.bounds.height)")
@@ -77,6 +88,11 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidLayoutSubviews()
         print("viewDidLayoutSubviews")
         
+        print("device bounds w=\(UIScreen.main.bounds.size.width), h=\(UIScreen.main.bounds.size.height)")
+        print("device nativeBounds w=\(UIScreen.main.nativeBounds.size.width), h=\(UIScreen.main.nativeBounds.size.height)")
+        print("device scale=\(UIScreen.main.scale)")
+        print("system keyboardView w=\(self.view.bounds.width), h=\(self.view.bounds.height)")
+        
         updateKeyboardHeight()
         updateKeyboardHeightConstraint()
         if (self.keyboardView != nil) {
@@ -87,16 +103,9 @@ class KeyboardViewController: UIInputViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
-        print("system keyboardView w=\(self.view.frame.width), h=\(self.view.frame.height)")
         
         self.view.backgroundColor = UIColor.clear
         self.inputView!.backgroundColor = UIColor.clear
-        
-        // TODO: different size, direction
-        //        updateKeyboardHeightConstraint()
-        //        if (self.keyboardView != nil) {
-        //            KeyboardViewLayout.resetViewLayoutForSizeChange(keyboardView: self.keyboardView!)
-        //        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -142,11 +151,36 @@ class KeyboardViewController: UIInputViewController {
     }
     
     fileprivate func updateKeyboardHeight() {
-        if isDevicePortrait() {
-            KeyboardViewController.keyboardHeight = Int(Double(UIScreen.main.bounds.size.height) * KeyboardViewController.keyboardHeightPortraitPercentage)
+        let keyboardWidth = self.view.bounds.size.width
+        let screenWidth = UIScreen.main.bounds.size.width
+        if (keyboardWidth < screenWidth && UIDevice.current.userInterfaceIdiom == .pad) {
+            print("The keyboard is being displayed in an iPhone app that is running on an iPad.")
+            KeyboardViewController.isRunningIphoneOnlyAppOnIpad = true
         } else {
-            KeyboardViewController.keyboardHeight = Int(Double(UIScreen.main.bounds.size.height) * KeyboardViewController.keyboardHeightLandscapePercentage)
+            KeyboardViewController.isRunningIphoneOnlyAppOnIpad = false
         }
+        KeyboardViewController.keyboardWidth = keyboardWidth
+        
+        var height = UIScreen.main.bounds.size.height
+        if (KeyboardViewController.isRunningIphoneOnlyAppOnIpad) {
+            height = UIScreen.main.bounds.size.height / UIScreen.main.bounds.size.width * keyboardWidth * 0.9
+        }
+        
+        if (UIDevice.current.userInterfaceIdiom == .phone || KeyboardViewController.isRunningIphoneOnlyAppOnIpad) {
+            if (isDevicePortrait()) {
+                KeyboardViewController.keyboardHeight = height * CGFloat(KeyboardViewController.keyboardHeightIphonePortraitPercentage)
+            } else {
+                KeyboardViewController.keyboardHeight = height * CGFloat(KeyboardViewController.keyboardHeightIphoneLandscapePercentage)
+            }
+        } else {
+            if (isDevicePortrait()) {
+                KeyboardViewController.keyboardHeight = height * CGFloat(KeyboardViewController.keyboardHeightIpadPortraitPercentage)
+            } else {
+                KeyboardViewController.keyboardHeight = height * CGFloat(KeyboardViewController.keyboardHeightIpadLandscapePercentage)
+            }
+        }
+        
+        print("updateKeyboardHeight h=\(height), keyboardHeight=\(KeyboardViewController.keyboardHeight)")
     }
     
     fileprivate func updateKeyboardHeightConstraint() {
@@ -203,6 +237,8 @@ class KeyboardViewController: UIInputViewController {
                         } else {
                             self.sendTypingTextAndKey(keyText: charText)
                         }
+                    } else if (self.isInputNonTaibunCharacters(keyText: charText)) {
+                        return
                     } else if (KeyboardTemplate.taigiLomajiDirectOutputKey.contains(charText)) {
                         self.sendTypingTextAndKey(keyText: charText)
                     } else {
@@ -229,6 +265,21 @@ class KeyboardViewController: UIInputViewController {
             self.keyboardView!.selectionView!.candidateWordView!.onSelectedCandidate = { selectedOutput, selectedHanloCandidate in
                 self.sendSelectedCandidate(selectedCandidate: selectedOutput)
             }
+        }
+    }
+    
+    private func isInputNonTaibunCharacters(keyText: String) -> Bool {
+        if (keyText == "Q" || keyText == "q"
+                || keyText == "Y" || keyText == "y"
+                || keyText == "D" || keyText == "d"
+                || keyText == "F" || keyText == "f"
+                || keyText == "Z" || keyText == "z"
+                || keyText == "X" || keyText == "x"
+                || keyText == "V" || keyText == "v"
+        ) {
+            return true
+        } else {
+            return false
         }
     }
     

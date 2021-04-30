@@ -22,7 +22,7 @@ class KeyboardButton: UIButton {
         self.layer.cornerRadius = KeyConstant.keyLayerCornerRadius
         
         // fake key gap using the same color as keyboard background
-        if UIDevice.current.userInterfaceIdiom == .phone {
+        if UIDevice.current.userInterfaceIdiom == .phone || KeyboardViewController.isRunningIphoneOnlyAppOnIpad {
             self.layer.borderWidth = KeyConstant.keyFakeGapWidthForIphone
         } else {
             self.layer.borderWidth = KeyConstant.keyFakeGapWidthForIpad

@@ -41,7 +41,6 @@
 		87435DC12229A1C600A936A2 /* CurrentSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DC02229A1C600A936A2 /* CurrentSetting.swift */; };
 		87435DC92229B05700A936A2 /* RealmDatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DC82229B05700A936A2 /* RealmDatabaseLoader.swift */; };
 		87435DCC2229B28C00A936A2 /* String+containsNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DCB2229B28C00A936A2 /* String+containsNumber.swift */; };
-		87435DD8222ACA2500A936A2 /* TauhuOo18.10b.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87435DD6222ACA2500A936A2 /* TauhuOo18.10b.otf */; };
 		87435DDE222C037C00A936A2 /* CurrentKeyboardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DDC222C037C00A936A2 /* CurrentKeyboardStatus.swift */; };
 		87435DE3222D4B5300A936A2 /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DE1222D4B5300A936A2 /* Debounce.swift */; };
 		8798FE1E22252EF3005A41BE /* HanloWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE1D22252EF3005A41BE /* HanloWordModel.swift */; };
@@ -83,7 +82,7 @@
 		87F380C121E612580052C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380C021E612580052C72B /* AppDelegate.swift */; };
 		87F380C321E612580052C72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380C221E612580052C72B /* ViewController.swift */; };
 		87F380C621E612580052C72B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F380C421E612580052C72B /* Main.storyboard */; };
-		87F380C821E6125C0052C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F380C721E6125C0052C72B /* Assets.xcassets */; };
+		87F380C821E6125C0052C72B /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F380C721E6125C0052C72B /* Main.xcassets */; };
 		87F380CB21E6125C0052C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F380C921E6125C0052C72B /* LaunchScreen.storyboard */; };
 		87F380D921E613590052C72B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380D821E613590052C72B /* KeyboardViewController.swift */; };
 		87F380DD21E6135A0052C72B /* PhahTaigiKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 87F380D621E613590052C72B /* PhahTaigiKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -92,6 +91,10 @@
 		87F380F721E635A80052C72B /* UIView+addConstraintsWithFormatString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380F621E635A80052C72B /* UIView+addConstraintsWithFormatString.swift */; };
 		87F3810521E7209B0052C72B /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3810421E7209B0052C72B /* KeyboardView.swift */; };
 		87F3810721E7915A0052C72B /* KeyboardViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3810621E7915A0052C72B /* KeyboardViewLayout.swift */; };
+		87F407842638AAB1008932BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F407832638AAB1008932BA /* Assets.xcassets */; };
+		87F8A4DC26381EC900000820 /* GenRyuMin-M.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 87F8A4DA26381EC900000820 /* GenRyuMin-M.ttc */; };
+		87F8A4DD26381EC900000820 /* SIL_Open_Font_License_1.1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87F8A4DB26381EC900000820 /* SIL_Open_Font_License_1.1.txt */; };
+		87F8A4E5263830D400000820 /* CustomFontLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8A4E4263830D400000820 /* CustomFontLabel.swift */; };
 		EAEA02F462D8C784481668C2 /* Pods_PhahTaigi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8799B4FB222DCA8E00A1468C /* Pods_PhahTaigi.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,7 +158,6 @@
 		87435DC02229A1C600A936A2 /* CurrentSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSetting.swift; sourceTree = "<group>"; };
 		87435DC82229B05700A936A2 /* RealmDatabaseLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseLoader.swift; sourceTree = "<group>"; };
 		87435DCB2229B28C00A936A2 /* String+containsNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+containsNumber.swift"; sourceTree = "<group>"; };
-		87435DD6222ACA2500A936A2 /* TauhuOo18.10b.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TauhuOo18.10b.otf; sourceTree = "<group>"; };
 		87435DDC222C037C00A936A2 /* CurrentKeyboardStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentKeyboardStatus.swift; sourceTree = "<group>"; };
 		87435DE1222D4B5300A936A2 /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
 		8798FE1D22252EF3005A41BE /* HanloWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanloWordModel.swift; sourceTree = "<group>"; };
@@ -181,7 +183,7 @@
 		87F380C021E612580052C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87F380C221E612580052C72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		87F380C521E612580052C72B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		87F380C721E6125C0052C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		87F380C721E6125C0052C72B /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
 		87F380CA21E6125C0052C72B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87F380CC21E6125C0052C72B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87F380D621E613590052C72B /* PhahTaigiKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PhahTaigiKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +194,10 @@
 		87F380F621E635A80052C72B /* UIView+addConstraintsWithFormatString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addConstraintsWithFormatString.swift"; sourceTree = "<group>"; };
 		87F3810421E7209B0052C72B /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		87F3810621E7915A0052C72B /* KeyboardViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewLayout.swift; sourceTree = "<group>"; };
+		87F407832638AAB1008932BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../../../Users/hebi/Downloads/AppIcons (3)/Assets.xcassets"; sourceTree = "<group>"; };
+		87F8A4DA26381EC900000820 /* GenRyuMin-M.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GenRyuMin-M.ttc"; sourceTree = "<group>"; };
+		87F8A4DB26381EC900000820 /* SIL_Open_Font_License_1.1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SIL_Open_Font_License_1.1.txt; sourceTree = "<group>"; };
+		87F8A4E4263830D400000820 /* CustomFontLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontLabel.swift; sourceTree = "<group>"; };
 		DE64F8085B17967A8B4901B2 /* Pods-PhahTaigi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhahTaigi.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhahTaigi/Pods-PhahTaigi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,6 +290,7 @@
 				872FF2AA221F1C6700DB9AFA /* CandidateWordCell.swift */,
 				872FF2AB221F1C6700DB9AFA /* CandidateWordCell.xib */,
 				8798FE1D22252EF3005A41BE /* HanloWordModel.swift */,
+				87F8A4E4263830D400000820 /* CustomFontLabel.swift */,
 			);
 			path = CandidateWordCell;
 			sourceTree = "<group>";
@@ -378,8 +385,9 @@
 		87F380BF21E612580052C72B /* PhahTaigi */ = {
 			isa = PBXGroup;
 			children = (
+				87F407832638AAB1008932BA /* Assets.xcassets */,
 				87F380C021E612580052C72B /* AppDelegate.swift */,
-				87F380C721E6125C0052C72B /* Assets.xcassets */,
+				87F380C721E6125C0052C72B /* Main.xcassets */,
 				871DFB4322AA8BA6005AC905 /* GoogleService-Info.plist */,
 				87F380CC21E6125C0052C72B /* Info.plist */,
 				87F380C921E6125C0052C72B /* LaunchScreen.storyboard */,
@@ -392,8 +400,8 @@
 		87F380D721E613590052C72B /* PhahTaigiKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				87F8A4D926381EC900000820 /* Font */,
 				87435DE0222D4B4000A936A2 /* Utils */,
-				87435DD6222ACA2500A936A2 /* TauhuOo18.10b.otf */,
 				8798FE22222534D0005A41BE /* DictDatabase */,
 				87F380E921E615870052C72B /* Extension */,
 				87F380DA21E6135A0052C72B /* Info.plist */,
@@ -449,6 +457,15 @@
 				8712C1EA221C60970052B6AA /* ShiftStatus.swift */,
 			);
 			path = KeyLayout;
+			sourceTree = "<group>";
+		};
+		87F8A4D926381EC900000820 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				87F8A4DA26381EC900000820 /* GenRyuMin-M.ttc */,
+				87F8A4DB26381EC900000820 /* SIL_Open_Font_License_1.1.txt */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		A7B4A0605B82AE1A509F1BE7 /* Pods */ = {
@@ -557,7 +574,8 @@
 				87A2A3B3263195C700C6C572 /* PhahTaigiImeDict_2.realm in Resources */,
 				87F380CB21E6125C0052C72B /* LaunchScreen.storyboard in Resources */,
 				871DFB4422AA8BA6005AC905 /* GoogleService-Info.plist in Resources */,
-				87F380C821E6125C0052C72B /* Assets.xcassets in Resources */,
+				87F380C821E6125C0052C72B /* Main.xcassets in Resources */,
+				87F407842638AAB1008932BA /* Assets.xcassets in Resources */,
 				87F380C621E612580052C72B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,9 +587,10 @@
 				8735D3842630977000694CCE /* PhahTaigiImeDict_2.realm in Resources */,
 				8712C1E9221C0AC50052B6AA /* Media.xcassets in Resources */,
 				8798FE562227112B005A41BE /* MenuBarView.xib in Resources */,
+				87F8A4DD26381EC900000820 /* SIL_Open_Font_License_1.1.txt in Resources */,
 				8798FE5E22273C62005A41BE /* SettingView.xib in Resources */,
+				87F8A4DC26381EC900000820 /* GenRyuMin-M.ttc in Resources */,
 				872FF2AD221F1C6700DB9AFA /* CandidateWordCell.xib in Resources */,
-				87435DD8222ACA2500A936A2 /* TauhuOo18.10b.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +688,7 @@
 				87435DC92229B05700A936A2 /* RealmDatabaseLoader.swift in Sources */,
 				872FF2AC221F1C6700DB9AFA /* CandidateWordCell.swift in Sources */,
 				8712C1E12219C8170052B6AA /* InputDisplayView.swift in Sources */,
+				87F8A4E5263830D400000820 /* CustomFontLabel.swift in Sources */,
 				8798FE2B22254381005A41BE /* PojInputConverter.swift in Sources */,
 				8712C1D12219497B0052B6AA /* KeyboardTemplateModel.swift in Sources */,
 				8712C1F5221D320F0052B6AA /* KeyPopupController.swift in Sources */,
@@ -863,6 +883,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6TMY38EGFK;
 				INFOPLIST_FILE = PhahTaigi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -870,6 +891,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -883,6 +905,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6TMY38EGFK;
 				INFOPLIST_FILE = PhahTaigi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -890,6 +913,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -902,6 +926,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6TMY38EGFK;
 				INFOPLIST_FILE = PhahTaigiKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -910,11 +935,12 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi.PhahTaigiKeyboard;
+				MARKETING_VERSION = 2.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi.TaigiKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -923,6 +949,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6TMY38EGFK;
 				INFOPLIST_FILE = PhahTaigiKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -931,11 +958,12 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi.PhahTaigiKeyboard;
+				MARKETING_VERSION = 2.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi.TaigiKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

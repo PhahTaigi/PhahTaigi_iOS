@@ -24,19 +24,19 @@ class MenuBarView: UIView {
     
     override func layoutSubviews() {
         var keyFakeGap: CGFloat
-        if UIDevice.current.userInterfaceIdiom == .phone {
+        if UIDevice.current.userInterfaceIdiom == .phone || KeyboardViewController.isRunningIphoneOnlyAppOnIpad {
             keyFakeGap = KeyConstant.keyFakeGapWidthForIphone
         } else {
             keyFakeGap = KeyConstant.keyFakeGapWidthForIpad
         }
         
         var settingButtonWidth = (self.bounds.width - (keyFakeGap * 20)) / 5
-        if UIDevice.current.userInterfaceIdiom == .pad {
+        if UIDevice.current.userInterfaceIdiom == .pad && !KeyboardViewController.isRunningIphoneOnlyAppOnIpad {
             settingButtonWidth = settingButtonWidth / 2
         }
         settingButtonWidthConstraint.constant = settingButtonWidth
         
-        if UIDevice.current.userInterfaceIdiom == .phone {
+        if UIDevice.current.userInterfaceIdiom == .phone || KeyboardViewController.isRunningIphoneOnlyAppOnIpad {
             settingButtonTrailingConstraint.constant = KeyConstant.keyFakeGapWidthForIphone
         } else {
             settingButtonTrailingConstraint.constant = KeyConstant.keyFakeGapWidthForIpad

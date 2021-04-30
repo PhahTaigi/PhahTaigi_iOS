@@ -3,7 +3,9 @@ import UIKit
 class KeyboardViewLayout {
     
     static func build() -> KeyboardView {
-        let keyboardView = KeyboardView(frame: CGRect(x: 0, y: 0, width: Int(UIScreen.main.bounds.width), height: KeyboardViewController.keyboardHeight))
+        let keyboardView = KeyboardView(frame: CGRect(x: 0, y: 0, width: KeyboardViewController.keyboardWidth, height: KeyboardViewController.keyboardHeight))
+        
+        print("KeyboardViewLayout:keyboardView w=\(keyboardView.frame.size.width), h=\(keyboardView.frame.size.height)")
         
         let selectionViewHeight = keyboardView.frame.size.height / 100 * KeyboardViewConstant.selectionViewHeightPercentage
         let typingViewHeight = keyboardView.frame.size.height / 100 * KeyboardViewConstant.typingViewHeightPercentage
@@ -27,7 +29,7 @@ class KeyboardViewLayout {
     }
     
     static func resetViewLayoutForSizeChange(keyboardView: KeyboardView) {
-        keyboardView.frame = CGRect(x: 0, y: 0, width: Int(UIScreen.main.bounds.width), height: KeyboardViewController.keyboardHeight)
+        keyboardView.frame = CGRect(x: 0, y: 0, width: KeyboardViewController.keyboardWidth, height: KeyboardViewController.keyboardHeight)
         
         let selectionViewHeight = keyboardView.frame.size.height / 100 * KeyboardViewConstant.selectionViewHeightPercentage
         let typingViewHeight = keyboardView.frame.size.height / 100 * KeyboardViewConstant.typingViewHeightPercentage
