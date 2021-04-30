@@ -5,11 +5,13 @@ import UIKit
 class KeyConstant {
     
     // string
-    static let symbolPageKeyTitle = "123"
-    static let lomajiPageKeyTitle = "ABC"
-    static let spaceKeyTitle = "PhahTaigi"
-    static let hanloSwitchKeyTitleLo = "Lô"
-    static let hanloSwitchKeyTitleHan = "漢"
+    static let symbolPageKeyTitle = "Hō"
+    static let lomajiPageKeyTitle = "Tńg"
+    static let spaceKeyTitle = ""
+    static let taibunSpaceKeyTitle = "Tâi-gí"
+    static let engbunSpaceKeyTitle = "English"
+    static let hanloSwitchKeyTitleLo = "JĪ"
+    static let hanloSwitchKeyTitleHan = "字"
     
     // icon
     static let shiftIconString = "\u{000021E7}"
@@ -25,7 +27,7 @@ class KeyConstant {
     static let keyShiftedBackgroundColor = #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1)
     static let keyPopupBackgroundColor: UIColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
     static let keyTitleColor: UIColor = #colorLiteral(red: 0.370555222, green: 0.3705646992, blue: 0.3705595732, alpha: 1)
-    static let keySpaceTitleColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.07849957192)
+    static let keySpaceTitleColor: UIColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     static let keyShiftedTitleColor: UIColor = keyBackgroundColor
     
     // title font size
@@ -38,6 +40,7 @@ class KeyConstant {
     static let keySpaceTitleFontSize: CGFloat = 18
     
     // shape
-    static let keyLayerCornerRadius: CGFloat = 6.0
-    static let keyFakeGapWidth: CGFloat = 2.0
+    static let keyLayerCornerRadius: CGFloat = 10.0
+    static let keyFakeGapWidthForIphone: CGFloat = 2.5
+    static let keyFakeGapWidthForIpad: CGFloat = 5
 }

@@ -3,7 +3,7 @@ import Foundation
 
 class PojInputConverter {
     
-    fileprivate static let pojWordExtractPattern = "(?:(ph|p|m|b|th|t|n|l|kh|k|ng|g|h|chh|ch|s|j)?([aiueo+]+(?:nn)?|ng|m)(?:(ng|m|n|re|r)|(p|t|h|k))?([1-9])?|(ph|p|m|b|th|t|n|l|kh|k|ng|g|h|chh|ch|s|j)-?-?)"
+    fileprivate static let pojWordExtractPattern = "(?:(ph|p|m|b|th|t|l|kh|k|ng|n|g|h|chh|ch|s|j)?([aiueo+]+(?:nn)?|ng|m)(?:(ng|m|n|re|r)|(p|t|h|k))?([12345789])?|(ph|p|m|b|th|t|l|kh|k|ng|n|g|h|chh|ch|s|j)-?-?)"
     
     static func convertPojNumberRawInputToPojWords(input: String?) -> String {
         if input == nil {

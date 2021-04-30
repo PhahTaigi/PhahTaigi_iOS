@@ -8,14 +8,16 @@ class Key {
     let halfwidthKeyCodeShifted: String
     let fullwidthKeyCode: String
     let fullwidthKeyCodeShifted: String
+    let keyWidthPercentage: CGFloat
     
     let keyType: KeyType
     
-    init(halfwidthKeyCode: String, halfwidthKeyCodeShifted: String, fullwidthKeyCode: String, fullwidthKeyCodeShifted: String) {
+    init(halfwidthKeyCode: String, halfwidthKeyCodeShifted: String, fullwidthKeyCode: String, fullwidthKeyCodeShifted: String, keyWidthPercentage: CGFloat) {
         self.halfwidthKeyCode = halfwidthKeyCode
         self.halfwidthKeyCodeShifted = halfwidthKeyCodeShifted
         self.fullwidthKeyCode = fullwidthKeyCode
         self.fullwidthKeyCodeShifted = fullwidthKeyCodeShifted
+        self.keyWidthPercentage = keyWidthPercentage
         
         switch self.halfwidthKeyCode {
         case KeyType.shift.rawValue:
@@ -32,6 +34,12 @@ class Key {
             
         case KeyType.space.rawValue:
             self.keyType = .space
+            
+        case KeyType.taibunSpace.rawValue:
+            self.keyType = .taibunSpace
+            
+        case KeyType.engbunSpace.rawValue:
+            self.keyType = .engbunSpace
             
         case KeyType.hanloSwitch.rawValue:
             self.keyType = .hanloSwitch

@@ -29,7 +29,7 @@ class SettingView: UIView, UITableViewDataSource, UITableViewDelegate {
     var settingsNames: [String:String] {
         get {
             return [
-                SettingView.keyPreferredPoj: "使用白話字",
+                SettingView.keyPreferredPoj: "使用白話字（台灣羅馬字）",
                 SettingView.keyKeyInVibration: "Phah字ê時震動",
             ]
         }
@@ -37,7 +37,7 @@ class SettingView: UIView, UITableViewDataSource, UITableViewDelegate {
     var settingsNotes: [String: String] {
         get {
             return [
-                SettingView.keyPreferredPoj: "文字使用百外冬歷史ê Pe̍h-ōe-jī，若無tio̍h用教育部羅馬字。",
+                SettingView.keyPreferredPoj: "文字使用百外冬歷史ê Pe̍h-ōe-jī。Nā無就是教育部羅馬拼音。",
                 SettingView.keyKeyInVibration: "Phah字ê時ē震動，ē有較好ê phah字體驗，建議使用。\n（若beh使用，ài去輸入法設定，kā『允許完整存取權』phah--khui。）"
             ]
         }
@@ -118,6 +118,9 @@ class SettingView: UIView, UITableViewDataSource, UITableViewDelegate {
             cell.longLabel.text = self.settingsNotes[key]
 
             cell.changeConstraints()
+            
+            // fix UISwitch not respond
+            cell.contentView.isUserInteractionEnabled = false
             
             return cell
         }

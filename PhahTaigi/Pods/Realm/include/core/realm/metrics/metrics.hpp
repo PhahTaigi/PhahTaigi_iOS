@@ -32,8 +32,6 @@ class Group;
 
 namespace metrics {
 
-#if REALM_METRICS
-
 class Metrics {
 public:
     Metrics(size_t max_history_size);
@@ -59,6 +57,7 @@ public:
     // Get the list of metric objects tracked since the last take
     std::unique_ptr<QueryInfoList> take_queries();
     std::unique_ptr<TransactionInfoList> take_transactions();
+
 private:
     std::unique_ptr<QueryInfoList> m_query_info;
     std::unique_ptr<TransactionInfoList> m_transaction_info;
@@ -70,18 +69,8 @@ private:
     size_t m_max_num_transactions;
 };
 
-
-#else
-
-class Metrics
-{
-};
-
-#endif // REALM_METRICS
-
 } // namespace metrics
 } // namespace realm
-
 
 
 #endif // REALM_METRICS_HPP

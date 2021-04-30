@@ -4,6 +4,8 @@ import UIKit
 class MenuBarView: UIView {
     
     @IBOutlet weak var settingButton: UIButton!
+    @IBOutlet weak var settingButtonTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var settingButtonWidthConstraint: NSLayoutConstraint!
     
     init(parentView: UIView) {
         super.init(frame: parentView.bounds)
@@ -21,11 +23,24 @@ class MenuBarView: UIView {
     }
     
     override func layoutSubviews() {
-        let settingButtonWidth = (self.bounds.width * 0.2) + 15
-        self.settingButton.frame = CGRect(x: self.bounds.width - settingButtonWidth + 10,
-                                          y: self.settingButton.frame.origin.y,
-                                          width: settingButtonWidth,
-                                          height: self.settingButton.bounds.height)
+        var keyFakeGap: CGFloat
+        if UIDevice.current.userInterfaceIdiom == .phone || KeyboardViewController.isRunningIphoneOnlyAppOnIpad {
+            keyFakeGap = KeyConstant.keyFakeGapWidthForIphone
+        } else {
+            keyFakeGap = KeyConstant.keyFakeGapWidthForIpad
+        }
+        
+        var settingButtonWidth = (self.bounds.width - (keyFakeGap * 20)) / 5
+        if UIDevice.current.userInterfaceIdiom == .pad && !KeyboardViewController.isRunningIphoneOnlyAppOnIpad {
+            settingButtonWidth = settingButtonWidth / 2
+        }
+        settingButtonWidthConstraint.constant = settingButtonWidth
+        
+        if UIDevice.current.userInterfaceIdiom == .phone || KeyboardViewController.isRunningIphoneOnlyAppOnIpad {
+            settingButtonTrailingConstraint.constant = KeyConstant.keyFakeGapWidthForIphone
+        } else {
+            settingButtonTrailingConstraint.constant = KeyConstant.keyFakeGapWidthForIpad
+        }
     }
     
     override init(frame: CGRect) {

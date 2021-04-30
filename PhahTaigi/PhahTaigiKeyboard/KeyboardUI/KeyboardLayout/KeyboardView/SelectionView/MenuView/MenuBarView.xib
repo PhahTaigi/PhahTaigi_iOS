@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuBarView" customModule="PhahTaigiKeyboard" customModuleProvider="target">
             <connections>
                 <outlet property="settingButton" destination="5BQ-Sp-L9w" id="9AG-DU-PXi"/>
+                <outlet property="settingButtonTrailingConstraint" destination="p5D-9u-MIC" id="H9l-Qa-Wmq"/>
+                <outlet property="settingButtonWidthConstraint" destination="IOf-08-htc" id="vNy-Ef-odR"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -40,11 +40,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pyd-od-hIL" userLabel="BottomView">
                     <rect key="frame" x="0.0" y="40" width="400" height="60"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="255" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BQ-Sp-L9w">
-                            <rect key="frame" x="299" y="0.0" width="96" height="55"/>
+                        <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="255" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BQ-Sp-L9w">
+                            <rect key="frame" x="340" y="0.0" width="55" height="55"/>
                             <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="55" id="IOf-08-htc"/>
+                            </constraints>
                             <color key="tintColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <inset key="imageEdgeInsets" minX="5" minY="5" maxX="15" maxY="5"/>
+                            <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                             <state key="normal" image="Setting"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -55,9 +58,9 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="5BQ-Sp-L9w" secondAttribute="bottom" constant="5" id="Spd-NS-4Pi"/>
-                        <constraint firstItem="5BQ-Sp-L9w" firstAttribute="top" secondItem="Pyd-od-hIL" secondAttribute="top" id="gKr-JE-eEy"/>
-                        <constraint firstAttribute="trailing" secondItem="5BQ-Sp-L9w" secondAttribute="trailing" constant="5" id="tzB-Ez-G9c"/>
+                        <constraint firstAttribute="bottom" secondItem="5BQ-Sp-L9w" secondAttribute="bottom" constant="5" id="e9P-rE-5Fq"/>
+                        <constraint firstAttribute="trailing" secondItem="5BQ-Sp-L9w" secondAttribute="trailing" constant="2.5" id="p5D-9u-MIC"/>
+                        <constraint firstItem="5BQ-Sp-L9w" firstAttribute="top" secondItem="Pyd-od-hIL" secondAttribute="top" id="tWm-Az-uzs"/>
                     </constraints>
                 </view>
             </subviews>
@@ -76,6 +79,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Setting" width="96" height="96"/>
+        <image name="Setting" width="48" height="48"/>
     </resources>
 </document>

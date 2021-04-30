@@ -3,6 +3,14 @@ import UIKit
 import Haptica
 
 class KeyboardViewController: UIInputViewController {
+    static let keyboardHeightIphonePortraitPercentage = 0.45
+    static let keyboardHeightIphoneLandscapePercentage = 0.7
+    static let keyboardHeightIpadPortraitPercentage = 0.28
+    static let keyboardHeightIpadLandscapePercentage = 0.5
+    
+    static var keyboardWidth: CGFloat = 360
+    static var keyboardHeight: CGFloat = 360
+    static var isRunningIphoneOnlyAppOnIpad = false
     
     // custom height for keyboard
     var keyboardHeightConstraint:NSLayoutConstraint? = nil
@@ -12,10 +20,15 @@ class KeyboardViewController: UIInputViewController {
     
     // keyboard status
     var currentPageIndex: PageIndex = PageIndex.taigi {
+        willSet {
+            self.previousPageIndex = self.currentPageIndex
+        }
+        
         didSet {
             self.keyboardView!.typingView!.selectPage(selectedPageIndex: self.currentPageIndex)
         }
     }
+    var previousPageIndex: PageIndex = PageIndex.taigi
     
     // typing text
     var typingText: String = "" {
@@ -41,7 +54,7 @@ class KeyboardViewController: UIInputViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//        print("initNib")
+        //        print("initNib")
         
         // init
         SettingView.registerDefaultSettings()
@@ -55,7 +68,15 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidLoad()
         print("viewDidLoad")
         
-//        print("screen w=\(UIScreen.main.bounds.width), h=\(UIScreen.main.bounds.height)")
+        print("device isIphone=\(UIDevice.current.userInterfaceIdiom == .phone)")
+        print("device isIpad=\(UIDevice.current.userInterfaceIdiom == .pad)")
+        print("device bounds w=\(UIScreen.main.bounds.size.width), h=\(UIScreen.main.bounds.size.height)")
+        print("device nativeBounds w=\(UIScreen.main.nativeBounds.size.width), h=\(UIScreen.main.nativeBounds.size.height)")
+        print("device scale=\(UIScreen.main.scale)")
+        
+        updateKeyboardHeight()
+        
+        //        print("screen w=\(UIScreen.main.bounds.width), h=\(UIScreen.main.bounds.height)")
     }
     
     override func viewWillLayoutSubviews() {
@@ -66,12 +87,22 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         print("viewDidLayoutSubviews")
+        
+        print("device bounds w=\(UIScreen.main.bounds.size.width), h=\(UIScreen.main.bounds.size.height)")
+        print("device nativeBounds w=\(UIScreen.main.nativeBounds.size.width), h=\(UIScreen.main.nativeBounds.size.height)")
+        print("device scale=\(UIScreen.main.scale)")
+        print("system keyboardView w=\(self.view.bounds.width), h=\(self.view.bounds.height)")
+        
+        updateKeyboardHeight()
+        updateKeyboardHeightConstraint()
+        if (self.keyboardView != nil) {
+            KeyboardViewLayout.resetViewLayoutForSizeChange(keyboardView: self.keyboardView!)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
-        print("system keyboardView w=\(self.view.frame.width), h=\(self.view.frame.height)")
         
         self.view.backgroundColor = UIColor.clear
         self.inputView!.backgroundColor = UIColor.clear
@@ -89,10 +120,8 @@ class KeyboardViewController: UIInputViewController {
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
         print("willTransition")
-        
-        // TODO: different size, direction
     }
-
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
         print("updateViewConstraints")
@@ -100,7 +129,61 @@ class KeyboardViewController: UIInputViewController {
         self.updateKeyboardHeightConstraint()
     }
     
-    func updateKeyboardHeightConstraint() {
+    fileprivate func isDevicePortrait() -> Bool {
+        let appExtensionWidth = Int(round(view.frame.size.width))
+        
+        let possibleScreenWidthValue1 = Int(round(UIScreen.main.bounds.size.width))
+        let possibleScreenWidthValue2 = Int(round(UIScreen.main.bounds.size.height))
+        
+        var screenWidthValue: Int
+        
+        if possibleScreenWidthValue1 < possibleScreenWidthValue2 {
+            screenWidthValue = possibleScreenWidthValue1
+        } else {
+            screenWidthValue = possibleScreenWidthValue2
+        }
+        
+        if appExtensionWidth == screenWidthValue {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    fileprivate func updateKeyboardHeight() {
+        let keyboardWidth = self.view.bounds.size.width
+        let screenWidth = UIScreen.main.bounds.size.width
+        if (keyboardWidth < screenWidth && UIDevice.current.userInterfaceIdiom == .pad) {
+            print("The keyboard is being displayed in an iPhone app that is running on an iPad.")
+            KeyboardViewController.isRunningIphoneOnlyAppOnIpad = true
+        } else {
+            KeyboardViewController.isRunningIphoneOnlyAppOnIpad = false
+        }
+        KeyboardViewController.keyboardWidth = keyboardWidth
+        
+        var height = UIScreen.main.bounds.size.height
+        if (KeyboardViewController.isRunningIphoneOnlyAppOnIpad) {
+            height = UIScreen.main.bounds.size.height / UIScreen.main.bounds.size.width * keyboardWidth * 0.9
+        }
+        
+        if (UIDevice.current.userInterfaceIdiom == .phone || KeyboardViewController.isRunningIphoneOnlyAppOnIpad) {
+            if (isDevicePortrait()) {
+                KeyboardViewController.keyboardHeight = height * CGFloat(KeyboardViewController.keyboardHeightIphonePortraitPercentage)
+            } else {
+                KeyboardViewController.keyboardHeight = height * CGFloat(KeyboardViewController.keyboardHeightIphoneLandscapePercentage)
+            }
+        } else {
+            if (isDevicePortrait()) {
+                KeyboardViewController.keyboardHeight = height * CGFloat(KeyboardViewController.keyboardHeightIpadPortraitPercentage)
+            } else {
+                KeyboardViewController.keyboardHeight = height * CGFloat(KeyboardViewController.keyboardHeightIpadLandscapePercentage)
+            }
+        }
+        
+        print("updateKeyboardHeight h=\(height), keyboardHeight=\(KeyboardViewController.keyboardHeight)")
+    }
+    
+    fileprivate func updateKeyboardHeightConstraint() {
         if self.view.frame.size.width == 0 && self.view.frame.size.height == 0 {
             return
         }
@@ -115,13 +198,13 @@ class KeyboardViewController: UIInputViewController {
             self.view.addSubview(emptyView)
             
             // init
-            self.keyboardHeightConstraint = NSLayoutConstraint(item: self.view,
+            self.keyboardHeightConstraint = NSLayoutConstraint(item: self.view!,
                                                                attribute: .height,
                                                                relatedBy: .equal,
                                                                toItem: nil,
                                                                attribute: .notAnAttribute,
                                                                multiplier: 0,
-                                                               constant: KeyboardViewConstant.keyboardHeight)
+                                                               constant: CGFloat(KeyboardViewController.keyboardHeight))
             self.keyboardHeightConstraint!.priority = UILayoutPriority(rawValue: 999)
             self.keyboardHeightConstraint!.isActive = true
             
@@ -129,8 +212,8 @@ class KeyboardViewController: UIInputViewController {
             
             return
         }
-            
-        self.keyboardHeightConstraint?.constant = KeyboardViewConstant.keyboardHeight
+        
+        self.keyboardHeightConstraint?.constant = CGFloat(KeyboardViewController.keyboardHeight)
     }
     
     func setKeyboardView() {
@@ -154,13 +237,18 @@ class KeyboardViewController: UIInputViewController {
                         } else {
                             self.sendTypingTextAndKey(keyText: charText)
                         }
+                    } else if (self.isInputNonTaibunCharacters(keyText: charText)) {
+                        return
                     } else if (KeyboardTemplate.taigiLomajiDirectOutputKey.contains(charText)) {
                         self.sendTypingTextAndKey(keyText: charText)
                     } else {
                         self.appendTypingText(text: charText)
                     }
-
+                    
                 case .symbol:
+                    self.sendTypingTextAndKey(keyText: charText)
+                    
+                case .enggi:
                     self.sendTypingTextAndKey(keyText: charText)
                 }
                 
@@ -180,6 +268,21 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
+    private func isInputNonTaibunCharacters(keyText: String) -> Bool {
+        if (keyText == "Q" || keyText == "q"
+                || keyText == "Y" || keyText == "y"
+                || keyText == "D" || keyText == "d"
+                || keyText == "F" || keyText == "f"
+                || keyText == "Z" || keyText == "z"
+                || keyText == "X" || keyText == "x"
+                || keyText == "V" || keyText == "v"
+        ) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func addKeyListener() {
         // keyboard input
         for pageView: PageView in self.keyboardView!.typingView!.pages {
@@ -188,15 +291,15 @@ class KeyboardViewController: UIInputViewController {
                     switch keyView.key!.keyType {
                     case .shift:
                         keyView.addTarget(self,
-                                      action: #selector(self.keyDownShift(sender:)),
-                                      for: .touchDown)
+                                          action: #selector(self.keyDownShift(sender:)),
+                                          for: .touchDown)
                         keyView.addTarget(self,
                                           action: #selector(self.keyDoubleUpShift(sender:)),
                                           for: .touchDownRepeat)
                     case .backspace:
                         keyView.addTarget(self,
-                                      action: #selector(self.keyUpBackspace(sender:)),
-                                      for: [.touchUpInside, .touchUpOutside])
+                                          action: #selector(self.keyUpBackspace(sender:)),
+                                          for: [.touchUpInside, .touchUpOutside])
                         
                         // long press
                         let deleteButtonLongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.keyLongPressBackspace(gestureRecognizer:)))
@@ -204,34 +307,41 @@ class KeyboardViewController: UIInputViewController {
                         keyView.addGestureRecognizer(deleteButtonLongPressGestureRecognizer)
                     case .symbolPage:
                         keyView.addTarget(self,
-                                      action: #selector(self.keyUpSymbolPage(sender:)),
-                                      for: [.touchUpInside, .touchUpOutside])
+                                          action: #selector(self.keyUpSymbolPage(sender:)),
+                                          for: [.touchUpInside, .touchUpOutside])
                     case .keyboardChange:
-                        if #available(iOSApplicationExtension 10.0, *) {
-                            keyView.addTarget(self,
-                                          action: #selector(handleInputModeList(from:with:)),
-                                          for: .allTouchEvents)
-                        } else {
-                            keyView.addTarget(self,
-                                          action: #selector(advanceToNextInputMode),
-                                          for: .allTouchEvents)
-                        }
+                        // long press
+                        let keyboardChangeButtonLongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.keyLongPressKeyboardChange(gestureRecognizer:)))
+                        keyboardChangeButtonLongPressGestureRecognizer.minimumPressDuration = 0.5
+                        keyView.addGestureRecognizer(keyboardChangeButtonLongPressGestureRecognizer)
+                        
+                        keyView.addTarget(self,
+                                          action: #selector(self.keyUpKeyboardChange(sender:)),
+                                          for: [.touchUpInside, .touchUpOutside])
                     case .space:
                         keyView.addTarget(self,
-                                      action: #selector(self.keyUpSpace(sender:)),
-                                      for: [.touchUpInside, .touchUpOutside])
+                                          action: #selector(self.keyUpSpace(sender:)),
+                                          for: [.touchUpInside, .touchUpOutside])
+                    case .taibunSpace:
+                        keyView.addTarget(self,
+                                          action: #selector(self.keyUpSpace(sender:)),
+                                          for: [.touchUpInside, .touchUpOutside])
+                    case .engbunSpace:
+                        keyView.addTarget(self,
+                                          action: #selector(self.keyUpSpace(sender:)),
+                                          for: [.touchUpInside, .touchUpOutside])
                     case .hanloSwitch:
                         keyView.addTarget(self,
-                                      action: #selector(self.keyUpHanloSwitch(sender:)),
-                                      for: [.touchUpInside, .touchUpOutside])
+                                          action: #selector(self.keyUpHanloSwitch(sender:)),
+                                          for: [.touchUpInside, .touchUpOutside])
                     case .enter:
                         keyView.addTarget(self,
-                                      action: #selector(self.keyUpEnter(sender:)),
-                                      for: [.touchUpInside, .touchUpOutside])
+                                          action: #selector(self.keyUpEnter(sender:)),
+                                          for: [.touchUpInside, .touchUpOutside])
                     case .lomajiPage:
                         keyView.addTarget(self,
-                                      action: #selector(self.keyUpLomajiPage(sender:)),
-                                      for: [.touchUpInside, .touchUpOutside])
+                                          action: #selector(self.keyUpLomajiPage(sender:)),
+                                          for: [.touchUpInside, .touchUpOutside])
                     case .charactor:
                         continue
                     }
@@ -240,9 +350,16 @@ class KeyboardViewController: UIInputViewController {
         }
         
         // menu buttons
-        self.keyboardView!.selectionView!.menuBarView!.settingButton.addTarget(self,
-                                                                                               action: #selector(self.didTapSettingButton(sender:)),
-                                                                                               for: [.touchUpInside])
+        self.keyboardView!.selectionView!.menuBarView!.settingButton.addTarget(self, action: #selector(self.didTapSettingButton(sender:)), for: [.touchUpInside])
+    }
+    
+    override func handleInputModeList(from view: UIView,
+                                      with event: UIEvent) {
+        if #available(iOSApplicationExtension 10.0, *) {
+            super.handleInputModeList(from: view, with: event)
+        } else {
+            advanceToNextInputMode()
+        }
     }
     
     @objc func didTapSettingButton(sender: UIButton) {
@@ -284,6 +401,10 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
+    @objc func keyLongPressKeyboardChange(gestureRecognizer: UILongPressGestureRecognizer) {
+        advanceToNextInputMode()
+    }
+    
     @objc func keyUpSymbolPage(sender: KeyView) {
         CurrentKeyboardStatus.shiftStatus = .normal
         self.currentPageIndex = .symbol
@@ -311,7 +432,22 @@ class KeyboardViewController: UIInputViewController {
     
     @objc func keyUpLomajiPage(sender: KeyView) {
         CurrentKeyboardStatus.shiftStatus = .normal
-        self.currentPageIndex = .taigi
+        
+        if (self.previousPageIndex == .enggi) {
+            self.currentPageIndex = .enggi
+        } else {
+            self.currentPageIndex = .taigi
+        }
+        
+        self.vibrate()
+    }
+    
+    @objc func keyUpKeyboardChange(sender: KeyView) {
+        if (self.currentPageIndex == .taigi) {
+            self.currentPageIndex = .enggi
+        } else {
+            self.currentPageIndex = .taigi
+        }
         
         self.vibrate()
     }
@@ -394,8 +530,9 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func checkAutoCapitalize() {
-//        print("checkAutoCapitalize: \(String(describing: textDocumentProxy.documentContextBeforeInput))")
-        if (self.keyboardView!.typingView!.currentPageIndex != .taigi) {
+        //        print("checkAutoCapitalize: \(String(describing: textDocumentProxy.documentContextBeforeInput))")
+        if (self.keyboardView!.typingView!.currentPageIndex != .taigi &&
+                self.keyboardView!.typingView!.currentPageIndex != .enggi) {
             return
         }
         
@@ -405,14 +542,14 @@ class KeyboardViewController: UIInputViewController {
                     CurrentKeyboardStatus.shiftStatus = .shifted
                 }
             } else {
-//                print("textBeforeInput: \(textDocumentProxy.documentContextBeforeInput!)")
+                //                print("textBeforeInput: \(textDocumentProxy.documentContextBeforeInput!)")
                 
                 var textBeforeInput = textDocumentProxy.documentContextBeforeInput!.trimmingCharacters(in: .whitespaces)
                 if !textBeforeInput.isEmpty {
                     textBeforeInput = String(textBeforeInput.suffix(1))
                 }
                 
-//                print("textBeforeInput last char: \(textBeforeInput)")
+                //                print("textBeforeInput last char: \(textBeforeInput)")
                 
                 if textBeforeInput.isEmpty ||
                     KeyboardTemplate.autoCapitalizeEndingTexts.contains(textBeforeInput) {

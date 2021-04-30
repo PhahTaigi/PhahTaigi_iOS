@@ -27,4 +27,20 @@ class SelectionViewLayout {
         selectionView.addConstraintsWithFormatString(formate: "H:|[v0]|", views: selectionView.menuBarView!)
         selectionView.addConstraintsWithFormatString(formate: "V:|[v0]|", views: selectionView.menuBarView!)
     }
+    
+    static func resetViewLayoutForSizeChange(selectionView: SelectionView) {
+        let inputDisplayViewHeight: CGFloat = selectionView.frame.size.height / 100 * KeyboardViewConstant.selectionInputViewHeightPercentage
+        let candidateWordViewHeight: CGFloat = selectionView.frame.size.height / 100 * KeyboardViewConstant.selectionCandidateViewHeightPercentage
+        
+        selectionView.inputDisplayView!.frame = CGRect(x:inputDisplayViewWidthInset,
+                                                       y:0,
+                                                       width:selectionView.frame.size.width - inputDisplayViewWidthInset,
+                                                       height: inputDisplayViewHeight)
+        selectionView.candidateWordView!.frame = CGRect(x:0,
+                                                        y:inputDisplayViewHeight,
+                                                        width:selectionView.frame.size.width,
+                                                        height: candidateWordViewHeight)
+        selectionView.setNeedsDisplay()
+        selectionView.menuBarView!.setNeedsLayout()
+    }
 }
