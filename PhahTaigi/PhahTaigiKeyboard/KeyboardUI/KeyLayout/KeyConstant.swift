@@ -10,7 +10,7 @@ class KeyConstant {
     static let spaceKeyTitle = ""
     static let taibunSpaceKeyTitle = "Tâi-gí"
     static let engbunSpaceKeyTitle = "English"
-    static let hanloSwitchKeyTitleLo = "JĪ"
+    static let hanloSwitchKeyTitleLo = "Jī"
     static let hanloSwitchKeyTitleHan = "字"
     
     // icon

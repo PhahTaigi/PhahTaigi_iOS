@@ -19,9 +19,9 @@ class KipInputConverter {
         var banloWords = ""
         
         let results = trimInput.matches(regex: self.banloWordExtractPattern)
-        for result in results {
+//        for result in results {
 //            print("convertBanloNumberRawInputToBanloWords: result=\(result)")
-        }
+//        }
         
         if results.count == 0 {
             return ""
@@ -81,14 +81,14 @@ class KipInputConverter {
         
         let indexOfVowel = banloWithoutNumber.lastIndexForRegex(regex: "i|u|oo|o|e")
         if indexOfVowel >= 0 {
-            let currentCharString = banloWithoutNumber.subString(startIndex: indexOfVowel, endIndex: indexOfVowel + 1)
+//            let currentCharString = banloWithoutNumber.subString(startIndex: indexOfVowel, endIndex: indexOfVowel + 1)
 //            print("found tonenumber char: \(currentCharString)")
             return indexOfVowel
         }
         
         let indexOfSemiVowel = banloWithoutNumber.lastIndexForRegex(regex: "ng|n|m")
         if indexOfSemiVowel >= 0 {
-            let currentCharString = banloWithoutNumber.subString(startIndex: indexOfSemiVowel, endIndex: indexOfSemiVowel + 1)
+//            let currentCharString = banloWithoutNumber.subString(startIndex: indexOfSemiVowel, endIndex: indexOfSemiVowel + 1)
 //            print("found tonenumber char: \(currentCharString)")
             
             return indexOfSemiVowel

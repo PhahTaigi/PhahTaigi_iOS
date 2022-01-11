@@ -10,7 +10,7 @@ extension String {
         var lastIndex = -1
         for match in matches {
             let range = Range(match.range, in: self)
-            let index = range?.lowerBound.encodedOffset ?? -1
+            let index = range?.lowerBound.utf16Offset(in: self) ?? -1
 //            print("lowerBound: \(range?.lowerBound.encodedOffset)")
 //            print("upperBound: \(range?.upperBound.encodedOffset)")
 //            print("index: \(index)")
@@ -30,8 +30,8 @@ extension String {
         var lastUpperBound = -1
         for match in matches {
             let range = Range(match.range, in: self)
-            let lowerBound = range?.lowerBound.encodedOffset ?? -1
-            let upperBound = range?.upperBound.encodedOffset ?? -1
+            let lowerBound = range?.lowerBound.utf16Offset(in: self) ?? -1
+            let upperBound = range?.upperBound.utf16Offset(in: self) ?? -1
 //            print("lowerBound: \(String(describing: range?.lowerBound.encodedOffset))")
 //            print("upperBound: \(String(describing: range?.upperBound.encodedOffset))")
             if lowerBound > lastLowerBound {

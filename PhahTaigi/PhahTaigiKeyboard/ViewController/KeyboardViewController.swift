@@ -114,7 +114,7 @@ class KeyboardViewController: UIInputViewController {
         
         self.updateKeyboardHeightConstraint()
         self.setKeyboardView()
-        self.checkAutoCapitalize()
+        self.checkLomajiPageAutoCapitalize()
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -258,12 +258,21 @@ class KeyboardViewController: UIInputViewController {
             // callback: handle auto capitalize
             CurrentKeyboardStatus.didShiftUnlock = {
                 // if ShiftStatus is from .lock to .normal, and need capitalize
-                self.checkAutoCapitalize()
+                self.checkLomajiPageAutoCapitalize()
             }
             
             // callback: handle selected candidate
             self.keyboardView!.selectionView!.candidateWordView!.onSelectedCandidate = { selectedOutput, selectedHanloCandidate in
                 self.sendSelectedCandidate(selectedCandidate: selectedOutput)
+            }
+            
+            // callback: handle switch Tai-Eng
+            self.keyboardView!.selectionView!.menuBarView!.onSelectedTaiEngSegmentedControl = { selectedSegmentIndex in
+                if selectedSegmentIndex == 1 {
+                    self.switchTaiEng(pageIndex: .enggi)
+                } else {
+                    self.switchTaiEng(pageIndex: .taigi)
+                }
             }
         }
     }
@@ -310,14 +319,9 @@ class KeyboardViewController: UIInputViewController {
                                           action: #selector(self.keyUpSymbolPage(sender:)),
                                           for: [.touchUpInside, .touchUpOutside])
                     case .keyboardChange:
-                        // long press
-                        let keyboardChangeButtonLongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.keyLongPressKeyboardChange(gestureRecognizer:)))
-                        keyboardChangeButtonLongPressGestureRecognizer.minimumPressDuration = 0.5
-                        keyView.addGestureRecognizer(keyboardChangeButtonLongPressGestureRecognizer)
-                        
                         keyView.addTarget(self,
-                                          action: #selector(self.keyUpKeyboardChange(sender:)),
-                                          for: [.touchUpInside, .touchUpOutside])
+                                          action: #selector(handleInputModeList(from:with:)),
+                                          for: .allTouchEvents)
                     case .space:
                         keyView.addTarget(self,
                                           action: #selector(self.keyUpSpace(sender:)),
@@ -383,7 +387,7 @@ class KeyboardViewController: UIInputViewController {
     @objc func keyUpBackspace(sender: KeyView) {
         self.sendBackspaceKey()
         
-        checkAutoCapitalize()
+        checkLomajiPageAutoCapitalize()
         
         self.vibrate()
     }
@@ -399,10 +403,6 @@ class KeyboardViewController: UIInputViewController {
             self.keyLongPressBackspaceTimer?.invalidate()
             self.keyLongPressBackspaceTimer = nil
         }
-    }
-    
-    @objc func keyLongPressKeyboardChange(gestureRecognizer: UILongPressGestureRecognizer) {
-        advanceToNextInputMode()
     }
     
     @objc func keyUpSymbolPage(sender: KeyView) {
@@ -432,22 +432,18 @@ class KeyboardViewController: UIInputViewController {
     
     @objc func keyUpLomajiPage(sender: KeyView) {
         CurrentKeyboardStatus.shiftStatus = .normal
-        
         if (self.previousPageIndex == .enggi) {
             self.currentPageIndex = .enggi
         } else {
             self.currentPageIndex = .taigi
         }
+        checkLomajiPageAutoCapitalize()
         
         self.vibrate()
     }
     
-    @objc func keyUpKeyboardChange(sender: KeyView) {
-        if (self.currentPageIndex == .taigi) {
-            self.currentPageIndex = .enggi
-        } else {
-            self.currentPageIndex = .taigi
-        }
+    fileprivate func switchTaiEng(pageIndex: PageIndex) {
+        self.currentPageIndex = pageIndex
         
         self.vibrate()
     }
@@ -468,7 +464,7 @@ class KeyboardViewController: UIInputViewController {
         }
         
         findCandidateWords()
-        checkAutoCapitalize()
+        checkLomajiPageAutoCapitalize()
         
         self.vibrate()
     }
@@ -477,14 +473,14 @@ class KeyboardViewController: UIInputViewController {
         sendTypingText()
         self.textDocumentProxy.insertText(keyText)
         
-        checkAutoCapitalize()
+        checkLomajiPageAutoCapitalize()
     }
     
     func appendTypingText(text: String) {
         self.typingText.append(contentsOf: text)
         
         findCandidateWords()
-        checkAutoCapitalize()
+        checkLomajiPageAutoCapitalize()
     }
     
     func sendTypingText() {
@@ -496,7 +492,7 @@ class KeyboardViewController: UIInputViewController {
         self.typingText = ""
         
         findCandidateWords()
-        checkAutoCapitalize()
+        checkLomajiPageAutoCapitalize()
     }
     
     func sendSelectedCandidate(selectedCandidate: String) {
@@ -504,7 +500,7 @@ class KeyboardViewController: UIInputViewController {
         self.typingText = ""
         
         findCandidateWords()
-        checkAutoCapitalize()
+        checkLomajiPageAutoCapitalize()
     }
     
     func hasTypingText() -> Bool {
@@ -529,7 +525,7 @@ class KeyboardViewController: UIInputViewController {
         self.taigiInputProcessor!.findCandidateWordsAsync(input: self.typingText)
     }
     
-    func checkAutoCapitalize() {
+    func checkLomajiPageAutoCapitalize() {
         //        print("checkAutoCapitalize: \(String(describing: textDocumentProxy.documentContextBeforeInput))")
         if (self.keyboardView!.typingView!.currentPageIndex != .taigi &&
                 self.keyboardView!.typingView!.currentPageIndex != .enggi) {

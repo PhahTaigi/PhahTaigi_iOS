@@ -46,9 +46,9 @@ class PojInputConverter {
     fileprivate static func convertPojRawInputToPojNumber(foundTaigiWord: String) -> String {
         var pojNumber = foundTaigiWord.replacingOccurrences(of: "Oo", with: "OO")
         
-        if pojNumber.range(of: "nn")?.lowerBound.encodedOffset ?? 0 > 0 {
+        if pojNumber.range(of: "nn")?.lowerBound.utf16Offset(in: pojNumber) ?? 0 > 0 {
             pojNumber = pojNumber.replacingOccurrences(of: "nn", with: "ⁿ")
-        } else if pojNumber.range(of: "NN")?.lowerBound.encodedOffset ?? 0 > 0 {
+        } else if pojNumber.range(of: "NN")?.lowerBound.utf16Offset(in: pojNumber) ?? 0 > 0 {
             pojNumber = pojNumber.replacingOccurrences(of: "NN", with: "ⁿ")
         }
         

@@ -3,11 +3,11 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'PhahTaigi' do
-    pod 'RealmSwift'
-    pod 'RxSwift'
-    pod 'RxCocoa'
-    pod 'Haptica'
-    pod 'Firebase/Core'
-	pod 'Firebase/Crashlytics'
-	pod 'Firebase/Analytics'
+  pod 'RealmSwift', '10.14'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Haptica'
+  pod 'Firebase/Core'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Analytics'
 end

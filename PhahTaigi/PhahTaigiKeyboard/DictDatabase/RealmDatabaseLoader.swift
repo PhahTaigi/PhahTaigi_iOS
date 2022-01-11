@@ -3,7 +3,7 @@ import Foundation
 import RealmSwift
 
 public class RealmDatabaseLoader {
-    static let realmDatabaseName = "PhahTaigiImeDict_2"
+    static let realmDatabaseName = "PhahTaigiImeDict_3"
     
     public static func getBundledRealm() -> Realm {
         let fileUrl = Bundle.main.url(forResource: realmDatabaseName, withExtension: "realm")

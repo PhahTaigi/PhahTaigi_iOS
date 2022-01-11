@@ -33,7 +33,6 @@
 		872FF2A0221EAE1D00DB9AFA /* String+isNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872FF29F221EAE1D00DB9AFA /* String+isNumber.swift */; };
 		872FF2AC221F1C6700DB9AFA /* CandidateWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872FF2AA221F1C6700DB9AFA /* CandidateWordCell.swift */; };
 		872FF2AD221F1C6700DB9AFA /* CandidateWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872FF2AB221F1C6700DB9AFA /* CandidateWordCell.xib */; };
-		8735D3842630977000694CCE /* PhahTaigiImeDict_2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 8735D3832630977000694CCE /* PhahTaigiImeDict_2.realm */; };
 		87435DAC2229032E00A936A2 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAB2229032E00A936A2 /* SettingViewCell.swift */; };
 		87435DAE222932D500A936A2 /* KipInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAD222932D500A936A2 /* KipInputConverter.swift */; };
 		87435DB02229794600A936A2 /* String+indexOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DAF2229794600A936A2 /* String+indexOf.swift */; };
@@ -43,6 +42,8 @@
 		87435DCC2229B28C00A936A2 /* String+containsNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DCB2229B28C00A936A2 /* String+containsNumber.swift */; };
 		87435DDE222C037C00A936A2 /* CurrentKeyboardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DDC222C037C00A936A2 /* CurrentKeyboardStatus.swift */; };
 		87435DE3222D4B5300A936A2 /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87435DE1222D4B5300A936A2 /* Debounce.swift */; };
+		87757638278D18CF00D1D640 /* UISegmentedControl+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87757637278D18CF00D1D640 /* UISegmentedControl+Ext.swift */; };
+		878781A8272E762300D87192 /* PhahTaigiImeDict_3.realm in Resources */ = {isa = PBXBuildFile; fileRef = 878781A7272E762300D87192 /* PhahTaigiImeDict_3.realm */; };
 		8798FE1E22252EF3005A41BE /* HanloWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE1D22252EF3005A41BE /* HanloWordModel.swift */; };
 		8798FE21222533A9005A41BE /* TaigiInputProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE20222533A9005A41BE /* TaigiInputProcessor.swift */; };
 		8798FE27222536A8005A41BE /* Poj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE26222536A8005A41BE /* Poj.swift */; };
@@ -78,7 +79,6 @@
 		8799B510222E33BB00A1468C /* ConverterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2E2226778F005A41BE /* ConverterUtils.swift */; };
 		8799B511222E33BB00A1468C /* Poj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE26222536A8005A41BE /* Poj.swift */; };
 		8799B512222E33BB00A1468C /* PojInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798FE2A22254381005A41BE /* PojInputConverter.swift */; };
-		87A2A3B3263195C700C6C572 /* PhahTaigiImeDict_2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 8735D3832630977000694CCE /* PhahTaigiImeDict_2.realm */; };
 		87F380C121E612580052C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380C021E612580052C72B /* AppDelegate.swift */; };
 		87F380C321E612580052C72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F380C221E612580052C72B /* ViewController.swift */; };
 		87F380C621E612580052C72B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F380C421E612580052C72B /* Main.storyboard */; };
@@ -150,7 +150,6 @@
 		872FF29F221EAE1D00DB9AFA /* String+isNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isNumber.swift"; sourceTree = "<group>"; };
 		872FF2AA221F1C6700DB9AFA /* CandidateWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWordCell.swift; sourceTree = "<group>"; };
 		872FF2AB221F1C6700DB9AFA /* CandidateWordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CandidateWordCell.xib; sourceTree = "<group>"; };
-		8735D3832630977000694CCE /* PhahTaigiImeDict_2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = PhahTaigiImeDict_2.realm; sourceTree = "<group>"; };
 		87435DAB2229032E00A936A2 /* SettingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		87435DAD222932D500A936A2 /* KipInputConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KipInputConverter.swift; sourceTree = "<group>"; };
 		87435DAF2229794600A936A2 /* String+indexOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+indexOf.swift"; sourceTree = "<group>"; };
@@ -160,6 +159,8 @@
 		87435DCB2229B28C00A936A2 /* String+containsNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+containsNumber.swift"; sourceTree = "<group>"; };
 		87435DDC222C037C00A936A2 /* CurrentKeyboardStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentKeyboardStatus.swift; sourceTree = "<group>"; };
 		87435DE1222D4B5300A936A2 /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
+		87757637278D18CF00D1D640 /* UISegmentedControl+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Ext.swift"; sourceTree = "<group>"; };
+		878781A7272E762300D87192 /* PhahTaigiImeDict_3.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = PhahTaigiImeDict_3.realm; sourceTree = "<group>"; };
 		8798FE1D22252EF3005A41BE /* HanloWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanloWordModel.swift; sourceTree = "<group>"; };
 		8798FE20222533A9005A41BE /* TaigiInputProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaigiInputProcessor.swift; sourceTree = "<group>"; };
 		8798FE26222536A8005A41BE /* Poj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poj.swift; sourceTree = "<group>"; };
@@ -179,6 +180,8 @@
 		8798FE5C22273C62005A41BE /* SettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		8799B4F9222DCA8900A1468C /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8799B4FB222DCA8E00A1468C /* Pods_PhahTaigi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PhahTaigi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87D4884E278D00F6006195F6 /* libswiftCore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCore.tbd; path = usr/lib/swift/libswiftCore.tbd; sourceTree = SDKROOT; };
+		87D48851278D0286006195F6 /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = usr/lib/swift/libswift_Concurrency.tbd; sourceTree = SDKROOT; };
 		87F380BD21E612580052C72B /* PhahTaigi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhahTaigi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F380C021E612580052C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87F380C221E612580052C72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -307,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				87435DE1222D4B5300A936A2 /* Debounce.swift */,
+				87757637278D18CF00D1D640 /* UISegmentedControl+Ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -323,7 +327,7 @@
 		8798FE22222534D0005A41BE /* DictDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				8735D3832630977000694CCE /* PhahTaigiImeDict_2.realm */,
+				878781A7272E762300D87192 /* PhahTaigiImeDict_3.realm */,
 				87435DBD22299E1F00A936A2 /* DataModel */,
 				87435DC82229B05700A936A2 /* RealmDatabaseLoader.swift */,
 			);
@@ -480,6 +484,8 @@
 		B1655994BD3FF098F2013C2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				87D48851278D0286006195F6 /* libswift_Concurrency.tbd */,
+				87D4884E278D00F6006195F6 /* libswiftCore.tbd */,
 				8799B4FB222DCA8E00A1468C /* Pods_PhahTaigi.framework */,
 				8799B4F9222DCA8900A1468C /* Realm.framework */,
 			);
@@ -571,7 +577,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87A2A3B3263195C700C6C572 /* PhahTaigiImeDict_2.realm in Resources */,
 				87F380CB21E6125C0052C72B /* LaunchScreen.storyboard in Resources */,
 				871DFB4422AA8BA6005AC905 /* GoogleService-Info.plist in Resources */,
 				87F380C821E6125C0052C72B /* Main.xcassets in Resources */,
@@ -584,10 +589,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8735D3842630977000694CCE /* PhahTaigiImeDict_2.realm in Resources */,
 				8712C1E9221C0AC50052B6AA /* Media.xcassets in Resources */,
 				8798FE562227112B005A41BE /* MenuBarView.xib in Resources */,
 				87F8A4DD26381EC900000820 /* SIL_Open_Font_License_1.1.txt in Resources */,
+				878781A8272E762300D87192 /* PhahTaigiImeDict_3.realm in Resources */,
 				8798FE5E22273C62005A41BE /* SettingView.xib in Resources */,
 				87F8A4DC26381EC900000820 /* GenRyuMin-M.ttc in Resources */,
 				872FF2AD221F1C6700DB9AFA /* CandidateWordCell.xib in Resources */,
@@ -691,6 +696,7 @@
 				87F8A4E5263830D400000820 /* CustomFontLabel.swift in Sources */,
 				8798FE2B22254381005A41BE /* PojInputConverter.swift in Sources */,
 				8712C1D12219497B0052B6AA /* KeyboardTemplateModel.swift in Sources */,
+				87757638278D18CF00D1D640 /* UISegmentedControl+Ext.swift in Sources */,
 				8712C1F5221D320F0052B6AA /* KeyPopupController.swift in Sources */,
 				8798FE3D2226E564005A41BE /* ViewController.swift in Sources */,
 				8798FE3A2226A144005A41BE /* String+contains.swift in Sources */,
@@ -811,6 +817,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+					"'@executable_path/Frameworks'",
+					"'@loader_path/Frameworks'",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -868,6 +880,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+					"'@executable_path/Frameworks'",
+					"'@loader_path/Frameworks'",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -883,15 +901,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 6TMY38EGFK;
 				INFOPLIST_FILE = PhahTaigi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -905,15 +928,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 6TMY38EGFK;
 				INFOPLIST_FILE = PhahTaigi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -926,16 +954,21 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 6TMY38EGFK;
 				INFOPLIST_FILE = PhahTaigiKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi.TaigiKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -949,16 +982,21 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 6TMY38EGFK;
 				INFOPLIST_FILE = PhahTaigiKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taccotap.PhahTaigi.TaigiKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
